@@ -66,6 +66,36 @@ const data = {
          Feedback: "None",
       },
    ],
+   Case: [
+      {
+         uuid: "9ba7674a-c25e-4d16-8cb4-4f930a4fc208",
+         type: "Individual",
+         service: "Counselling",
+      },
+   ],
+   Provider: [
+      {
+         uuid: "40a94cea-3e70-40ad-a844-9d6c136f6894",
+         "First NAme": "Peter",
+         "Last Name": "Parker",
+      },
+   ],
+   JOINMN_Case_Provider_Provider: [
+      {
+         uuid: false,
+         id: 1,
+         Case: "9ba7674a-c25e-4d16-8cb4-4f930a4fc208",
+         Provider: "40a94cea-3e70-40ad-a844-9d6c136f6894",
+      },
+   ],
+   JOINMN_Case_Client_Clients: [
+      {
+         uuid: false,
+         id: 1,
+         Client: "02a293e6-492a-4dca-8a84-4d81da450c23",
+         Case: "9ba7674a-c25e-4d16-8cb4-4f930a4fc208",
+      },
+   ],
    "JOINMN_Well-Intake_Client_Clients": [
       {
          uuid: false,

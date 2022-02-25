@@ -22,7 +22,7 @@ before(() => {
 
 beforeEach(() => {
    Common.AuthLogin(cy);
-   Common.RunSQL(cy, folderName, ["reset_tables.sql"]);
+   Common.RunSQL(cy, folderName, ["reset_tables.sql", "insert_data.sql"]);
    // Open the App
    cy.visit("/");
    cy.get('[data-cy="portal_work_menu_sidebar"]').should("exist").click();
@@ -33,7 +33,6 @@ beforeEach(() => {
 
 describe("Intakes", () => {
    beforeEach(() => {
-      Common.RunSQL(cy, folderName, ["insert_data.sql"]);
       // Open the intakes tab
       cy.get(
          '[data-cy="tab-Intakes-583414ac-5d12-4828-89b8-202a520c0c6a-c1d91228-74f5-4497-b12b-6c84c59ed26c"]'
@@ -88,7 +87,7 @@ describe("Intakes", () => {
             .and("contain", "998887")
             .and("contain", "Career Choices, Difficult Experiences");
       });
-      it.only("Adds a case", () => {
+      it.skip("Adds a case", () => {
          cy.get(
             '[data-cy="tab Process Intake 9eba4e9f-d3e0-499f-997d-a3c108c7a901 9ebc6888-3cbf-4450-ac1a-d51808843884"]'
          )

@@ -13,16 +13,16 @@ Cypress.on("uncaught:exception", (err) => {
 });
 
 before(() => {
-   // Common.ResetDB(cy);
+   Common.ResetDB(cy);
    Common.AuthLogin(cy);
-   // cy.request("POST", "/test/import", {
-   //    file: `imports/${folderName}/clientDatabase.json`,
-   // });
+   cy.request("POST", "/test/import", {
+      file: `imports/${folderName}/clientDatabase.json`,
+   });
 });
 
 beforeEach(() => {
    Common.AuthLogin(cy);
-   // Common.RunSQL(cy, folderName, ["reset_tables.sql", "insert_data.sql"]);
+   Common.RunSQL(cy, folderName, ["reset_tables.sql", "insert_data.sql"]);
    // Open the App
    cy.visit("/");
    cy.get('[data-cy="portal_work_menu_sidebar"]').should("exist").click();

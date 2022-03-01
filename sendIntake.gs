@@ -258,18 +258,19 @@ const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
   // Get exisiting Clients and Groups from server
   const abDataObject = {
     "Clients": (() => {
-    try {
-      const res = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Clients}`, api.get))
+      try {
+        const res = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Clients}`, api.get))
 
-      logResults("Success: [GET] Clients", res);
+        logResults("Success: [GET] Clients", res);
 
-      return res.data;
-    } catch(err) {
-      logResults("Error: [GET] Clients", err.message);
+        return res.data;
+      } catch(err) {
+        logResults("Error: [GET] Clients", err.message);
 
-      return err;
-    }
-  })(),
+        return err;
+      }
+    })(),
+
     "Group": (() => {
       try {
         const res = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Group}`, api.get))
@@ -282,7 +283,21 @@ const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
 
         return err;
       }
-    })()
+    })(),
+
+    "Intake": (() => {
+      try {
+        const res = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Intake}`, api.get))
+
+        logResults("Success: [GET] Intake", res);
+
+        return res.data;
+      } catch(err) {
+        logResults("Error: [GET] Intake", err.message);
+
+        return err;
+      }
+    })(),
   };
   clients.forEach(client => {
     const clientIndex = abDataObject["Clients"]["data"].findIndex(e => (client.firstName + client.lastName).toLowerCase() === (e["First Name"] + e["Last Name"]).toLowerCase());
@@ -352,7 +367,7 @@ const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
   }
 
   Logger.log(`Start to insert "Clients"`);
- 
+
   // case "Clients":
   if(data.Clients.length) {
     data.Clients.forEach(e => {
@@ -362,6 +377,8 @@ const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
           const res = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Clients}`, api.post));
 
           logResults("Success: [POST] Clients", res);
+
+          abDataObject["Clients"]["data"].push(res.data)
 
           return res;
         } catch(err) {
@@ -387,6 +404,8 @@ const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
 
       logResults("Success: [POST] Intake", res);
 
+      abDataObject["Intake"]["data"].push(res.data)
+
       return res;
     } catch(err) {
       logResults("Error: [POST] Intake", err.message);
@@ -405,9 +424,12 @@ const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
   uuid["Clients"].forEach((e, i) => {
     api.put.payload[`Clients[${i}][uuid]`] = e;
   });
+  clientBilltoIndex = abDataObject["Clients"]["data"].findIndex(e => (data["Intake"]["Bill to"]).toLowerCase() === (`${e["First Name"]} ${e["Last Name"]}`).toLowerCase());
+  console.log(clientBilltoIndex)
+  api.put.payload["Bill To Client"] = abDataObject["Clients"]["data"][clientBilltoIndex].uuid;
 
   // API PUT Request
-   res = (() => {
+  res = (() => {
     try {
       const res = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Intake}/${uuid.Intake}`, api.put));
 

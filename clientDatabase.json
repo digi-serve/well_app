@@ -10197,7 +10197,7 @@
           },
           "aa15da00-5034-4ab2-923e-9d5d725c55fb": {
             "set": "4",
-            "value": "Number([Query Session->Balance]) + 400 + 800 * startData[\"Length Hours\"]"
+            "value": "(new Number([Query Session->Balance])) + 400 + 800 * startData[\"Length Hours\"]"
           },
           "4d3e08e8-5878-4d56-a224-d7ebd0a8e2ba": {
             "set": "2",

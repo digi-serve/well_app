@@ -35,7 +35,7 @@ describe("Services", () => {
    beforeEach(() => {
       // Open the Services tab
       cy.get(
-         '[data-cy="tab-Cases-1fea5a32-def5-4f1a-b10d-8f885b3e602f-c1d91228-74f5-4497-b12b-6c84c59ed26c"]'
+         '[data-cy="tab-Services-1fea5a32-def5-4f1a-b10d-8f885b3e602f-c1d91228-74f5-4497-b12b-6c84c59ed26c"]'
       )
          .should("exist")
          .click();

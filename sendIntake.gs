@@ -184,20 +184,19 @@ function transpose(matrix) {
  * @param {Object} intake the intake data
  * @param {Object[]} intake.clients array of clients
  */
-const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
+const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
   const data = {
-    Clients: [],
-    Intake: {
-      Timestamp: intake.timestamp,
+    "Clients": [],
+    "Intake": {
+      "Timestamp": intake.timestamp,
       "Provider Request": intake.provider,
       "Additional Services": intake.services,
-      Feedback: intake.feedback,
-      Clients__relation: [],
-      Service: intake.service,
-      Location: intake.location,
+      "Feedback": intake.feedback,
+      "Clients__relation": [],
+      "Service": intake.service,
+      "Location": intake.location,
     },
   };
-
   // set Request api of AppBuilder V2
   const cookie = (() => {
     const res = UrlFetchApp.fetch(`${BASE_URL}/auth/login`, {
@@ -221,7 +220,8 @@ const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
     },
     post: {
       "method": "post",
-      "contentType": "application/json",
+      "contentType": "application/x-www-form-urlencoded; charset=UTF-8",
+      // "contentType": "application/json",
       "headers": {
         "Cookie": cookie
       },
@@ -326,16 +326,16 @@ const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
         "Org Report": intake.orgReq,
         "Org Contact": intake.orgContact,
         "Org Email": intake.orgEmail,
-        "Availability": intake.availability,
+        "Availability_lt": intake.availability,
         "Flexible Dates": intake.flexible,
         "First Time": intake.first,
         "Well First": intake.firstWell,
-        "Topics": intake.topics,
-        "Topics More Info": intake.topicsMore,
+        "Topics_lt": intake.topics,
+        "Topics More Info_lt": intake.topicsMore,
         "Medical Issues": intake.medical,
         "Prescription Medication": intake.perscription,
         "Concerns meeting together": intake.concern,
-        "Concern Details": intake.concernDetail,
+        "Concern Details_lt": intake.concernDetail,
         "Cross Cultural Relationship": intake.crossCultural,
       });
     else {
@@ -363,7 +363,7 @@ const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
       break;
 
     default:
-      data["Intake"]["Bill to"] = intake["billTo"];
+      data["Intake"]["Bill to"] = `${intake["firstName"]} ${intake["lastName"]}`;
   }
 
   Logger.log(`Start to insert "Clients"`);
@@ -371,7 +371,7 @@ const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
   // case "Clients":
   if(data.Clients.length) {
     data.Clients.forEach(e => {
-      api.post.payload = JSON.stringify(e);
+      api.post.payload = e;
       const res = (() => {
         try {
           const res = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Clients}`, api.post));
@@ -381,6 +381,7 @@ const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
           abDataObject["Clients"]["data"].push(res.data)
 
           return res;
+
         } catch(err) {
           logResults("Error: [POST] Clients", err.message);
 
@@ -397,7 +398,8 @@ const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
   }
 
   // case "Intake":
-  api.post.payload = JSON.stringify(data.Intake);
+  data.Intake["Feedback"] = data.Intake["Feedback"] ? data.Intake["Feedback"].replace(/[\u0800-\uFFFF]/g, c => `&#${c.charCodeAt(0)};`): data.Intake["Feedback"]
+  api.post.payload = data.Intake
   let res = (() => {
     try {
       const res = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Intake}`, api.post));
@@ -424,9 +426,9 @@ const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
   uuid["Clients"].forEach((e, i) => {
     api.put.payload[`Clients[${i}][uuid]`] = e;
   });
-  clientBilltoIndex = abDataObject["Clients"]["data"].findIndex(e => (data["Intake"]["Bill to"]).toLowerCase() === (`${e["First Name"]} ${e["Last Name"]}`).toLowerCase());
-  console.log(clientBilltoIndex)
-  api.put.payload["Bill To Client"] = abDataObject["Clients"]["data"][clientBilltoIndex].uuid;
+  clientBilltoIndex = abDataObject["Clients"]["data"].findIndex(e => data["Intake"]["Bill to"].toLowerCase() === `${e["First Name"]} ${e["Last Name"]}`.toLowerCase());
+  if (clientBilltoIndex !== -1)
+    api.put.payload["Bill To Client"] = abDataObject["Clients"]["data"][clientBilltoIndex].uuid;
 
   // API PUT Request
   res = (() => {
@@ -453,4 +455,4 @@ const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
   delete api.put.payload;
   Logger.log(res);
   Logger.log("DONE!!");
-};
+}

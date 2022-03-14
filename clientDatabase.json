@@ -108,7 +108,10 @@
             "5628eb3d-f5c5-4e57-83c2-3d4104631a9a",
             "9629182e-f119-4bc3-9ecd-30a35924175a",
             "a405de1f-7001-4752-814e-7318b4b16ee4",
-            "11440f9b-4e67-4c9a-b8fa-1151ed61e7bf"
+            "11440f9b-4e67-4c9a-b8fa-1151ed61e7bf",
+            "4cc23f93-9e39-4274-bea2-7e24a6ecf8b4",
+            "1a51a021-4b82-43a1-8b95-125ee739fd38",
+            "1ca6255a-457b-446c-84ba-3fa7851a6d5c"
           ],
           "processIDs": [
             "252577b6-b7e7-43ca-bfb3-c8d033208851",
@@ -149,7 +152,7 @@
         }
       },
       "createdAt": "2021-05-20T09:59:14.000Z",
-      "updatedAt": "2022-02-24T05:30:02.000Z"
+      "updatedAt": "2022-03-08T08:37:47.000Z"
     },
     {
       "id": "0f84aa8f-248b-4393-9cc8-6473b240da53",
@@ -415,11 +418,15 @@
           "6070fe96-bae1-4be1-8a35-2267868ca199",
           "c053e6d1-1305-4ba2-aff2-88749f542f9e",
           "6687c428-8721-41e1-847c-788792c36247",
-          "7cd9a3f8-82e1-43d4-b9c5-ecc2050fd959",
           "0d0ccb4d-dc08-4273-861f-ff81f65eefe6",
+          "7cd9a3f8-82e1-43d4-b9c5-ecc2050fd959",
           "d49a6842-3371-401d-905c-d0ab2dbc2767",
           "6f467934-6514-46dd-8939-47531a0960fd",
-          "595489a2-2f2a-4197-adab-4c29550d58da"
+          "595489a2-2f2a-4197-adab-4c29550d58da",
+          "7c9a8eb9-4d5d-4c64-901d-455199a62157",
+          "7fd00213-09b0-4245-84ae-33cab345bf9d",
+          "b2c0f8dc-1209-415d-8756-95cb1af8d5da",
+          "1f4721fc-9797-41be-9451-94fbed6ced67"
         ],
         "createdInAppID": "05cde3ed-fd38-4e4c-b9a6-dfba9c979bdf",
         "objectWorkspaceViews": {
@@ -448,7 +455,7 @@
         }
       },
       "createdAt": "2021-05-20T10:03:29.000Z",
-      "updatedAt": "2022-02-25T09:22:05.000Z"
+      "updatedAt": "2022-03-02T06:44:21.000Z"
     },
     {
       "id": "028bd574-0b52-4381-aa77-322d4199d09e",
@@ -2808,7 +2815,7 @@
           "indexField": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "one",
           "linkViaType": "many",
-          "linkColumn": "4caa8e0d-73d7-47ec-aa30-a9b1f27809ca"
+          "linkColumn": "afb575c3-90d9-4f2f-8c3a-b1c1d474d75e"
         },
         "translations": [
           {
@@ -3750,7 +3757,7 @@
         }
       },
       "createdAt": "2021-06-15T08:48:14.000Z",
-      "updatedAt": "2022-02-24T06:55:09.000Z"
+      "updatedAt": "2022-03-10T09:34:22.000Z"
     },
     {
       "id": "459ecbb4-3130-4bd1-9f91-05eb47a0a27b",
@@ -4971,7 +4978,16 @@
         "urlPath": "",
         "objectWorkspace": {
           "frozenColumnID": "",
-          "sortFields": [],
+          "sortFields": [
+            {
+              "key": "0e5a98b4-fce8-4e4e-ae17-781d80215b20",
+              "dir": "asc"
+            },
+            {
+              "key": "",
+              "dir": ""
+            }
+          ],
           "filterConditions": {},
           "hiddenFields": []
         },
@@ -5005,6 +5021,16 @@
               ],
               "isDefaultView": "true",
               "name": "Default Grid",
+              "sortFields": [
+                {
+                  "key": "0e5a98b4-fce8-4e4e-ae17-781d80215b20",
+                  "dir": "asc"
+                },
+                {
+                  "key": "",
+                  "dir": ""
+                }
+              ],
               "frozenColumnID": "",
               "type": "grid"
             }
@@ -5012,7 +5038,7 @@
         }
       },
       "createdAt": "2021-12-03T10:01:41.000Z",
-      "updatedAt": "2022-02-07T03:30:13.000Z"
+      "updatedAt": "2022-03-10T09:31:25.000Z"
     },
     {
       "id": "0e5a98b4-fce8-4e4e-ae17-781d80215b20",
@@ -5760,6 +5786,7 @@
       "updatedAt": "2022-02-07T03:30:13.000Z"
     },
     {
+      "id": "505ed263-aca4-4bc2-a559-c60d3c5b98e5",
       "name": "Engagement->System Status",
       "type": "field",
       "json": {
@@ -5833,9 +5860,8 @@
         ],
         "id": "505ed263-aca4-4bc2-a559-c60d3c5b98e5"
       },
-      "id": "505ed263-aca4-4bc2-a559-c60d3c5b98e5",
-      "createdAt": "2022-02-25T08:59:11.538Z",
-      "updatedAt": "2022-02-25T08:59:11.538Z"
+      "createdAt": "2022-02-25T08:59:11.000Z",
+      "updatedAt": "2022-02-25T08:59:11.000Z"
     },
     {
       "id": "07629f95-c323-419b-8841-00686776cfeb",
@@ -6684,6 +6710,7 @@
       "name": "Client->Availability",
       "type": "field",
       "json": {
+        "id": "9f7f805b-b618-453e-b865-4db63958893a",
         "type": "field",
         "key": "string",
         "icon": "font",
@@ -6696,18 +6723,17 @@
           "validationRules": "[]",
           "default": "",
           "supportMultilingual": 0,
-          "width": 160
+          "width": 0
         },
         "translations": [
           {
             "language_code": "en",
-            "label": "Availability"
+            "label": "Availability_DELETE"
           }
-        ],
-        "id": "9f7f805b-b618-453e-b865-4db63958893a"
+        ]
       },
       "createdAt": "2022-01-04T10:25:33.000Z",
-      "updatedAt": "2022-02-07T03:30:13.000Z"
+      "updatedAt": "2022-03-01T06:49:18.000Z"
     },
     {
       "id": "67dc2c0b-7c12-469d-a8d3-aa791df9a542",
@@ -6774,6 +6800,7 @@
       "name": "Client->Topics",
       "type": "field",
       "json": {
+        "id": "6070fe96-bae1-4be1-8a35-2267868ca199",
         "type": "field",
         "key": "string",
         "icon": "font",
@@ -6786,24 +6813,24 @@
           "validationRules": "[]",
           "default": "",
           "supportMultilingual": 0,
-          "width": 100
+          "width": 0
         },
         "translations": [
           {
             "language_code": "en",
-            "label": "Topics"
+            "label": "Topics_DELETE"
           }
-        ],
-        "id": "6070fe96-bae1-4be1-8a35-2267868ca199"
+        ]
       },
       "createdAt": "2022-01-04T10:29:11.000Z",
-      "updatedAt": "2022-02-07T03:30:13.000Z"
+      "updatedAt": "2022-03-01T06:53:55.000Z"
     },
     {
       "id": "c053e6d1-1305-4ba2-aff2-88749f542f9e",
       "name": "Client->Topics More Info",
       "type": "field",
       "json": {
+        "id": "c053e6d1-1305-4ba2-aff2-88749f542f9e",
         "type": "field",
         "key": "string",
         "icon": "font",
@@ -6816,18 +6843,17 @@
           "validationRules": "[]",
           "default": "",
           "supportMultilingual": 0,
-          "width": 200
+          "width": 0
         },
         "translations": [
           {
             "language_code": "en",
-            "label": "Topics More Info"
+            "label": "Topics More Info_DELETE"
           }
-        ],
-        "id": "c053e6d1-1305-4ba2-aff2-88749f542f9e"
+        ]
       },
       "createdAt": "2022-01-04T10:29:24.000Z",
-      "updatedAt": "2022-02-07T03:30:13.000Z"
+      "updatedAt": "2022-03-01T06:56:38.000Z"
     },
     {
       "id": "6687c428-8721-41e1-847c-788792c36247",
@@ -6857,36 +6883,6 @@
         "id": "6687c428-8721-41e1-847c-788792c36247"
       },
       "createdAt": "2022-01-04T10:29:48.000Z",
-      "updatedAt": "2022-02-07T03:30:13.000Z"
-    },
-    {
-      "id": "7cd9a3f8-82e1-43d4-b9c5-ecc2050fd959",
-      "name": "Client->Prescription Medication",
-      "type": "field",
-      "json": {
-        "type": "field",
-        "key": "string",
-        "icon": "font",
-        "isImported": "0",
-        "columnName": "Prescription Medication",
-        "settings": {
-          "showIcon": 1,
-          "required": 0,
-          "unique": 0,
-          "validationRules": "[]",
-          "default": "",
-          "supportMultilingual": 0,
-          "width": 270
-        },
-        "translations": [
-          {
-            "language_code": "en",
-            "label": "Prescription Medication"
-          }
-        ],
-        "id": "7cd9a3f8-82e1-43d4-b9c5-ecc2050fd959"
-      },
-      "createdAt": "2022-01-04T10:29:57.000Z",
       "updatedAt": "2022-02-07T03:30:13.000Z"
     },
     {
@@ -6920,10 +6916,41 @@
       "updatedAt": "2022-02-07T03:30:13.000Z"
     },
     {
+      "id": "7cd9a3f8-82e1-43d4-b9c5-ecc2050fd959",
+      "name": "Client->Prescription Medication",
+      "type": "field",
+      "json": {
+        "type": "field",
+        "key": "string",
+        "icon": "font",
+        "isImported": "0",
+        "columnName": "Prescription Medication",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "default": "",
+          "supportMultilingual": 0,
+          "width": 270
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Prescription Medication"
+          }
+        ],
+        "id": "7cd9a3f8-82e1-43d4-b9c5-ecc2050fd959"
+      },
+      "createdAt": "2022-01-04T10:29:57.000Z",
+      "updatedAt": "2022-02-07T03:30:13.000Z"
+    },
+    {
       "id": "d49a6842-3371-401d-905c-d0ab2dbc2767",
       "name": "Client->Concern Details",
       "type": "field",
       "json": {
+        "id": "d49a6842-3371-401d-905c-d0ab2dbc2767",
         "type": "field",
         "key": "string",
         "icon": "font",
@@ -6936,18 +6963,17 @@
           "validationRules": "[]",
           "default": "",
           "supportMultilingual": 0,
-          "width": 190
+          "width": 0
         },
         "translations": [
           {
             "language_code": "en",
-            "label": "Concern Details"
+            "label": "Concern Details_DELETE"
           }
-        ],
-        "id": "d49a6842-3371-401d-905c-d0ab2dbc2767"
+        ]
       },
       "createdAt": "2022-01-04T10:30:19.000Z",
-      "updatedAt": "2022-02-07T03:30:13.000Z"
+      "updatedAt": "2022-03-01T06:57:55.000Z"
     },
     {
       "id": "6f467934-6514-46dd-8939-47531a0960fd",
@@ -6980,9 +7006,11 @@
       "updatedAt": "2022-02-07T03:30:13.000Z"
     },
     {
+      "id": "595489a2-2f2a-4197-adab-4c29550d58da",
       "name": "Client->Bill To Client",
       "type": "field",
       "json": {
+        "id": "595489a2-2f2a-4197-adab-4c29550d58da",
         "type": "field",
         "key": "connectObject",
         "icon": "external-link",
@@ -6990,29 +7018,148 @@
         "columnName": "Bill To Client",
         "settings": {
           "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
           "linkObject": "ee4a5b53-e05b-4a8e-ad95-f18327c0590b",
           "linkType": "many",
           "linkViaType": "one",
+          "linkColumn": "48fb402b-c664-4277-b580-4c09dfe7f2f7",
+          "isSource": 0,
           "isCustomFK": 0,
           "indexField": "",
           "indexField2": "",
-          "isSource": 0,
-          "width": 180,
-          "required": 0,
-          "unique": 0,
-          "linkColumn": "48fb402b-c664-4277-b580-4c09dfe7f2f7"
+          "width": 0
         },
         "translations": [
           {
             "language_code": "en",
-            "label": "Well-Intake"
+            "label": "Well-Intake-Bill"
+          }
+        ]
+      },
+      "createdAt": "2022-02-25T09:22:04.000Z",
+      "updatedAt": "2022-03-02T06:44:46.000Z"
+    },
+    {
+      "id": "7c9a8eb9-4d5d-4c64-901d-455199a62157",
+      "name": "Client->Availability_lt",
+      "type": "field",
+      "json": {
+        "type": "field",
+        "key": "LongText",
+        "icon": "align-right",
+        "isImported": "0",
+        "columnName": "Availability_lt",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "default": "",
+          "supportMultilingual": 0,
+          "width": 160
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Availability"
           }
         ],
-        "id": "595489a2-2f2a-4197-adab-4c29550d58da"
+        "id": "7c9a8eb9-4d5d-4c64-901d-455199a62157"
       },
-      "id": "595489a2-2f2a-4197-adab-4c29550d58da",
-      "createdAt": "2022-02-25T09:22:04.910Z",
-      "updatedAt": "2022-02-25T09:22:04.910Z"
+      "createdAt": "2022-03-01T06:50:08.000Z",
+      "updatedAt": "2022-03-01T06:50:08.000Z"
+    },
+    {
+      "id": "7fd00213-09b0-4245-84ae-33cab345bf9d",
+      "name": "Client->Topics_lt",
+      "type": "field",
+      "json": {
+        "type": "field",
+        "key": "LongText",
+        "icon": "align-right",
+        "isImported": "0",
+        "columnName": "Topics_lt",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "default": "",
+          "supportMultilingual": 0,
+          "width": 100
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Topics"
+          }
+        ],
+        "id": "7fd00213-09b0-4245-84ae-33cab345bf9d"
+      },
+      "createdAt": "2022-03-01T06:54:28.000Z",
+      "updatedAt": "2022-03-01T06:54:28.000Z"
+    },
+    {
+      "id": "b2c0f8dc-1209-415d-8756-95cb1af8d5da",
+      "name": "Client->Topics More Info_lt",
+      "type": "field",
+      "json": {
+        "type": "field",
+        "key": "LongText",
+        "icon": "align-right",
+        "isImported": "0",
+        "columnName": "Topics More Info_lt",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "default": "",
+          "supportMultilingual": 0,
+          "width": 200
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Topics More Info"
+          }
+        ],
+        "id": "b2c0f8dc-1209-415d-8756-95cb1af8d5da"
+      },
+      "createdAt": "2022-03-01T06:57:27.000Z",
+      "updatedAt": "2022-03-01T06:57:27.000Z"
+    },
+    {
+      "id": "1f4721fc-9797-41be-9451-94fbed6ced67",
+      "name": "Client->Concern Details_lt",
+      "type": "field",
+      "json": {
+        "type": "field",
+        "key": "LongText",
+        "icon": "align-right",
+        "isImported": "0",
+        "columnName": "Concern Details_lt",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "default": "",
+          "supportMultilingual": 0,
+          "width": 190
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Concern Details"
+          }
+        ],
+        "id": "1f4721fc-9797-41be-9451-94fbed6ced67"
+      },
+      "createdAt": "2022-03-01T06:58:20.000Z",
+      "updatedAt": "2022-03-01T06:58:20.000Z"
     },
     {
       "id": "21c32a39-335f-473e-8ce9-395d265b7a6a",
@@ -7377,37 +7524,22 @@
           "objectID": "9050ca81-7fc9-4618-ae27-6d42dcbac4af",
           "links": [
             {
-              "alias": "f471374d",
+              "alias": "18be19f0",
               "fieldId": "4f61cd20-4e38-448e-abff-80b19fa14081",
               "type": "left"
             },
             {
-              "alias": "a78b975b",
+              "alias": "718672cb",
               "fieldId": "4f61cd20-4e38-448e-abff-80b19fa14081",
               "type": "left"
             },
             {
-              "alias": "36a151af",
+              "alias": "8044429d",
               "fieldId": "4f61cd20-4e38-448e-abff-80b19fa14081",
               "type": "left"
             },
             {
-              "alias": "80abe103",
-              "fieldId": "4f61cd20-4e38-448e-abff-80b19fa14081",
-              "type": "left"
-            },
-            {
-              "alias": "26d68c54",
-              "fieldId": "4f61cd20-4e38-448e-abff-80b19fa14081",
-              "type": "left"
-            },
-            {
-              "alias": "147ac905",
-              "fieldId": "4f61cd20-4e38-448e-abff-80b19fa14081",
-              "type": "left"
-            },
-            {
-              "alias": "1ac8b4d2",
+              "alias": "972dfe43",
               "fieldId": "4f61cd20-4e38-448e-abff-80b19fa14081",
               "type": "left"
             }
@@ -7511,37 +7643,22 @@
               "type": "innerjoin",
               "links": [
                 {
-                  "alias": "be9e59f3",
+                  "alias": "417eab5f",
                   "fieldId": "4f61cd20-4e38-448e-abff-80b19fa14081",
                   "type": "left"
                 },
                 {
-                  "alias": "d3f383a7",
+                  "alias": "70f1a633",
                   "fieldId": "4f61cd20-4e38-448e-abff-80b19fa14081",
                   "type": "left"
                 },
                 {
-                  "alias": "4f770555",
+                  "alias": "599f5326",
                   "fieldId": "4f61cd20-4e38-448e-abff-80b19fa14081",
                   "type": "left"
                 },
                 {
-                  "alias": "d4550226",
-                  "fieldId": "4f61cd20-4e38-448e-abff-80b19fa14081",
-                  "type": "left"
-                },
-                {
-                  "alias": "4edc4e78",
-                  "fieldId": "4f61cd20-4e38-448e-abff-80b19fa14081",
-                  "type": "left"
-                },
-                {
-                  "alias": "5aac22f1",
-                  "fieldId": "4f61cd20-4e38-448e-abff-80b19fa14081",
-                  "type": "left"
-                },
-                {
-                  "alias": "1430de91",
+                  "alias": "b24e26e1",
                   "fieldId": "4f61cd20-4e38-448e-abff-80b19fa14081",
                   "type": "left"
                 }
@@ -8485,7 +8602,7 @@
         "name": "Clients link Intake",
         "type": "datacollection",
         "settings": {
-          "linkDatacollectionID": "9949f80f-c9d2-42cd-8eed-b6664407d8b5",
+          "linkDatacollectionID": "1a51a021-4b82-43a1-8b95-125ee739fd38",
           "linkFieldID": "2258d38b-278e-4e03-a6ca-1b19c0ec8d43",
           "objectWorkspace": {
             "filterConditions": {
@@ -8507,7 +8624,7 @@
         ]
       },
       "createdAt": "2021-11-04T07:51:58.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-08T08:37:59.000Z"
     },
     {
       "id": "c43b5f3d-c5e0-4372-bac0-0e0f7f4a43ff",
@@ -9248,6 +9365,104 @@
       "updatedAt": "2022-02-07T03:30:16.000Z"
     },
     {
+      "id": "4cc23f93-9e39-4274-bea2-7e24a6ecf8b4",
+      "name": "Client (Bill To) link Intake",
+      "type": "datacollection",
+      "json": {
+        "id": "4cc23f93-9e39-4274-bea2-7e24a6ecf8b4",
+        "name": "Client (Bill To) link Intake",
+        "type": "datacollection",
+        "settings": {
+          "linkDatacollectionID": "9949f80f-c9d2-42cd-8eed-b6664407d8b5",
+          "linkFieldID": "595489a2-2f2a-4197-adab-4c29550d58da",
+          "objectWorkspace": {
+            "filterConditions": {
+              "glue": "and"
+            }
+          },
+          "fixSelect": "_FirstRecord",
+          "loadAll": "0",
+          "isQuery": "false",
+          "preventPopulate": "0",
+          "syncType": "1",
+          "datasourceID": "86fee2de-2ea4-463d-8d13-f27f13fc17dc"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Client (Bill To) link Intake"
+          }
+        ]
+      },
+      "createdAt": "2022-03-02T06:39:56.000Z",
+      "updatedAt": "2022-03-02T06:45:13.000Z"
+    },
+    {
+      "id": "1a51a021-4b82-43a1-8b95-125ee739fd38",
+      "name": "Intake New like Client",
+      "type": "datacollection",
+      "json": {
+        "id": "1a51a021-4b82-43a1-8b95-125ee739fd38",
+        "name": "Intake New like Client",
+        "type": "datacollection",
+        "settings": {
+          "linkDatacollectionID": "7295656b-6a2b-42cd-bc8e-e0d9f2890869",
+          "linkFieldID": "838b355a-e26d-40a3-a0b4-489ca50e7b0a",
+          "objectWorkspace": {
+            "filterConditions": {
+              "glue": "and"
+            }
+          },
+          "fixSelect": "",
+          "loadAll": "0",
+          "isQuery": "false",
+          "preventPopulate": "0",
+          "syncType": "1",
+          "datasourceID": "ee4a5b53-e05b-4a8e-ad95-f18327c0590b"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Intake New like Client"
+          }
+        ]
+      },
+      "createdAt": "2022-03-08T08:34:45.000Z",
+      "updatedAt": "2022-03-08T08:35:08.000Z"
+    },
+    {
+      "name": "Client link [Intake New link Client]",
+      "type": "datacollection",
+      "json": {
+        "name": "Client link [Intake New link Client]",
+        "type": "datacollection",
+        "settings": {
+          "linkDatacollectionID": "",
+          "linkFieldID": "",
+          "objectWorkspace": {
+            "filterConditions": {
+              "glue": "and"
+            }
+          },
+          "loadAll": "false",
+          "isQuery": "false",
+          "preventPopulate": "false",
+          "syncType": "1",
+          "datasourceID": "86fee2de-2ea4-463d-8d13-f27f13fc17dc"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Client link [Intake New link Client]"
+          }
+        ],
+        "id": "1ca6255a-457b-446c-84ba-3fa7851a6d5c"
+      },
+      "id": "1ca6255a-457b-446c-84ba-3fa7851a6d5c",
+      "createdAt": "2022-03-08T08:37:46.921Z",
+      "updatedAt": "2022-03-08T08:37:46.921Z"
+    },
+    {
       "id": "252577b6-b7e7-43ca-bfb3-c8d033208851",
       "name": "Calculate Charges",
       "type": "process",
@@ -9260,7 +9475,7 @@
         ],
         "id": "252577b6-b7e7-43ca-bfb3-c8d033208851",
         "name": "Calculate Charges",
-        "xmlDefinition": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<bpmn2:definitions xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:bpmn2=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"process-def-252577b6-b7e7-43ca-bfb3-c8d033208851\" targetNamespace=\"http://bpmn.io/schema/bpmn\" xsi:schemaLocation=\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd\"><bpmn2:process id=\"Process_1\" isExecutable=\"true\"><bpmn2:startEvent id=\"StartEvent_1\" name=\"Session Added\"><bpmn2:outgoing>SequenceFlow_0hthpt7</bpmn2:outgoing></bpmn2:startEvent><bpmn2:serviceTask id=\"Task_0uqwa41\" name=\"Session Charge\"><bpmn2:incoming>SequenceFlow_01b4mzl</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1ndhd2u</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:exclusiveGateway id=\"ExclusiveGateway_0mbgoa1\" name=\"CSA Assessment?\"><bpmn2:outgoing>SequenceFlow_1qmb82v</bpmn2:outgoing></bpmn2:exclusiveGateway><bpmn2:sequenceFlow id=\"SequenceFlow_1qmb82v\" name=\"Yes\" sourceRef=\"ExclusiveGateway_0mbgoa1\" targetRef=\"Task_06axr7a\" /><bpmn2:exclusiveGateway id=\"ExclusiveGateway_1efv6zc\" name=\"Org Report?\"><bpmn2:incoming>SequenceFlow_07lskft</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0tny9km</bpmn2:outgoing><bpmn2:outgoing>SequenceFlow_0jas7co</bpmn2:outgoing><bpmn2:outgoing>SequenceFlow_1th6me8</bpmn2:outgoing></bpmn2:exclusiveGateway><bpmn2:serviceTask id=\"Task_06axr7a\" name=\"CSA Charge\"><bpmn2:incoming>SequenceFlow_1qmb82v</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0b1bbz7</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_0tny9km\" name=\"Yes\" sourceRef=\"ExclusiveGateway_1efv6zc\" targetRef=\"Task_1iazgpb\" /><bpmn2:sequenceFlow id=\"SequenceFlow_0jas7co\" name=\"No\" sourceRef=\"ExclusiveGateway_1efv6zc\" targetRef=\"ExclusiveGateway_0dnpsxj\" /><bpmn2:serviceTask id=\"Task_1iazgpb\" name=\"Report Charge\"><bpmn2:incoming>SequenceFlow_0tny9km</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_086bhyf</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_01or1v0\" name=\"Query Session-&#62;Case-&#62;Discount Session\"><bpmn2:incoming>SequenceFlow_00l7q4u</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1cel7i4</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:endEvent id=\"EndEvent_1szs4lf\" name=\"\"><bpmn2:incoming>SequenceFlow_1stltyj</bpmn2:incoming><bpmn2:incoming>SequenceFlow_075sj01</bpmn2:incoming><bpmn2:incoming>SequenceFlow_1a25hsm</bpmn2:incoming><bpmn2:terminateEventDefinition /></bpmn2:endEvent><bpmn2:serviceTask id=\"Task_0r5qkil\" name=\"Session Charge (Disscount)\"><bpmn2:incoming>SequenceFlow_128mflm</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1g2f9l4</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:exclusiveGateway id=\"ExclusiveGateway_0dnpsxj\" name=\"Check Paid By\"><bpmn2:incoming>SequenceFlow_1th6me8</bpmn2:incoming><bpmn2:incoming>SequenceFlow_0jas7co</bpmn2:incoming><bpmn2:incoming>SequenceFlow_0q9ym15</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0x1226y</bpmn2:outgoing><bpmn2:outgoing>SequenceFlow_16cotgt</bpmn2:outgoing></bpmn2:exclusiveGateway><bpmn2:sequenceFlow id=\"SequenceFlow_0x1226y\" name=\"Organization\" sourceRef=\"ExclusiveGateway_0dnpsxj\" targetRef=\"Task_1qclnvv\" /><bpmn2:serviceTask id=\"Task_1qclnvv\" name=\"Session Charge\"><bpmn2:incoming>SequenceFlow_0x1226y</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1sh2zkm</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:exclusiveGateway id=\"ExclusiveGateway_16koyuk\" name=\"Check Discount Rate\"><bpmn2:incoming>SequenceFlow_16cotgt</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_01b4mzl</bpmn2:outgoing><bpmn2:outgoing>SequenceFlow_128mflm</bpmn2:outgoing></bpmn2:exclusiveGateway><bpmn2:sequenceFlow id=\"SequenceFlow_16cotgt\" name=\"Client\" sourceRef=\"ExclusiveGateway_0dnpsxj\" targetRef=\"ExclusiveGateway_16koyuk\" /><bpmn2:sequenceFlow id=\"SequenceFlow_01b4mzl\" name=\"Standard\" sourceRef=\"ExclusiveGateway_16koyuk\" targetRef=\"Task_0uqwa41\" /><bpmn2:sequenceFlow id=\"SequenceFlow_128mflm\" name=\"Discount\" sourceRef=\"ExclusiveGateway_16koyuk\" targetRef=\"Task_0r5qkil\" /><bpmn2:sequenceFlow id=\"SequenceFlow_00l7q4u\" sourceRef=\"Task_1286tuz\" targetRef=\"Task_01or1v0\" /><bpmn2:sequenceFlow id=\"SequenceFlow_1cel7i4\" sourceRef=\"Task_01or1v0\" targetRef=\"Task_07qj6sg\" /><bpmn2:serviceTask id=\"Task_07qj6sg\" name=\"Query Session -&#62; Case -&#62; Bill To PK\"><bpmn2:incoming>SequenceFlow_1cel7i4</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1s2ceo0</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_1ofj92j\" name=\"Insert Object -&#62; Well-Transaction\"><bpmn2:incoming>SequenceFlow_1sh2zkm</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1a25hsm</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_0ra5g6t\" name=\"Insert Object -&#62; Well-Transaction\"><bpmn2:incoming>SequenceFlow_1ndhd2u</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_075sj01</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_1qe8iw4\" name=\"Insert Object -&#62; Well-Transaction\"><bpmn2:incoming>SequenceFlow_086bhyf</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0q9ym15</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_0b1bbz7\" sourceRef=\"Task_06axr7a\" targetRef=\"Task_05n7p5f\" /><bpmn2:serviceTask id=\"Task_05n7p5f\" name=\"Insert Object -&#62; Well-Transaction\"><bpmn2:incoming>SequenceFlow_0b1bbz7</bpmn2:incoming></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_0q9ym15\" sourceRef=\"Task_1qe8iw4\" targetRef=\"ExclusiveGateway_0dnpsxj\" /><bpmn2:serviceTask id=\"Task_0pmyqdj\" name=\"Insert Object -&#62; Well-Transaction\"><bpmn2:incoming>SequenceFlow_1g2f9l4</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1stltyj</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_1stltyj\" sourceRef=\"Task_0pmyqdj\" targetRef=\"EndEvent_1szs4lf\" /><bpmn2:sequenceFlow id=\"SequenceFlow_1g2f9l4\" sourceRef=\"Task_0r5qkil\" targetRef=\"Task_0pmyqdj\" /><bpmn2:sequenceFlow id=\"SequenceFlow_1ndhd2u\" sourceRef=\"Task_0uqwa41\" targetRef=\"Task_0ra5g6t\" /><bpmn2:sequenceFlow id=\"SequenceFlow_086bhyf\" sourceRef=\"Task_1iazgpb\" targetRef=\"Task_1qe8iw4\" /><bpmn2:sequenceFlow id=\"SequenceFlow_1s2ceo0\" sourceRef=\"Task_07qj6sg\" targetRef=\"Task_1n0abom\" /><bpmn2:serviceTask id=\"Task_1n0abom\" name=\"Query Session\"><bpmn2:incoming>SequenceFlow_1s2ceo0</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_07lskft</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_1286tuz\" name=\"Update Case &#62; Last Session Date\"><bpmn2:incoming>SequenceFlow_18mzpir</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_00l7q4u</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_07lskft\" sourceRef=\"Task_1n0abom\" targetRef=\"ExclusiveGateway_1efv6zc\" /><bpmn2:sequenceFlow id=\"SequenceFlow_1th6me8\" name=\"\" sourceRef=\"ExclusiveGateway_1efv6zc\" targetRef=\"ExclusiveGateway_0dnpsxj\" /><bpmn2:sequenceFlow id=\"SequenceFlow_1sh2zkm\" sourceRef=\"Task_1qclnvv\" targetRef=\"Task_1ofj92j\" /><bpmn2:sequenceFlow id=\"SequenceFlow_075sj01\" sourceRef=\"Task_0ra5g6t\" targetRef=\"EndEvent_1szs4lf\" /><bpmn2:sequenceFlow id=\"SequenceFlow_1a25hsm\" sourceRef=\"Task_1ofj92j\" targetRef=\"EndEvent_1szs4lf\" /><bpmn2:exclusiveGateway id=\"ExclusiveGateway_1c1gquz\" name=\"Check Status\"><bpmn2:incoming>SequenceFlow_0hthpt7</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_18mzpir</bpmn2:outgoing><bpmn2:outgoing>SequenceFlow_18fjrpd</bpmn2:outgoing></bpmn2:exclusiveGateway><bpmn2:sequenceFlow id=\"SequenceFlow_0hthpt7\" sourceRef=\"StartEvent_1\" targetRef=\"ExclusiveGateway_1c1gquz\" /><bpmn2:sequenceFlow id=\"SequenceFlow_18mzpir\" name=\"\" sourceRef=\"ExclusiveGateway_1c1gquz\" targetRef=\"Task_1286tuz\" /><bpmn2:sequenceFlow id=\"SequenceFlow_18fjrpd\" sourceRef=\"ExclusiveGateway_1c1gquz\" targetRef=\"EndEvent_16si73a\" /><bpmn2:endEvent id=\"EndEvent_16si73a\" name=\"\"><bpmn2:incoming>SequenceFlow_18fjrpd</bpmn2:incoming><bpmn2:terminateEventDefinition /></bpmn2:endEvent></bpmn2:process><bpmndi:BPMNDiagram id=\"BPMNDiagram_1\"><bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Process_1\"><bpmndi:BPMNShape id=\"StartEvent_1tv45k0_di\" bpmnElement=\"StartEvent_1\"><dc:Bounds x=\"-298\" y=\"-448\" width=\"36\" height=\"36\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-317\" y=\"-402\" width=\"74\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_1t4ouf5_di\" bpmnElement=\"Task_0uqwa41\"><dc:Bounds x=\"410\" y=\"-90\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ExclusiveGateway_0mbgoa1_di\" bpmnElement=\"ExclusiveGateway_0mbgoa1\" isMarkerVisible=\"true\"><dc:Bounds x=\"275\" y=\"-715\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"200\" y=\"-704\" width=\"66\" height=\"27\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_1qmb82v_di\" bpmnElement=\"SequenceFlow_1qmb82v\"><di:waypoint x=\"325\" y=\"-690\" /><di:waypoint x=\"410\" y=\"-690\" /><bpmndi:BPMNLabel><dc:Bounds x=\"413\" y=\"-717\" width=\"18\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ExclusiveGateway_1efv6zc_di\" bpmnElement=\"ExclusiveGateway_1efv6zc\" isMarkerVisible=\"true\"><dc:Bounds x=\"275\" y=\"-315\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"204\" y=\"-297\" width=\"61\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_05yaqk5_di\" bpmnElement=\"Task_06axr7a\"><dc:Bounds x=\"410\" y=\"-730\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_0tny9km_di\" bpmnElement=\"SequenceFlow_0tny9km\"><di:waypoint x=\"325\" y=\"-290\" /><di:waypoint x=\"410\" y=\"-290\" /><bpmndi:BPMNLabel><dc:Bounds x=\"351\" y=\"-308\" width=\"18\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_0jas7co_di\" bpmnElement=\"SequenceFlow_0jas7co\"><di:waypoint x=\"300\" y=\"-265\" /><di:waypoint x=\"300\" y=\"-185\" /><bpmndi:BPMNLabel><dc:Bounds x=\"272\" y=\"-247\" width=\"15\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_0pz11v7_di\" bpmnElement=\"Task_1iazgpb\"><dc:Bounds x=\"410\" y=\"-330\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0ns5gpr_di\" bpmnElement=\"Task_01or1v0\"><dc:Bounds x=\"-50\" y=\"-470\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"EndEvent_11walis_di\" bpmnElement=\"EndEvent_1szs4lf\"><dc:Bounds x=\"822\" y=\"-68\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_1h1mcbp_di\" bpmnElement=\"Task_0r5qkil\"><dc:Bounds x=\"410\" y=\"20\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ExclusiveGateway_0dnpsxj_di\" bpmnElement=\"ExclusiveGateway_0dnpsxj\" isMarkerVisible=\"true\"><dc:Bounds x=\"275\" y=\"-185\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"192\" y=\"-167\" width=\"73\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_0x1226y_di\" bpmnElement=\"SequenceFlow_0x1226y\"><di:waypoint x=\"325\" y=\"-160\" /><di:waypoint x=\"410\" y=\"-160\" /><bpmndi:BPMNLabel><dc:Bounds x=\"328\" y=\"-187\" width=\"63\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_01jwzq2_di\" bpmnElement=\"Task_1qclnvv\"><dc:Bounds x=\"410\" y=\"-200\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ExclusiveGateway_16koyuk_di\" bpmnElement=\"ExclusiveGateway_16koyuk\" isMarkerVisible=\"true\"><dc:Bounds x=\"275\" y=\"-75\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"187\" y=\"-63\" width=\"78\" height=\"27\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_16cotgt_di\" bpmnElement=\"SequenceFlow_16cotgt\"><di:waypoint x=\"300\" y=\"-135\" /><di:waypoint x=\"300\" y=\"-75\" /><bpmndi:BPMNLabel><dc:Bounds x=\"245\" y=\"-107\" width=\"30\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_01b4mzl_di\" bpmnElement=\"SequenceFlow_01b4mzl\"><di:waypoint x=\"325\" y=\"-50\" /><di:waypoint x=\"410\" y=\"-50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"347\" y=\"-37\" width=\"45\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_128mflm_di\" bpmnElement=\"SequenceFlow_128mflm\"><di:waypoint x=\"300\" y=\"-25\" /><di:waypoint x=\"300\" y=\"60\" /><di:waypoint x=\"410\" y=\"60\" /><bpmndi:BPMNLabel><dc:Bounds x=\"248\" y=\"-18\" width=\"44\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_00l7q4u_di\" bpmnElement=\"SequenceFlow_00l7q4u\"><di:waypoint x=\"0\" y=\"-520\" /><di:waypoint x=\"0\" y=\"-470\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1cel7i4_di\" bpmnElement=\"SequenceFlow_1cel7i4\"><di:waypoint x=\"50\" y=\"-430\" /><di:waypoint x=\"100\" y=\"-430\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_0fksm42_di\" bpmnElement=\"Task_07qj6sg\"><dc:Bounds x=\"100\" y=\"-470\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0p4g9r7_di\" bpmnElement=\"Task_1ofj92j\"><dc:Bounds x=\"570\" y=\"-200\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_09g09lk_di\" bpmnElement=\"Task_0ra5g6t\"><dc:Bounds x=\"570\" y=\"-90\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0vka69v_di\" bpmnElement=\"Task_1qe8iw4\"><dc:Bounds x=\"570\" y=\"-330\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_0b1bbz7_di\" bpmnElement=\"SequenceFlow_0b1bbz7\"><di:waypoint x=\"510\" y=\"-690\" /><di:waypoint x=\"570\" y=\"-690\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_0vepnbn_di\" bpmnElement=\"Task_05n7p5f\"><dc:Bounds x=\"570\" y=\"-730\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_0q9ym15_di\" bpmnElement=\"SequenceFlow_0q9ym15\"><di:waypoint x=\"610\" y=\"-250\" /><di:waypoint x=\"610\" y=\"-220\" /><di:waypoint x=\"300\" y=\"-220\" /><di:waypoint x=\"300\" y=\"-185\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_0ww2hbo_di\" bpmnElement=\"Task_0pmyqdj\"><dc:Bounds x=\"560\" y=\"20\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_1stltyj_di\" bpmnElement=\"SequenceFlow_1stltyj\"><di:waypoint x=\"660\" y=\"60\" /><di:waypoint x=\"840\" y=\"60\" /><di:waypoint x=\"840\" y=\"-32\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1g2f9l4_di\" bpmnElement=\"SequenceFlow_1g2f9l4\"><di:waypoint x=\"510\" y=\"60\" /><di:waypoint x=\"560\" y=\"60\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1ndhd2u_di\" bpmnElement=\"SequenceFlow_1ndhd2u\"><di:waypoint x=\"510\" y=\"-50\" /><di:waypoint x=\"570\" y=\"-50\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_086bhyf_di\" bpmnElement=\"SequenceFlow_086bhyf\"><di:waypoint x=\"510\" y=\"-290\" /><di:waypoint x=\"570\" y=\"-290\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1s2ceo0_di\" bpmnElement=\"SequenceFlow_1s2ceo0\"><di:waypoint x=\"200\" y=\"-430\" /><di:waypoint x=\"250\" y=\"-430\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_05fmwxq_di\" bpmnElement=\"Task_1n0abom\"><dc:Bounds x=\"250\" y=\"-470\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_1geojnc_di\" bpmnElement=\"Task_1286tuz\"><dc:Bounds x=\"-50\" y=\"-600\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_07lskft_di\" bpmnElement=\"SequenceFlow_07lskft\"><di:waypoint x=\"300\" y=\"-390\" /><di:waypoint x=\"300\" y=\"-315\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1th6me8_di\" bpmnElement=\"SequenceFlow_1th6me8\"><di:waypoint x=\"300\" y=\"-265\" /><di:waypoint x=\"300\" y=\"-185\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1sh2zkm_di\" bpmnElement=\"SequenceFlow_1sh2zkm\"><di:waypoint x=\"510\" y=\"-160\" /><di:waypoint x=\"570\" y=\"-160\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_075sj01_di\" bpmnElement=\"SequenceFlow_075sj01\"><di:waypoint x=\"670\" y=\"-50\" /><di:waypoint x=\"822\" y=\"-50\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1a25hsm_di\" bpmnElement=\"SequenceFlow_1a25hsm\"><di:waypoint x=\"670\" y=\"-160\" /><di:waypoint x=\"840\" y=\"-160\" /><di:waypoint x=\"840\" y=\"-68\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ExclusiveGateway_1c1gquz_di\" bpmnElement=\"ExclusiveGateway_1c1gquz\" isMarkerVisible=\"true\"><dc:Bounds x=\"-205\" y=\"-455\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-145\" y=\"-437\" width=\"66\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_0hthpt7_di\" bpmnElement=\"SequenceFlow_0hthpt7\"><di:waypoint x=\"-262\" y=\"-430\" /><di:waypoint x=\"-205\" y=\"-430\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_18mzpir_di\" bpmnElement=\"SequenceFlow_18mzpir\"><di:waypoint x=\"-180\" y=\"-455\" /><di:waypoint x=\"-180\" y=\"-560\" /><di:waypoint x=\"-50\" y=\"-560\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_18fjrpd_di\" bpmnElement=\"SequenceFlow_18fjrpd\"><di:waypoint x=\"-180\" y=\"-405\" /><di:waypoint x=\"-180\" y=\"-358\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"EndEvent_0t1m8hj_di\" bpmnElement=\"EndEvent_16si73a\"><dc:Bounds x=\"-198\" y=\"-358\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape></bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn2:definitions>",
+        "xmlDefinition": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<bpmn2:definitions xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:bpmn2=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"process-def-252577b6-b7e7-43ca-bfb3-c8d033208851\" targetNamespace=\"http://bpmn.io/schema/bpmn\" xsi:schemaLocation=\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd\"><bpmn2:process id=\"Process_1\" isExecutable=\"true\"><bpmn2:startEvent id=\"StartEvent_1\" name=\"Session Added\"><bpmn2:outgoing>SequenceFlow_0hthpt7</bpmn2:outgoing></bpmn2:startEvent><bpmn2:serviceTask id=\"Task_0uqwa41\" name=\"Session Charge\"><bpmn2:incoming>SequenceFlow_01b4mzl</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1ndhd2u</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:exclusiveGateway id=\"ExclusiveGateway_0mbgoa1\" name=\"CSA Assessment?\"><bpmn2:outgoing>SequenceFlow_1qmb82v</bpmn2:outgoing></bpmn2:exclusiveGateway><bpmn2:sequenceFlow id=\"SequenceFlow_1qmb82v\" name=\"Yes\" sourceRef=\"ExclusiveGateway_0mbgoa1\" targetRef=\"Task_06axr7a\" /><bpmn2:exclusiveGateway id=\"ExclusiveGateway_1efv6zc\" name=\"Org Report?\"><bpmn2:incoming>SequenceFlow_07lskft</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0tny9km</bpmn2:outgoing><bpmn2:outgoing>SequenceFlow_0jas7co</bpmn2:outgoing><bpmn2:outgoing>SequenceFlow_1th6me8</bpmn2:outgoing></bpmn2:exclusiveGateway><bpmn2:serviceTask id=\"Task_06axr7a\" name=\"CSA Charge\"><bpmn2:incoming>SequenceFlow_1qmb82v</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0b1bbz7</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_0tny9km\" name=\"Yes\" sourceRef=\"ExclusiveGateway_1efv6zc\" targetRef=\"Task_1iazgpb\" /><bpmn2:sequenceFlow id=\"SequenceFlow_0jas7co\" name=\"No\" sourceRef=\"ExclusiveGateway_1efv6zc\" targetRef=\"ExclusiveGateway_0dnpsxj\" /><bpmn2:serviceTask id=\"Task_1iazgpb\" name=\"Report Charge\"><bpmn2:incoming>SequenceFlow_0tny9km</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_086bhyf</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_01or1v0\" name=\"Query Session-&#62;Case-&#62;Discount Session\"><bpmn2:incoming>SequenceFlow_00l7q4u</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1cel7i4</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:endEvent id=\"EndEvent_1szs4lf\" name=\"\"><bpmn2:incoming>SequenceFlow_0t7krqe</bpmn2:incoming><bpmn2:terminateEventDefinition /></bpmn2:endEvent><bpmn2:serviceTask id=\"Task_0r5qkil\" name=\"Session Charge (Disscount)\"><bpmn2:incoming>SequenceFlow_128mflm</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1g2f9l4</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:exclusiveGateway id=\"ExclusiveGateway_0dnpsxj\" name=\"Check Paid By\"><bpmn2:incoming>SequenceFlow_1th6me8</bpmn2:incoming><bpmn2:incoming>SequenceFlow_0jas7co</bpmn2:incoming><bpmn2:incoming>SequenceFlow_0q9ym15</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0x1226y</bpmn2:outgoing><bpmn2:outgoing>SequenceFlow_16cotgt</bpmn2:outgoing></bpmn2:exclusiveGateway><bpmn2:sequenceFlow id=\"SequenceFlow_0x1226y\" name=\"Organization\" sourceRef=\"ExclusiveGateway_0dnpsxj\" targetRef=\"Task_1qclnvv\" /><bpmn2:serviceTask id=\"Task_1qclnvv\" name=\"Session Charge\"><bpmn2:incoming>SequenceFlow_0x1226y</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1sh2zkm</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:exclusiveGateway id=\"ExclusiveGateway_16koyuk\" name=\"Check Discount Rate\"><bpmn2:incoming>SequenceFlow_16cotgt</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_01b4mzl</bpmn2:outgoing><bpmn2:outgoing>SequenceFlow_128mflm</bpmn2:outgoing></bpmn2:exclusiveGateway><bpmn2:sequenceFlow id=\"SequenceFlow_16cotgt\" name=\"Client\" sourceRef=\"ExclusiveGateway_0dnpsxj\" targetRef=\"ExclusiveGateway_16koyuk\" /><bpmn2:sequenceFlow id=\"SequenceFlow_01b4mzl\" name=\"Standard\" sourceRef=\"ExclusiveGateway_16koyuk\" targetRef=\"Task_0uqwa41\" /><bpmn2:sequenceFlow id=\"SequenceFlow_128mflm\" name=\"Discount\" sourceRef=\"ExclusiveGateway_16koyuk\" targetRef=\"Task_0r5qkil\" /><bpmn2:sequenceFlow id=\"SequenceFlow_00l7q4u\" sourceRef=\"Task_1286tuz\" targetRef=\"Task_01or1v0\" /><bpmn2:sequenceFlow id=\"SequenceFlow_1cel7i4\" sourceRef=\"Task_01or1v0\" targetRef=\"Task_07qj6sg\" /><bpmn2:serviceTask id=\"Task_07qj6sg\" name=\"Query Session -&#62; Case -&#62; Bill To PK\"><bpmn2:incoming>SequenceFlow_1cel7i4</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1s2ceo0</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_1ofj92j\" name=\"Insert Object -&#62; Well-Transaction\"><bpmn2:incoming>SequenceFlow_1sh2zkm</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0u5cj4d</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_0ra5g6t\" name=\"Insert Object -&#62; Well-Transaction\"><bpmn2:incoming>SequenceFlow_1ndhd2u</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_075sj01</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_1qe8iw4\" name=\"Insert Object -&#62; Well-Transaction\"><bpmn2:incoming>SequenceFlow_086bhyf</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0q9ym15</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_0b1bbz7\" sourceRef=\"Task_06axr7a\" targetRef=\"Task_05n7p5f\" /><bpmn2:serviceTask id=\"Task_05n7p5f\" name=\"Insert Object -&#62; Well-Transaction\"><bpmn2:incoming>SequenceFlow_0b1bbz7</bpmn2:incoming></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_0q9ym15\" sourceRef=\"Task_1qe8iw4\" targetRef=\"ExclusiveGateway_0dnpsxj\" /><bpmn2:serviceTask id=\"Task_0pmyqdj\" name=\"Insert Object -&#62; Well-Transaction\"><bpmn2:incoming>SequenceFlow_1g2f9l4</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1stltyj</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_1stltyj\" sourceRef=\"Task_0pmyqdj\" targetRef=\"Task_0jv465a\" /><bpmn2:sequenceFlow id=\"SequenceFlow_1g2f9l4\" sourceRef=\"Task_0r5qkil\" targetRef=\"Task_0pmyqdj\" /><bpmn2:sequenceFlow id=\"SequenceFlow_1ndhd2u\" sourceRef=\"Task_0uqwa41\" targetRef=\"Task_0ra5g6t\" /><bpmn2:sequenceFlow id=\"SequenceFlow_086bhyf\" sourceRef=\"Task_1iazgpb\" targetRef=\"Task_1qe8iw4\" /><bpmn2:sequenceFlow id=\"SequenceFlow_1s2ceo0\" sourceRef=\"Task_07qj6sg\" targetRef=\"Task_1n0abom\" /><bpmn2:serviceTask id=\"Task_1n0abom\" name=\"Query Session\"><bpmn2:incoming>SequenceFlow_1s2ceo0</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_07lskft</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_1286tuz\" name=\"Update Case &#62; Last Session Date\"><bpmn2:incoming>SequenceFlow_18mzpir</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_00l7q4u</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_07lskft\" sourceRef=\"Task_1n0abom\" targetRef=\"ExclusiveGateway_1efv6zc\" /><bpmn2:sequenceFlow id=\"SequenceFlow_1th6me8\" name=\"\" sourceRef=\"ExclusiveGateway_1efv6zc\" targetRef=\"ExclusiveGateway_0dnpsxj\" /><bpmn2:sequenceFlow id=\"SequenceFlow_1sh2zkm\" sourceRef=\"Task_1qclnvv\" targetRef=\"Task_1ofj92j\" /><bpmn2:sequenceFlow id=\"SequenceFlow_075sj01\" sourceRef=\"Task_0ra5g6t\" targetRef=\"Task_0jv465a\" /><bpmn2:exclusiveGateway id=\"ExclusiveGateway_1c1gquz\" name=\"Check Status\"><bpmn2:incoming>SequenceFlow_0hthpt7</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_18mzpir</bpmn2:outgoing><bpmn2:outgoing>SequenceFlow_18fjrpd</bpmn2:outgoing></bpmn2:exclusiveGateway><bpmn2:sequenceFlow id=\"SequenceFlow_0hthpt7\" sourceRef=\"StartEvent_1\" targetRef=\"ExclusiveGateway_1c1gquz\" /><bpmn2:sequenceFlow id=\"SequenceFlow_18mzpir\" name=\"Run Process\" sourceRef=\"ExclusiveGateway_1c1gquz\" targetRef=\"Task_1286tuz\" /><bpmn2:sequenceFlow id=\"SequenceFlow_18fjrpd\" name=\"Ignore\" sourceRef=\"ExclusiveGateway_1c1gquz\" targetRef=\"EndEvent_16si73a\" /><bpmn2:endEvent id=\"EndEvent_16si73a\" name=\"\"><bpmn2:incoming>SequenceFlow_18fjrpd</bpmn2:incoming><bpmn2:terminateEventDefinition /></bpmn2:endEvent><bpmn2:sequenceFlow id=\"SequenceFlow_0u5cj4d\" sourceRef=\"Task_1ofj92j\" targetRef=\"Task_0jv465a\" /><bpmn2:serviceTask id=\"Task_0jv465a\" name=\"Update Session Status\"><bpmn2:incoming>SequenceFlow_0u5cj4d</bpmn2:incoming><bpmn2:incoming>SequenceFlow_075sj01</bpmn2:incoming><bpmn2:incoming>SequenceFlow_1stltyj</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0t7krqe</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_0t7krqe\" sourceRef=\"Task_0jv465a\" targetRef=\"EndEvent_1szs4lf\" /></bpmn2:process><bpmndi:BPMNDiagram id=\"BPMNDiagram_1\"><bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Process_1\"><bpmndi:BPMNShape id=\"StartEvent_1tv45k0_di\" bpmnElement=\"StartEvent_1\"><dc:Bounds x=\"-298\" y=\"-448\" width=\"36\" height=\"36\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-317\" y=\"-402\" width=\"74\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_1t4ouf5_di\" bpmnElement=\"Task_0uqwa41\"><dc:Bounds x=\"410\" y=\"-90\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ExclusiveGateway_0mbgoa1_di\" bpmnElement=\"ExclusiveGateway_0mbgoa1\" isMarkerVisible=\"true\"><dc:Bounds x=\"275\" y=\"-715\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"200\" y=\"-704\" width=\"66\" height=\"27\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_1qmb82v_di\" bpmnElement=\"SequenceFlow_1qmb82v\"><di:waypoint x=\"325\" y=\"-690\" /><di:waypoint x=\"410\" y=\"-690\" /><bpmndi:BPMNLabel><dc:Bounds x=\"413\" y=\"-717\" width=\"18\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ExclusiveGateway_1efv6zc_di\" bpmnElement=\"ExclusiveGateway_1efv6zc\" isMarkerVisible=\"true\"><dc:Bounds x=\"275\" y=\"-315\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"204\" y=\"-297\" width=\"61\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_05yaqk5_di\" bpmnElement=\"Task_06axr7a\"><dc:Bounds x=\"410\" y=\"-730\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_0tny9km_di\" bpmnElement=\"SequenceFlow_0tny9km\"><di:waypoint x=\"325\" y=\"-290\" /><di:waypoint x=\"410\" y=\"-290\" /><bpmndi:BPMNLabel><dc:Bounds x=\"351\" y=\"-308\" width=\"18\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_0jas7co_di\" bpmnElement=\"SequenceFlow_0jas7co\"><di:waypoint x=\"300\" y=\"-265\" /><di:waypoint x=\"300\" y=\"-185\" /><bpmndi:BPMNLabel><dc:Bounds x=\"272\" y=\"-247\" width=\"15\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_0pz11v7_di\" bpmnElement=\"Task_1iazgpb\"><dc:Bounds x=\"410\" y=\"-330\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0ns5gpr_di\" bpmnElement=\"Task_01or1v0\"><dc:Bounds x=\"-50\" y=\"-470\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"EndEvent_11walis_di\" bpmnElement=\"EndEvent_1szs4lf\"><dc:Bounds x=\"992\" y=\"-178\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_1h1mcbp_di\" bpmnElement=\"Task_0r5qkil\"><dc:Bounds x=\"410\" y=\"20\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ExclusiveGateway_0dnpsxj_di\" bpmnElement=\"ExclusiveGateway_0dnpsxj\" isMarkerVisible=\"true\"><dc:Bounds x=\"275\" y=\"-185\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"192\" y=\"-167\" width=\"73\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_0x1226y_di\" bpmnElement=\"SequenceFlow_0x1226y\"><di:waypoint x=\"325\" y=\"-160\" /><di:waypoint x=\"410\" y=\"-160\" /><bpmndi:BPMNLabel><dc:Bounds x=\"328\" y=\"-187\" width=\"63\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_01jwzq2_di\" bpmnElement=\"Task_1qclnvv\"><dc:Bounds x=\"410\" y=\"-200\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ExclusiveGateway_16koyuk_di\" bpmnElement=\"ExclusiveGateway_16koyuk\" isMarkerVisible=\"true\"><dc:Bounds x=\"275\" y=\"-75\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"187\" y=\"-63\" width=\"78\" height=\"27\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_16cotgt_di\" bpmnElement=\"SequenceFlow_16cotgt\"><di:waypoint x=\"300\" y=\"-135\" /><di:waypoint x=\"300\" y=\"-75\" /><bpmndi:BPMNLabel><dc:Bounds x=\"245\" y=\"-107\" width=\"30\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_01b4mzl_di\" bpmnElement=\"SequenceFlow_01b4mzl\"><di:waypoint x=\"325\" y=\"-50\" /><di:waypoint x=\"410\" y=\"-50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"347\" y=\"-37\" width=\"45\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_128mflm_di\" bpmnElement=\"SequenceFlow_128mflm\"><di:waypoint x=\"300\" y=\"-25\" /><di:waypoint x=\"300\" y=\"60\" /><di:waypoint x=\"410\" y=\"60\" /><bpmndi:BPMNLabel><dc:Bounds x=\"248\" y=\"-18\" width=\"44\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_00l7q4u_di\" bpmnElement=\"SequenceFlow_00l7q4u\"><di:waypoint x=\"0\" y=\"-520\" /><di:waypoint x=\"0\" y=\"-470\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1cel7i4_di\" bpmnElement=\"SequenceFlow_1cel7i4\"><di:waypoint x=\"50\" y=\"-430\" /><di:waypoint x=\"100\" y=\"-430\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_0fksm42_di\" bpmnElement=\"Task_07qj6sg\"><dc:Bounds x=\"100\" y=\"-470\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0p4g9r7_di\" bpmnElement=\"Task_1ofj92j\"><dc:Bounds x=\"570\" y=\"-200\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_09g09lk_di\" bpmnElement=\"Task_0ra5g6t\"><dc:Bounds x=\"570\" y=\"-90\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0vka69v_di\" bpmnElement=\"Task_1qe8iw4\"><dc:Bounds x=\"570\" y=\"-330\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_0b1bbz7_di\" bpmnElement=\"SequenceFlow_0b1bbz7\"><di:waypoint x=\"510\" y=\"-690\" /><di:waypoint x=\"570\" y=\"-690\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_0vepnbn_di\" bpmnElement=\"Task_05n7p5f\"><dc:Bounds x=\"570\" y=\"-730\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_0q9ym15_di\" bpmnElement=\"SequenceFlow_0q9ym15\"><di:waypoint x=\"610\" y=\"-250\" /><di:waypoint x=\"610\" y=\"-220\" /><di:waypoint x=\"300\" y=\"-220\" /><di:waypoint x=\"300\" y=\"-185\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_0ww2hbo_di\" bpmnElement=\"Task_0pmyqdj\"><dc:Bounds x=\"560\" y=\"20\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_1stltyj_di\" bpmnElement=\"SequenceFlow_1stltyj\"><di:waypoint x=\"660\" y=\"60\" /><di:waypoint x=\"750\" y=\"60\" /><di:waypoint x=\"750\" y=\"-160\" /><di:waypoint x=\"830\" y=\"-160\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1g2f9l4_di\" bpmnElement=\"SequenceFlow_1g2f9l4\"><di:waypoint x=\"510\" y=\"60\" /><di:waypoint x=\"560\" y=\"60\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1ndhd2u_di\" bpmnElement=\"SequenceFlow_1ndhd2u\"><di:waypoint x=\"510\" y=\"-50\" /><di:waypoint x=\"570\" y=\"-50\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_086bhyf_di\" bpmnElement=\"SequenceFlow_086bhyf\"><di:waypoint x=\"510\" y=\"-290\" /><di:waypoint x=\"570\" y=\"-290\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1s2ceo0_di\" bpmnElement=\"SequenceFlow_1s2ceo0\"><di:waypoint x=\"200\" y=\"-430\" /><di:waypoint x=\"250\" y=\"-430\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_05fmwxq_di\" bpmnElement=\"Task_1n0abom\"><dc:Bounds x=\"250\" y=\"-470\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_1geojnc_di\" bpmnElement=\"Task_1286tuz\"><dc:Bounds x=\"-50\" y=\"-600\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_07lskft_di\" bpmnElement=\"SequenceFlow_07lskft\"><di:waypoint x=\"300\" y=\"-390\" /><di:waypoint x=\"300\" y=\"-315\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1th6me8_di\" bpmnElement=\"SequenceFlow_1th6me8\"><di:waypoint x=\"300\" y=\"-265\" /><di:waypoint x=\"300\" y=\"-185\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1sh2zkm_di\" bpmnElement=\"SequenceFlow_1sh2zkm\"><di:waypoint x=\"510\" y=\"-160\" /><di:waypoint x=\"570\" y=\"-160\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_075sj01_di\" bpmnElement=\"SequenceFlow_075sj01\"><di:waypoint x=\"670\" y=\"-50\" /><di:waypoint x=\"750\" y=\"-50\" /><di:waypoint x=\"750\" y=\"-160\" /><di:waypoint x=\"830\" y=\"-160\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ExclusiveGateway_1c1gquz_di\" bpmnElement=\"ExclusiveGateway_1c1gquz\" isMarkerVisible=\"true\"><dc:Bounds x=\"-205\" y=\"-455\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-145\" y=\"-437\" width=\"66\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_0hthpt7_di\" bpmnElement=\"SequenceFlow_0hthpt7\"><di:waypoint x=\"-262\" y=\"-430\" /><di:waypoint x=\"-205\" y=\"-430\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_18mzpir_di\" bpmnElement=\"SequenceFlow_18mzpir\"><di:waypoint x=\"-180\" y=\"-455\" /><di:waypoint x=\"-180\" y=\"-560\" /><di:waypoint x=\"-50\" y=\"-560\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-197\" y=\"-510\" width=\"64\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_18fjrpd_di\" bpmnElement=\"SequenceFlow_18fjrpd\"><di:waypoint x=\"-180\" y=\"-405\" /><di:waypoint x=\"-180\" y=\"-358\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-181\" y=\"-384\" width=\"32\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"EndEvent_0t1m8hj_di\" bpmnElement=\"EndEvent_16si73a\"><dc:Bounds x=\"-198\" y=\"-358\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_0u5cj4d_di\" bpmnElement=\"SequenceFlow_0u5cj4d\"><di:waypoint x=\"670\" y=\"-160\" /><di:waypoint x=\"830\" y=\"-160\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_1rir27v_di\" bpmnElement=\"Task_0jv465a\"><dc:Bounds x=\"830\" y=\"-200\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_0t7krqe_di\" bpmnElement=\"SequenceFlow_0t7krqe\"><di:waypoint x=\"930\" y=\"-160\" /><di:waypoint x=\"992\" y=\"-160\" /></bpmndi:BPMNEdge></bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn2:definitions>",
         "elementIDs": [
           "d7175508-54f9-4c26-a5f7-03d2e5efa9a4",
           "97c8c5df-2278-4a33-8419-0a4eb4f954c3",
@@ -9283,7 +9498,8 @@
           "277fecb6-ef05-4ccb-90fa-19a4ebc301df",
           "626c5e88-b3f9-41e5-a6ce-3e6b95528dee",
           "e6f87845-2edb-49ba-be8a-5501a61d133f",
-          "a8bb82bc-0203-42f0-8d2b-16a3eda81019"
+          "a8bb82bc-0203-42f0-8d2b-16a3eda81019",
+          "595ced9b-964d-4ea5-99a8-685210bea419"
         ],
         "connections": {
           "SequenceFlow_1qmb82v": {
@@ -9362,7 +9578,7 @@
             "id": "SequenceFlow_1stltyj",
             "type": "bpmn:SequenceFlow",
             "from": "Task_0pmyqdj",
-            "to": "EndEvent_1szs4lf"
+            "to": "Task_0jv465a"
           },
           "SequenceFlow_1g2f9l4": {
             "id": "SequenceFlow_1g2f9l4",
@@ -9416,13 +9632,7 @@
             "id": "SequenceFlow_075sj01",
             "type": "bpmn:SequenceFlow",
             "from": "Task_0ra5g6t",
-            "to": "EndEvent_1szs4lf"
-          },
-          "SequenceFlow_1a25hsm": {
-            "id": "SequenceFlow_1a25hsm",
-            "type": "bpmn:SequenceFlow",
-            "from": "Task_1ofj92j",
-            "to": "EndEvent_1szs4lf"
+            "to": "Task_0jv465a"
           },
           "SequenceFlow_0hthpt7": {
             "id": "SequenceFlow_0hthpt7",
@@ -9441,11 +9651,23 @@
             "type": "bpmn:SequenceFlow",
             "from": "ExclusiveGateway_1c1gquz",
             "to": "EndEvent_16si73a"
+          },
+          "SequenceFlow_0u5cj4d": {
+            "id": "SequenceFlow_0u5cj4d",
+            "type": "bpmn:SequenceFlow",
+            "from": "Task_1ofj92j",
+            "to": "Task_0jv465a"
+          },
+          "SequenceFlow_0t7krqe": {
+            "id": "SequenceFlow_0t7krqe",
+            "type": "bpmn:SequenceFlow",
+            "from": "Task_0jv465a",
+            "to": "EndEvent_1szs4lf"
           }
         }
       },
       "createdAt": "2021-06-15T08:54:01.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
     },
     {
       "id": "d7175508-54f9-4c26-a5f7-03d2e5efa9a4",
@@ -9465,12 +9687,12 @@
         "diagramID": "StartEvent_1",
         "laneDiagramID": "",
         "key": "TriggerLifecycle",
-        "triggerKey": "d6b8ae02-92bc-474c-8309-8503ec025cbf.added",
+        "triggerKey": "d6b8ae02-92bc-474c-8309-8503ec025cbf.updated",
         "objectID": "d6b8ae02-92bc-474c-8309-8503ec025cbf",
-        "lifecycleKey": "added"
+        "lifecycleKey": "updated"
       },
       "createdAt": "2021-06-15T08:54:23.000Z",
-      "updatedAt": "2022-03-01T06:10:37.000Z"
+      "updatedAt": "2022-03-14T09:17:40.000Z"
     },
     {
       "id": "97c8c5df-2278-4a33-8419-0a4eb4f954c3",
@@ -9526,7 +9748,7 @@
         "repeatColumn": ""
       },
       "createdAt": "2021-06-15T08:57:45.000Z",
-      "updatedAt": "2022-03-01T06:10:37.000Z"
+      "updatedAt": "2022-03-14T09:17:40.000Z"
     },
     {
       "id": "55561210-aee7-4654-970a-6bc22f485d06",
@@ -9563,7 +9785,7 @@
         }
       },
       "createdAt": "2021-06-15T08:58:50.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:40.000Z"
     },
     {
       "id": "bf198838-a3ad-4584-a317-2869af77e491",
@@ -9616,7 +9838,7 @@
         }
       },
       "createdAt": "2021-06-15T09:02:43.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:40.000Z"
     },
     {
       "id": "bb90b462-de3b-4057-9f62-d3e950d3334b",
@@ -9672,7 +9894,7 @@
         "repeatColumn": ""
       },
       "createdAt": "2021-06-15T09:04:08.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:40.000Z"
     },
     {
       "id": "8b23b6bb-e1df-4077-90f1-5af22e689298",
@@ -9728,7 +9950,7 @@
         "repeatColumn": ""
       },
       "createdAt": "2021-06-15T09:06:13.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:40.000Z"
     },
     {
       "id": "83f948b5-e709-4430-9b7d-866ca1b2ec11",
@@ -9802,7 +10024,7 @@
         }
       },
       "createdAt": "2021-10-12T06:40:27.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:40.000Z"
     },
     {
       "id": "ef74037b-d7ac-49d6-8b59-a51197c05cdd",
@@ -9858,7 +10080,7 @@
         "repeatColumn": ""
       },
       "createdAt": "2021-10-14T04:26:50.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:40.000Z"
     },
     {
       "id": "4ed4d697-a6e1-4d79-9d97-659a604e316c",
@@ -9908,7 +10130,7 @@
         }
       },
       "createdAt": "2021-10-14T04:36:58.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
     },
     {
       "id": "a8cffb72-218e-45be-a809-f39b4d1d9dce",
@@ -9964,7 +10186,7 @@
         "repeatColumn": ""
       },
       "createdAt": "2021-10-14T04:44:51.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
     },
     {
       "id": "6c72c67a-3ca0-433a-a5b9-d55455f95d9e",
@@ -10014,7 +10236,7 @@
         }
       },
       "createdAt": "2021-10-14T09:53:09.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
     },
     {
       "id": "1ef5358d-7ba9-491a-badb-05fd1d094307",
@@ -10097,7 +10319,7 @@
         }
       },
       "createdAt": "2021-12-01T09:57:55.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
     },
     {
       "id": "63481d9b-0166-4a2a-8d6c-0a15a68aec14",
@@ -10115,7 +10337,7 @@
         "type": "process.task.service.insertRecord",
         "processID": "",
         "diagramID": "Task_1ofj92j",
-        "laneDiagramID": "?laneID?",
+        "laneDiagramID": "",
         "key": "InsertRecord",
         "objectID": "4a43ff1d-bbee-4d14-a4b4-a82c57c55b78",
         "fieldValues": {
@@ -10153,7 +10375,7 @@
         "repeatColumn": ""
       },
       "createdAt": "2021-12-07T04:45:52.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
     },
     {
       "id": "0a4211b0-397d-4b12-9ad5-b0a70ab218f8",
@@ -10171,7 +10393,7 @@
         "type": "process.task.service.insertRecord",
         "processID": "",
         "diagramID": "Task_0ra5g6t",
-        "laneDiagramID": "?laneID?",
+        "laneDiagramID": "",
         "key": "InsertRecord",
         "objectID": "4a43ff1d-bbee-4d14-a4b4-a82c57c55b78",
         "fieldValues": {
@@ -10209,7 +10431,7 @@
         "repeatColumn": ""
       },
       "createdAt": "2021-12-07T06:26:38.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
     },
     {
       "id": "b46cbb3f-fa1a-4149-8352-6ad25e886e31",
@@ -10265,7 +10487,7 @@
         "repeatColumn": ""
       },
       "createdAt": "2021-12-07T06:33:57.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
     },
     {
       "id": "e25e587d-bd03-4165-b27b-f65d1d0a384f",
@@ -10321,7 +10543,7 @@
         "repeatColumn": ""
       },
       "createdAt": "2021-12-07T07:54:46.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
     },
     {
       "id": "40aeb81c-e80f-4c38-9534-bb496b85aafa",
@@ -10339,11 +10561,11 @@
         "type": "process.task.end",
         "processID": "",
         "diagramID": "EndEvent_1szs4lf",
-        "laneDiagramID": "?laneID?",
+        "laneDiagramID": "",
         "key": "End"
       },
       "createdAt": "2021-12-07T08:03:11.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
     },
     {
       "id": "a994dccd-9f27-4684-b0b5-6ade2b6ef4ab",
@@ -10373,13 +10595,13 @@
             "set": "1",
             "value": "Charge"
           },
-          "a68a58a9-c178-4c69-a279-cf3eeaf76bad": {
-            "set": "4",
-            "value": "`Session - ${startData[\"Length Hours\"]} hours`"
-          },
           "bca053b6-bdae-4e00-ad4d-89f51397056e": {
             "set": "2",
             "value": "73bed43b-8d3b-4c70-aacb-4ec15ed238ad"
+          },
+          "a68a58a9-c178-4c69-a279-cf3eeaf76bad": {
+            "set": "4",
+            "value": "`Session - ${startData[\"Length Hours\"]} hours`"
           },
           "efee196c-ac82-4851-88dd-715fa60adcbf": {
             "set": "4",
@@ -10399,7 +10621,7 @@
         "repeatColumn": ""
       },
       "createdAt": "2021-12-07T08:20:19.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
     },
     {
       "id": "277fecb6-ef05-4ccb-90fa-19a4ebc301df",
@@ -10469,7 +10691,7 @@
         }
       },
       "createdAt": "2021-12-08T04:23:21.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
     },
     {
       "id": "626c5e88-b3f9-41e5-a6ce-3e6b95528dee",
@@ -10539,7 +10761,7 @@
         }
       },
       "createdAt": "2021-12-10T04:46:17.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
     },
     {
       "id": "e6f87845-2edb-49ba-be8a-5501a61d133f",
@@ -10557,7 +10779,7 @@
         "type": "process.gateway.exclusive",
         "processID": "",
         "diagramID": "ExclusiveGateway_1c1gquz",
-        "laneDiagramID": "?laneID?",
+        "laneDiagramID": "",
         "key": "GatewayExclusive",
         "conditions": {
           "SequenceFlow_18mzpir": {
@@ -10568,7 +10790,7 @@
                 {
                   "key": "505ed263-aca4-4bc2-a559-c60d3c5b98e5",
                   "rule": "equals",
-                  "value": "Incomplete"
+                  "value": "Process Finances"
                 }
               ]
             }
@@ -10581,7 +10803,7 @@
                 {
                   "key": "505ed263-aca4-4bc2-a559-c60d3c5b98e5",
                   "rule": "not_equal",
-                  "value": "Incomplete"
+                  "value": "Process Finances"
                 }
               ]
             }
@@ -10589,7 +10811,7 @@
         }
       },
       "createdAt": "2022-02-25T09:01:31.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
     },
     {
       "id": "a8bb82bc-0203-42f0-8d2b-16a3eda81019",
@@ -10611,7 +10833,68 @@
         "key": "End"
       },
       "createdAt": "2022-02-25T09:01:31.000Z",
-      "updatedAt": "2022-03-01T06:10:38.000Z"
+      "updatedAt": "2022-03-14T09:17:41.000Z"
+    },
+    {
+      "name": "Update Session Status",
+      "type": "process.task.service.query",
+      "json": {
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Update Session Status"
+          }
+        ],
+        "name": "Update Session Status",
+        "type": "process.task.service.query",
+        "processID": "",
+        "diagramID": "Task_0jv465a",
+        "laneDiagramID": "",
+        "key": "TaskServiceQuery",
+        "qlObj": {
+          "key": "object",
+          "params": {
+            "name": "d6b8ae02-92bc-474c-8309-8503ec025cbf"
+          },
+          "objectID": "d6b8ae02-92bc-474c-8309-8503ec025cbf",
+          "next": {
+            "key": "find",
+            "params": {
+              "cond": {
+                "glue": "and",
+                "rules": [
+                  {
+                    "key": "this_object",
+                    "value": "StartEvent_1.uuid",
+                    "rule": "context_equals"
+                  }
+                ]
+              }
+            },
+            "objectID": "d6b8ae02-92bc-474c-8309-8503ec025cbf",
+            "next": {
+              "key": "first",
+              "objectID": "d6b8ae02-92bc-474c-8309-8503ec025cbf",
+              "next": {
+                "key": "update",
+                "params": {
+                  "values": [
+                    {
+                      "fieldId": "505ed263-aca4-4bc2-a559-c60d3c5b98e5",
+                      "value": "Done"
+                    }
+                  ]
+                },
+                "objectID": "d6b8ae02-92bc-474c-8309-8503ec025cbf"
+              }
+            }
+          }
+        },
+        "id": "595ced9b-964d-4ea5-99a8-685210bea419"
+      },
+      "id": "595ced9b-964d-4ea5-99a8-685210bea419",
+      "createdAt": "2022-03-14T09:17:41.269Z",
+      "updatedAt": "2022-03-14T09:17:41.269Z"
     },
     {
       "id": "544d42eb-04e7-4b26-9a0a-80aef7a853c4",
@@ -12008,6 +12291,12 @@
           "dataviewID": "7295656b-6a2b-42cd-bc8e-e0d9f2890869",
           "gravity": [
             "1"
+          ],
+          "submitRules": [
+            {
+              "selectedAction": "ABViewRuleActionFormSubmitRuleClosePopup",
+              "queryRules": ""
+            }
           ]
         },
         "translations": [
@@ -12039,7 +12328,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-09-28T07:08:11.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-07T04:58:46.000Z"
     },
     {
       "id": "47b8d459-1f47-461c-9923-f8f2b207675d",
@@ -12071,7 +12360,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-09-28T07:15:42.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-07T04:58:45.000Z"
     },
     {
       "id": "fa41d75b-f622-4256-b1fc-99cff58b4646",
@@ -12103,7 +12392,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-09-28T07:15:42.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-07T04:58:46.000Z"
     },
     {
       "id": "a074c89f-65df-4bc7-aa49-83fe74d131a3",
@@ -12135,7 +12424,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-10-11T03:17:00.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-07T04:58:46.000Z"
     },
     {
       "id": "d096fa55-0ee4-43e0-9a86-4f0fa3fa6a5d",
@@ -12178,7 +12467,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-10-19T10:51:15.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-07T04:58:46.000Z"
     },
     {
       "id": "de651294-99cb-4bdb-abd2-72c9b2366d5e",
@@ -12209,7 +12498,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-10-19T10:51:16.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-07T04:58:46.000Z"
     },
     {
       "id": "9708d116-699b-4758-b99d-134832a7bca4",
@@ -12252,7 +12541,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-10-19T10:51:19.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-07T04:58:46.000Z"
     },
     {
       "id": "a09f6e1b-5653-4d05-b1d1-2b7ac56a3137",
@@ -12284,7 +12573,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-10-19T10:51:23.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-07T04:58:46.000Z"
     },
     {
       "id": "60959df6-e974-4186-b4a5-672fe33c11d8",
@@ -12320,7 +12609,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-10-19T10:51:45.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-07T04:58:46.000Z"
     },
     {
       "id": "99f2e76b-fe07-42bd-b536-2cd19a8b8d83",
@@ -12331,6 +12620,7 @@
         "type": "view",
         "key": "textbox",
         "icon": "i-cursor",
+        "name": "Edit.form.textbox",
         "settings": {
           "type": "single",
           "objectId": "86fee2de-2ea4-463d-8d13-f27f13fc17dc",
@@ -12351,7 +12641,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-02-06T06:44:40.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-07T04:58:46.000Z"
     },
     {
       "id": "daee570a-bbe2-4cdf-a782-ac0be2c87db9",
@@ -12362,6 +12652,7 @@
         "type": "view",
         "key": "textbox",
         "icon": "i-cursor",
+        "name": "Edit.form.textbox",
         "settings": {
           "type": "single",
           "objectId": "86fee2de-2ea4-463d-8d13-f27f13fc17dc",
@@ -12382,7 +12673,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-02-06T06:44:42.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-07T04:58:46.000Z"
     },
     {
       "id": "13a0d91c-4c63-4aae-a55b-bafa8faa3def",
@@ -12393,6 +12684,7 @@
         "type": "view",
         "key": "textbox",
         "icon": "i-cursor",
+        "name": "Edit.form.textbox",
         "settings": {
           "type": "single",
           "objectId": "86fee2de-2ea4-463d-8d13-f27f13fc17dc",
@@ -12413,7 +12705,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-02-06T06:44:45.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-07T04:58:46.000Z"
     },
     {
       "id": "d36629bd-6b53-472b-8c16-ffadcc70d5b5",
@@ -12446,7 +12738,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-09-28T07:15:42.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-07T04:58:46.000Z"
     },
     {
       "id": "8e7242f4-9337-4fe9-9d1e-a35b7f4d8fa5",
@@ -12475,7 +12767,7 @@
         "translations": [
           {
             "language_code": "en",
-            "label": "Add Provider"
+            "label": "Add Service"
           }
         ],
         "viewIDs": [
@@ -12494,7 +12786,7 @@
         ]
       },
       "createdAt": "2021-07-12T06:03:45.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-14T06:40:50.000Z"
     },
     {
       "id": "8b67f3ea-a407-4fb7-83e1-4e7a1655d8ce",
@@ -13730,6 +14022,7 @@
         "type": "view",
         "key": "connect",
         "icon": "list-ul",
+        "name": "Add Case.form.connect",
         "settings": {
           "objectId": "e0db025e-0063-4789-bc8d-cc8cc98997f7",
           "fieldId": "c3f0b36d-cf5e-4114-ac8f-60109e53d162",
@@ -13737,7 +14030,14 @@
             "filterConditions": {
               "glue": "and"
             }
-          }
+          },
+          "required": "0",
+          "disable": "0",
+          "popupWidth": "700",
+          "popupHeight": "450",
+          "filterConnectedValue": "",
+          "formView": "none",
+          "editForm": "none"
         },
         "translations": [
           {
@@ -13754,7 +14054,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-12-10T04:30:22.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-08T08:28:55.000Z"
     },
     {
       "id": "ce2149bc-d794-43c7-9dd3-0f54310e4be2",
@@ -13859,7 +14159,7 @@
         "translations": [
           {
             "language_code": "en",
-            "label": "Add Session"
+            "label": "Add Session_DEPRECIATED"
           }
         ],
         "viewIDs": [
@@ -13873,7 +14173,7 @@
         "myAppID": "05cde3ed-fd38-4e4c-b9a6-dfba9c979bdf"
       },
       "createdAt": "2021-07-12T07:33:29.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-01T07:04:59.000Z"
     },
     {
       "id": "b5bd5970-d87a-47b4-b06a-d0c0f3dfaf7f",
@@ -17772,7 +18072,7 @@
           "movable": "true",
           "labelPosition": "left",
           "showLabel": "1",
-          "clearOnLoad": "0",
+          "clearOnLoad": "1",
           "clearOnSave": "0",
           "labelWidth": "153",
           "height": "200",
@@ -17802,6 +18102,15 @@
                       "type": "connectObject",
                       "selectBy": "select-one",
                       "valueType": "exist"
+                    },
+                    {
+                      "fieldID": "fe290ad1-d175-45c4-901f-2aabe3e69ea3",
+                      "value": "4cc23f93-9e39-4274-bea2-7e24a6ecf8b4",
+                      "queryField": "",
+                      "op": "set",
+                      "type": "connectObject",
+                      "selectBy": "select-one",
+                      "valueType": "exist"
                     }
                   ]
                 },
@@ -17826,9 +18135,7 @@
           "b729188e-a171-4e43-b523-b952d80d52a2",
           "fb4661fe-92d8-4b7b-a095-023f6c7c0469",
           "913f0ead-43ce-4ad5-ab7a-6af7a965238d",
-          "9bc68001-1318-4f48-9613-c389b450811f",
           "d32f7d58-6b58-4287-a535-5c78c94f4a52",
-          "10f9b2b5-08a1-4cff-8022-dcf0c763dd94",
           "8a1bd7ee-8d41-4713-91e6-3d5c51f6bf05"
         ],
         "position": {
@@ -17840,7 +18147,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-01-07T07:53:12.000Z",
-      "updatedAt": "2022-02-15T08:29:04.000Z"
+      "updatedAt": "2022-03-07T04:55:29.000Z"
     },
     {
       "id": "b729188e-a171-4e43-b523-b952d80d52a2",
@@ -17903,7 +18210,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-01-07T07:53:35.000Z",
-      "updatedAt": "2022-02-15T08:29:04.000Z"
+      "updatedAt": "2022-03-07T04:55:29.000Z"
     },
     {
       "id": "fb4661fe-92d8-4b7b-a095-023f6c7c0469",
@@ -17956,7 +18263,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-01-07T07:53:35.000Z",
-      "updatedAt": "2022-02-15T08:29:04.000Z"
+      "updatedAt": "2022-03-07T04:55:29.000Z"
     },
     {
       "id": "913f0ead-43ce-4ad5-ab7a-6af7a965238d",
@@ -17973,9 +18280,23 @@
           "fieldId": "c3f0b36d-cf5e-4114-ac8f-60109e53d162",
           "objectWorkspace": {
             "filterConditions": {
-              "glue": "and"
+              "glue": "and",
+              "rules": [
+                {
+                  "key": "this_object",
+                  "rule": "in_data_collection",
+                  "value": "1ca6255a-457b-446c-84ba-3fa7851a6d5c"
+                }
+              ]
             }
-          }
+          },
+          "required": "0",
+          "disable": "0",
+          "popupWidth": "700",
+          "popupHeight": "450",
+          "filterConnectedValue": "",
+          "formView": "none",
+          "editForm": "none"
         },
         "translations": [
           {
@@ -17992,39 +18313,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-01-07T07:53:35.000Z",
-      "updatedAt": "2022-02-15T08:29:04.000Z"
-    },
-    {
-      "id": "9bc68001-1318-4f48-9613-c389b450811f",
-      "name": "Add Case.form.numberbox",
-      "type": "view",
-      "json": {
-        "id": "9bc68001-1318-4f48-9613-c389b450811f",
-        "type": "view",
-        "key": "numberbox",
-        "icon": "hashtag",
-        "name": "Add Case.form.numberbox",
-        "settings": {
-          "objectId": "e0db025e-0063-4789-bc8d-cc8cc98997f7",
-          "fieldId": "4ebf1b77-0d11-427d-8f86-c58e8d95aa26",
-          "isStepper": "0"
-        },
-        "translations": [
-          {
-            "language_code": "en",
-            "label": "Add Case.form.numberbox"
-          }
-        ],
-        "position": {
-          "dx": "1",
-          "dy": "1",
-          "y": "5",
-          "x": "0"
-        },
-        "isRoot": "false"
-      },
-      "createdAt": "2022-01-07T07:53:35.000Z",
-      "updatedAt": "2022-02-15T08:29:04.000Z"
+      "updatedAt": "2022-03-08T08:38:42.000Z"
     },
     {
       "id": "d32f7d58-6b58-4287-a535-5c78c94f4a52",
@@ -18060,43 +18349,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-01-07T07:53:35.000Z",
-      "updatedAt": "2022-02-15T08:29:04.000Z"
-    },
-    {
-      "id": "10f9b2b5-08a1-4cff-8022-dcf0c763dd94",
-      "name": "Add Case.form.connect",
-      "type": "view",
-      "json": {
-        "id": "10f9b2b5-08a1-4cff-8022-dcf0c763dd94",
-        "type": "view",
-        "key": "connect",
-        "icon": "list-ul",
-        "name": "Add Case.form.connect",
-        "settings": {
-          "objectId": "e0db025e-0063-4789-bc8d-cc8cc98997f7",
-          "fieldId": "fe290ad1-d175-45c4-901f-2aabe3e69ea3",
-          "objectWorkspace": {
-            "filterConditions": {
-              "glue": "and"
-            }
-          }
-        },
-        "translations": [
-          {
-            "language_code": "en",
-            "label": "Add Case.form.connect"
-          }
-        ],
-        "position": {
-          "dx": "1",
-          "dy": "1",
-          "y": "4",
-          "x": "0"
-        },
-        "isRoot": "false"
-      },
-      "createdAt": "2022-01-07T07:53:35.000Z",
-      "updatedAt": "2022-02-15T08:29:04.000Z"
+      "updatedAt": "2022-03-07T04:55:29.000Z"
     },
     {
       "id": "8a1bd7ee-8d41-4713-91e6-3d5c51f6bf05",
@@ -18123,13 +18376,13 @@
         "position": {
           "dx": "1",
           "dy": "1",
-          "y": "6",
+          "y": "4",
           "x": "0"
         },
         "isRoot": "false"
       },
       "createdAt": "2022-01-07T07:53:35.000Z",
-      "updatedAt": "2022-02-15T08:29:04.000Z"
+      "updatedAt": "2022-03-07T04:55:29.000Z"
     },
     {
       "id": "f8e9bc5e-5f3a-495f-9b27-e7b8aa597203",
@@ -18539,10 +18792,15 @@
               "Topics",
               "Topics More Info",
               "Medical Issues",
-              "Prescription Medication",
               "Concerns meeting together",
+              "Prescription Medication",
               "Concern Details",
-              "Cross Cultural Relationship"
+              "Cross Cultural Relationship",
+              "Bill To Client",
+              "Availability_lt",
+              "Topics_lt",
+              "Topics More Info_lt",
+              "Concern Details_lt"
             ]
           },
           "height": "0",
@@ -18563,7 +18821,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-11-04T10:29:52.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-01T07:00:18.000Z"
     },
     {
       "id": "9ce60a45-a4de-4fb9-8549-862fa35bcc0c",
@@ -19163,6 +19421,7 @@
       "updatedAt": "2022-02-28T09:05:11.000Z"
     },
     {
+      "id": "f14500ca-1b53-43d3-956c-542196344d4d",
       "name": "Intake Detail.detail.detailconnect",
       "type": "view",
       "json": {
@@ -19191,9 +19450,8 @@
         "isRoot": "false",
         "id": "f14500ca-1b53-43d3-956c-542196344d4d"
       },
-      "id": "f14500ca-1b53-43d3-956c-542196344d4d",
-      "createdAt": "2022-02-28T09:27:30.041Z",
-      "updatedAt": "2022-02-28T09:27:30.041Z"
+      "createdAt": "2022-02-28T09:27:30.000Z",
+      "updatedAt": "2022-02-28T09:27:30.000Z"
     },
     {
       "id": "296cb436-42ac-44ce-86ea-2b0d62d956ca",
@@ -19471,8 +19729,7 @@
           "b4865d69-a034-4a2e-bda9-d2f8af2a799e",
           "1bc9ca8c-9c33-4c54-b475-b05841de8ac2",
           "0052772f-5349-41d4-a8af-bf74da13bc21",
-          "f73a848d-0d96-4640-baf1-b9da408f085e",
-          "4d16818d-1f13-4614-a870-9a980ae7f46c"
+          "f73a848d-0d96-4640-baf1-b9da408f085e"
         ],
         "position": {
           "dx": "1",
@@ -19481,7 +19738,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-11-18T06:33:27.000Z",
-      "updatedAt": "2022-03-01T05:05:59.000Z"
+      "updatedAt": "2022-03-01T07:15:33.000Z"
     },
     {
       "id": "fd35de72-8b30-410d-896b-340a74f0601c",
@@ -19657,41 +19914,13 @@
         "position": {
           "dx": "1",
           "dy": "1",
-          "y": "5",
+          "y": "4",
           "x": "0"
         },
         "isRoot": "false"
       },
       "createdAt": "2021-11-18T06:33:57.000Z",
-      "updatedAt": "2022-03-01T05:05:59.000Z"
-    },
-    {
-      "name": "Confirm People Present.form.fieldreadonly",
-      "type": "view",
-      "json": {
-        "type": "view",
-        "key": "fieldreadonly",
-        "icon": "calculator",
-        "settings": {
-          "objectId": "d6b8ae02-92bc-474c-8309-8503ec025cbf",
-          "fieldId": "a7d62a57-1f88-44c0-b96d-31fbb1d4f539"
-        },
-        "translations": [
-          {
-            "language_code": "en",
-            "label": "Confirm People Present.form.fieldreadonly"
-          }
-        ],
-        "position": {
-          "dx": "1",
-          "dy": "1"
-        },
-        "isRoot": "false",
-        "id": "4d16818d-1f13-4614-a870-9a980ae7f46c"
-      },
-      "id": "4d16818d-1f13-4614-a870-9a980ae7f46c",
-      "createdAt": "2022-03-01T05:05:59.498Z",
-      "updatedAt": "2022-03-01T05:05:59.498Z"
+      "updatedAt": "2022-03-01T07:15:34.000Z"
     },
     {
       "id": "5a5c92ce-1f06-465c-9fe5-8477db393a40",
@@ -19798,9 +20027,8 @@
           "ac6eb6ad-a859-417c-8cd1-a07e586b3401",
           "a46c8689-321c-46f6-9e64-56ed74c9ba60",
           "7426ddf7-358a-4d42-9ebc-c885b82be837",
-          "fb723aba-992c-4b4e-8444-cce46a5a08b3",
           "a38dba84-a4e0-4152-b590-0d0b346a3e15",
-          "ea87b6f6-6b9b-4cce-8c17-c6c65089a8aa"
+          "fb723aba-992c-4b4e-8444-cce46a5a08b3"
         ],
         "position": {
           "dx": "1",
@@ -19811,7 +20039,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-11-08T09:47:13.000Z",
-      "updatedAt": "2022-03-01T05:05:50.000Z"
+      "updatedAt": "2022-03-01T07:15:05.000Z"
     },
     {
       "id": "8647e6f0-a795-4746-9870-754416285112",
@@ -19857,7 +20085,9 @@
         "settings": {
           "objectId": "d6b8ae02-92bc-474c-8309-8503ec025cbf",
           "fieldId": "e1ea09ec-cd12-4b70-9846-970ddc906229",
-          "isStepper": "0"
+          "isStepper": "0",
+          "required": "0",
+          "disable": "0"
         },
         "translations": [
           {
@@ -19874,7 +20104,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-11-08T09:47:24.000Z",
-      "updatedAt": "2022-02-25T09:03:19.000Z"
+      "updatedAt": "2022-03-07T03:30:53.000Z"
     },
     {
       "id": "ac6eb6ad-a859-417c-8cd1-a07e586b3401",
@@ -20009,50 +20239,6 @@
       "updatedAt": "2022-02-25T09:03:19.000Z"
     },
     {
-      "id": "fb723aba-992c-4b4e-8444-cce46a5a08b3",
-      "name": "Add Session.form.button",
-      "type": "view",
-      "json": {
-        "id": "fb723aba-992c-4b4e-8444-cce46a5a08b3",
-        "type": "view",
-        "key": "button",
-        "icon": "square",
-        "name": "Add Session.form.button",
-        "settings": {
-          "includeSave": "1",
-          "includeCancel": "false",
-          "includeReset": "false",
-          "isDefault": "true",
-          "translations": [
-            {
-              "language_code": "en",
-              "saveLabel": "Next"
-            }
-          ],
-          "saveLabel": "Next",
-          "cancelLabel": "",
-          "resetLabel": "",
-          "afterCancel": "",
-          "alignment": "right"
-        },
-        "translations": [
-          {
-            "language_code": "en",
-            "label": "Add Session.form.button"
-          }
-        ],
-        "position": {
-          "dx": "1",
-          "dy": "1",
-          "y": "7",
-          "x": "0"
-        },
-        "isRoot": "false"
-      },
-      "createdAt": "2021-11-08T09:47:24.000Z",
-      "updatedAt": "2022-03-01T05:05:50.000Z"
-    },
-    {
       "id": "a38dba84-a4e0-4152-b590-0d0b346a3e15",
       "name": "Add Session.form.selectsingle",
       "type": "view",
@@ -20101,32 +20287,48 @@
       "updatedAt": "2022-02-25T09:03:19.000Z"
     },
     {
-      "name": "Add Session.form.fieldreadonly",
+      "id": "fb723aba-992c-4b4e-8444-cce46a5a08b3",
+      "name": "Add Session.form.button",
       "type": "view",
       "json": {
+        "id": "fb723aba-992c-4b4e-8444-cce46a5a08b3",
         "type": "view",
-        "key": "fieldreadonly",
-        "icon": "calculator",
+        "key": "button",
+        "icon": "square",
+        "name": "Add Session.form.button",
         "settings": {
-          "objectId": "d6b8ae02-92bc-474c-8309-8503ec025cbf",
-          "fieldId": "a7d62a57-1f88-44c0-b96d-31fbb1d4f539"
+          "includeSave": "1",
+          "includeCancel": "false",
+          "includeReset": "false",
+          "isDefault": "true",
+          "translations": [
+            {
+              "language_code": "en",
+              "saveLabel": "Next"
+            }
+          ],
+          "saveLabel": "Next",
+          "cancelLabel": "",
+          "resetLabel": "",
+          "afterCancel": "",
+          "alignment": "right"
         },
         "translations": [
           {
             "language_code": "en",
-            "label": "Add Session.form.fieldreadonly"
+            "label": "Add Session.form.button"
           }
         ],
         "position": {
           "dx": "1",
-          "dy": "1"
+          "dy": "1",
+          "y": "6",
+          "x": "0"
         },
-        "isRoot": "false",
-        "id": "ea87b6f6-6b9b-4cce-8c17-c6c65089a8aa"
+        "isRoot": "false"
       },
-      "id": "ea87b6f6-6b9b-4cce-8c17-c6c65089a8aa",
-      "createdAt": "2022-03-01T05:05:50.422Z",
-      "updatedAt": "2022-03-01T05:05:50.422Z"
+      "createdAt": "2021-11-08T09:47:24.000Z",
+      "updatedAt": "2022-03-01T07:15:05.000Z"
     },
     {
       "id": "d9f04f35-a025-4655-916c-6159d3a74d04",
@@ -20884,13 +21086,13 @@
               "position": "0",
               "icon": "arrow-left",
               "type": "tab",
-              "tabId": "21a242db-3f48-41aa-827e-075936af7acb",
+              "tabId": "1fea5a32-def5-4f1a-b10d-8f885b3e602f",
               "pageId": "b9c0bfa7-7a3b-49fc-af28-3bf75b121030",
               "isChecked": "true",
               "translations": [
                 {
                   "language_code": "en",
-                  "label": "Cases",
+                  "label": "Services",
                   "aliasname": "Services"
                 }
               ]
@@ -20913,7 +21115,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-02-03T06:27:34.000Z",
-      "updatedAt": "2022-02-23T04:08:07.000Z"
+      "updatedAt": "2022-03-07T07:20:28.000Z"
     },
     {
       "id": "f6a523b2-025b-4e98-bcf8-8560139cf70e",
@@ -20988,10 +21190,15 @@
               "Topics",
               "Topics More Info",
               "Medical Issues",
-              "Prescription Medication",
               "Concerns meeting together",
+              "Prescription Medication",
               "Concern Details",
-              "Cross Cultural Relationship"
+              "Cross Cultural Relationship",
+              "Bill To Client",
+              "Availability_lt",
+              "Topics_lt",
+              "Topics More Info_lt",
+              "Concern Details_lt"
             ]
           },
           "height": "150",
@@ -21010,7 +21217,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-02-03T06:28:54.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-01T07:00:49.000Z"
     },
     {
       "id": "c411f8ac-2e63-41c3-b62a-15a40b729092",
@@ -24465,10 +24672,15 @@
               "Topics",
               "Topics More Info",
               "Medical Issues",
-              "Prescription Medication",
               "Concerns meeting together",
+              "Prescription Medication",
               "Concern Details",
-              "Cross Cultural Relationship"
+              "Cross Cultural Relationship",
+              "Bill To Client",
+              "Availability_lt",
+              "Topics_lt",
+              "Topics More Info_lt",
+              "Concern Details_lt"
             ]
           },
           "height": 0,
@@ -24489,7 +24701,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-10-19T11:17:35.000Z",
-      "updatedAt": "2022-02-07T03:30:16.000Z"
+      "updatedAt": "2022-03-01T06:59:47.000Z"
     },
     {
       "id": "1fea5a32-def5-4f1a-b10d-8f885b3e602f",
@@ -27841,13 +28053,16 @@
           "dfdad6e5-2459-4a49-8485-98b222939a0e",
           "eb63ab21-81bb-492a-b1c3-f50124db7ca1",
           "18e61086-6801-4fcf-90e6-6f1f651720d6",
-          "2b997c12-ccf1-488b-8b39-9b547876c8fa",
-          "7e79364d-17a5-4daf-a2e3-d317972bed1e",
-          "2117ee6c-f713-400c-80d8-83e11a2e9b8e",
-          "72eb5fc1-a7b8-4837-9df1-3e48c14b4bfe",
-          "01ec414f-84b3-44aa-81c9-0594035df747",
-          "c51249ce-50b7-4255-83d3-10a15e4ec316",
-          "4caa8e0d-73d7-47ec-aa30-a9b1f27809ca"
+          "121a8928-2adc-4094-b5ed-2e85bb2713b4",
+          "d01d7edd-271e-4056-a8de-527c1187de8d",
+          "6235f59c-6fc6-4271-86bb-74ecd90e71ae",
+          "1394af91-f91a-4cb0-930a-8c94e8aa8859",
+          "c69d41e9-a33d-4b04-970b-892fc96883e6",
+          "e05773cb-382a-42ab-b41e-6dea1187930d",
+          "c96fd5fc-251e-4564-8008-28f69da213da",
+          "01518cb7-90e4-4a79-97a7-a43633471df0",
+          "6b2091d3-7d36-452d-ad9b-63aac463d63a",
+          "afb575c3-90d9-4f2f-8c3a-b1c1d474d75e"
         ],
         "indexIDs": [
           "26b455fa-8b80-404b-bf8f-b3d02d90a05b"
@@ -31357,7 +31572,6 @@
           "frozenColumnID": "",
           "hiddenFields": [
             "Last Name",
-            "No",
             "Nickname",
             "Gender",
             "Religion",
@@ -31392,7 +31606,6 @@
             "Child Documents2",
             "Fingerprintss",
             "Family Members931",
-            "Current Age",
             "Education Info",
             "Psych Tests993",
             "Psych Check447",
@@ -31497,7 +31710,7 @@
         }
       },
       "createdAt": "2020-10-07T03:02:06.000Z",
-      "updatedAt": "2022-02-25T05:33:27.000Z"
+      "updatedAt": "2022-03-11T06:02:03.000Z"
     },
     {
       "id": "be5d06ef-1175-41c7-b284-494e731a5950",
@@ -82969,7 +83182,7 @@
       "updatedAt": "2022-02-25T05:33:27.000Z"
     },
     {
-      "id": "4caa8e0d-73d7-47ec-aa30-a9b1f27809ca",
+      "id": "afb575c3-90d9-4f2f-8c3a-b1c1d474d75e",
       "type": "field",
       "name": "USER->Well-Provider.User",
       "json": {
@@ -82997,7 +83210,7 @@
             "label": "Well-Provider.User"
           }
         ],
-        "id": "4caa8e0d-73d7-47ec-aa30-a9b1f27809ca"
+        "id": "afb575c3-90d9-4f2f-8c3a-b1c1d474d75e"
       },
       "createdAt": "2021-11-16T08:23:21.000Z",
       "updatedAt": "2022-02-07T03:30:13.000Z"

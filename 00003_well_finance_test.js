@@ -54,6 +54,14 @@ describe("Services", () => {
       cy.get('[data-cy="button save 2dca1324-8317-4593-9c22-21d237bf7624"]')
          .should("exist")
          .click();
+      // Reload - Is this what we want?
+      cy.reload();
+      cy.get(
+         '[data-cy="tab-Services-1fea5a32-def5-4f1a-b10d-8f885b3e602f-c1d91228-74f5-4497-b12b-6c84c59ed26c"]'
+      )
+         .should("be.visible")
+         .click();
+      // Reload
       cy.get(
          '[data-cy="tab Charges ed59c5c7-e251-4d05-a023-71db7cefe02b 7e20b83f-dfdc-4afd-8bdf-fba264fd7bdc"]'
       )
@@ -63,6 +71,7 @@ describe("Services", () => {
          '[data-cy="ABViewGrid_26fdbb4e-32b9-4d2e-9f77-d5308fa05ad7_datatable"]'
       )
          .should("exist")
-         .contains("1600");
+         .and("contain", "1600")
+         .and("not.contain", "3000");
    });
 });

@@ -2,41 +2,64 @@
  * Google Apps Script for integrating Well Intake form with AB App
  * Should be installed as script bound to the responses spreadsheet
  */
-// Configuration
-const RESPONSE_SHEET = "Form Responses 1";
-const KEYS_SHEET = "Keys";
-const LOG_SHEET = "Log";
-const RENAME_SHEET = "Rename";
+
+//Configuration
+const RESPONSE_SHEET = "";
+const KEYS_SHEET = "";
+const LOG_SHEET = "";
+const RENAME_SHEET = "";
 const AB_AUTH_TOKEN = "";
 const BASE_URL = "";
 const ss = SpreadsheetApp.getActiveSpreadsheet();
+
 const USER = {
-  tenant: '',
-  email: '',
-  password: '',
+   tenant: "",
+   email: "",
+   password: ""
 };
+
+const application = {
+   id: "05cde3ed-fd38-4e4c-b9a6-dfba9c979bdf",
+   objects: {
+      Clients: "86fee2de-2ea4-463d-8d13-f27f13fc17dc",
+      Intake: "ee4a5b53-e05b-4a8e-ad95-f18327c0590b",
+      Group: "83eea47f-01c2-426f-b03a-81f918190c10",
+      BillingAccount: "7ecd7257-1023-4917-bc3f-88061293cf30"
+   }
+};
+
 /**
  * Run once to install the trigger so that the new responses will be processed.
  * @function installtrigger
  */
-function intallTrigger() {
-  ScriptApp.newTrigger("onIntakeReceived")
-    .forSpreadsheet(ss)
-    .onFormSubmit()
-    .create();
-  logResults("Trigger Installed");
-}
+// function intallTrigger() {
+//   const triggers = ScriptApp.getProjectTriggers();
+//   Logger.log(triggers);
+//   if (triggers.length > 0) {
+//     logResults('Trigger already installed');
+//   } else {
+//     ScriptApp.newTrigger('onIntakeReceived')
+//         .forSpreadsheet(ss)
+//         .onFormSubmit()
+//         .create();
+//     logResults('Trigger Installed');
+//   }
+// }
 
 /**
  * Tests the onIntakeRecieved function with the first respose
  * @function test_onIntakeRecieved
  */
 function test_onIntakeRecieved() {
-  const response = ss
-    .getSheetByName(RESPONSE_SHEET)
-    .getDataRange()
-    .getValues()[1]; // datatestinput
-  onIntakeReceived({ values: response });
+   // for (let i = 11; i < 21; i++){
+   //   const response = ss.getSheetByName(RESPONSE_SHEET).getDataRange().getValues()[i]; // datatestinput
+   //   onIntakeReceived({values: response});
+   // }
+   const response = ss
+      .getSheetByName(RESPONSE_SHEET)
+      .getDataRange()
+      .getValues()[20]; // datatestinput
+   onIntakeReceived({ values: response });
 }
 
 /**
@@ -44,36 +67,35 @@ function test_onIntakeRecieved() {
  * @function onIntakeReceived
  */
 function onIntakeReceived({ values }) {
-  try {
-    logResults("Response received", values);
-    // Load and prepare data for processing
-    const keyData = ss
-      .getSheetByName(KEYS_SHEET)
-      .getRange(2, 2, values.length, 1)
-      .getValues();
-    const keys = transpose(keyData)[0];
+   try {
+      logResults("Response received", values);
+      // Load and prepare data for processing
+      const keyData = ss
+         .getSheetByName(KEYS_SHEET)
+         .getRange(2, 2, values.length, 1)
+         .getValues();
+      const keys = transpose(keyData)[0];
 
-    const rename = {};
-    const renameData = ss
-      .getSheetByName(RENAME_SHEET)
-      .getDataRange()
-      .getValues();
-    renameData.shift();
-    renameData.forEach((row) => {
-      if (!rename.hasOwnProperty([row[0]])) {
-        rename[row[0]] = {};
-      }
-      rename[row[0]][row[1]] = row[2];
-    });
-
-    // Process Intake
-    let intake = parseResponse(values, keys);
-    intake = processClients(intake);
-    intake = renameResponses(intake, rename);
-    AppbuilderAPIPostRequest(intake);
-  } catch (error) {
-    logResults("Error", error.message);
-  }
+      const rename = {};
+      const renameData = ss
+         .getSheetByName(RENAME_SHEET)
+         .getDataRange()
+         .getValues();
+      renameData.shift();
+      renameData.forEach((row) => {
+         if (!rename.hasOwnProperty([row[0]])) {
+            rename[row[0]] = {};
+         }
+         rename[row[0]][row[1]] = row[2];
+      });
+      // Process Intake
+      let intake = parseResponse(values, keys);
+      intake = processClients(intake);
+      intake = renameResponses(intake, rename);
+      AppbuilderAPIPostRequest(intake);
+   } catch (error) {
+      logResults("Error", error.message);
+   }
 }
 
 /**
@@ -84,19 +106,19 @@ function onIntakeReceived({ values }) {
  * @return {Object} intake object
  */
 function parseResponse(response, keys) {
-  let intake = {};
-  response.forEach((column, i) => {
-    if (column === "") return;
-    const key = keys[i];
-    intake[key] = intake.hasOwnProperty(key) ? intake[key] : column;
-  });
+   let intake = {};
+   response.forEach((column, i) => {
+      if (column === "") return;
+      const key = keys[i];
+      intake[key] = intake.hasOwnProperty(key) ? intake[key] : column;
+   });
 
-  // If missing emergency contact combine name and relationship (for Individual - Someone Else)
-  if (!intake.hasOwnProperty("emergencyContact")) {
-    intake.emergencyContact = `${intake.emergencyFirstName} ${intake.emergencyLastName} (${intake.emergencyRelation})`;
-  }
+   // If missing emergency contact combine name and relationship (for Individual - Someone Else)
+   if (!intake.hasOwnProperty("emergencyContact")) {
+      intake.emergencyContact = `${intake.emergencyFirstName} ${intake.emergencyLastName} (${intake.emergencyRelation})`;
+   }
 
-  return intake;
+   return intake;
 }
 
 /**
@@ -106,32 +128,32 @@ function parseResponse(response, keys) {
  * @returns {object} intake with intake.clients array
  */
 function processClients(intake) {
-  const clients = [
-    {
-      firstName: intake.firstName,
-      lastName: intake.lastName,
-      dob: intake.dob,
-      gender: intake.gender,
-      email: intake.email,
-    },
-  ];
-  for (let i = 2; i <= 8; i++) {
-    if (
-      intake.hasOwnProperty(`${i}_dob`) ||
-      intake.hasOwnProperty(`${i}_firstName`)
-    ) {
-      const client = {
-        firstName: intake[`${i}_firstName`] ?? "",
-        lastName: intake[`${i}_lastName`] ?? intake.lastName,
-        dob: intake[`${i}_dob`] ?? "",
-        gender: intake[`${i}_gender`] ?? "",
-        email: intake[`${i}_email`] ?? intake.email,
-      };
-      clients.push(client);
-    }
-  }
-  intake.clients = clients;
-  return intake;
+   const clients = [
+      {
+         firstName: intake.firstName,
+         lastName: intake.lastName,
+         dob: intake.dob,
+         gender: intake.gender,
+         email: intake.email
+      }
+   ];
+   for (let i = 2; i <= 8; i++) {
+      if (
+         intake.hasOwnProperty(`${i}_dob`) ||
+         intake.hasOwnProperty(`${i}_firstName`)
+      ) {
+         const client = {
+            firstName: intake[`${i}_firstName`] ?? "",
+            lastName: intake[`${i}_lastName`] ?? intake.lastName,
+            dob: intake[`${i}_dob`] ?? "",
+            gender: intake[`${i}_gender`] ?? "",
+            email: intake[`${i}_email`] ?? intake.email
+         };
+         clients.push(client);
+      }
+   }
+   intake.clients = clients;
+   return intake;
 }
 
 /**
@@ -143,16 +165,16 @@ function processClients(intake) {
  * @returns {object} intake
  */
 function renameResponses(intake, rename) {
-  for (const field in rename) {
-    const value = intake[field];
-    for (const key in rename[field]) {
-      if (value === key) {
-        intake[field] = rename[field][key];
-        break;
+   for (const field in rename) {
+      const value = intake[field];
+      for (const key in rename[field]) {
+         if (value === key) {
+            intake[field] = rename[field][key];
+            break;
+         }
       }
-    }
-  }
-  return intake;
+   }
+   return intake;
 }
 
 /**
@@ -162,10 +184,13 @@ function renameResponses(intake, rename) {
  * @data {*} data to log, will be stringified
  */
 function logResults(message, data) {
-  ss.getSheetByName(LOG_SHEET)
-    .getRange(2, 1, 1, 3)
-    .insertCells(SpreadsheetApp.Dimension.ROWS)
-    .setValues([[new Date(), message, JSON.stringify(data)]]);
+   ss.getSheetByName(LOG_SHEET)
+      .getRange(2, 1, 1, 3)
+      .insertCells(SpreadsheetApp.Dimension.ROWS)
+      .setValues([[new Date(), message, JSON.stringify(data)]]);
+   if (message.includes("Error")) {
+      sendMattermostMessage(message, data);
+   }
 }
 
 /**
@@ -175,284 +200,292 @@ function logResults(message, data) {
  * @returns {Array[]} transposed matrix
  */
 function transpose(matrix) {
-  return matrix[0].map((col, i) => matrix.map((row) => row[i]));
+   return matrix[0].map((col, i) => matrix.map((row) => row[i]));
 }
 
+function getABCookie() {
+   const res = UrlFetchApp.fetch(`${BASE_URL}/auth/login`, {
+      method: "post",
+      contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+      payload: {
+         tenant: USER.tenant,
+         email: USER.email,
+         password: USER.password
+      }
+   });
+   return res.getHeaders()["Set-Cookie"];
+}
+
+function abRequest(pathParameters, method, cookie, payload) {
+   const headers = { Cookie: cookie };
+   const api = {
+      get: {
+         method: "get",
+         headers
+      },
+      post: {
+         method: "post",
+         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+         // "contentType": "application/json",
+         headers
+      },
+      put: {
+         method: "put",
+         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+         headers
+      },
+      delete: {
+         method: "delete",
+         headers
+      }
+   };
+
+   // Lookup object name based path parameter (for logs)
+   let objectName = "";
+   const objectId = pathParameters.split("/")[0];
+
+   for (const key in application.objects) {
+      if (application.objects[key] === objectId) {
+         objectName = key;
+      }
+   }
+
+   // perpare params
+   const params = api[method];
+   if (payload) {
+      params.payload = payload;
+   }
+
+   // make request
+   let result = null;
+   try {
+      const res = JSON.parse(
+         UrlFetchApp.fetch(
+            `${BASE_URL}/app_builder/model/${pathParameters}`,
+            params
+         )
+      );
+      logResults(`Success: [${method.toUpperCase()}] ${objectName}`, res);
+      result = res.data;
+   } catch (err) {
+      logResults(`Error: [${method.toUpperCase()}] ${objectName}`, err.message);
+
+      result = err;
+   }
+   return result;
+}
+
+function test_getExisitingData() {
+   const cookie = getABCookie();
+   const data = getExisitingData(cookie);
+   Logger.log(data);
+}
+function getExisitingData(cookie) {
+   return {
+      // "Clients": abRequest(application.objects.Clients, "get", cookie),
+      Group: abRequest(application.objects.Group, "get", cookie)
+   };
+}
 /**
  * Send intake data to AppBuilder
  * @function AppBuilderApiPostRequest
  * @param {Object} intake the intake data
  * @param {Object[]} intake.clients array of clients
  */
-const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
-  const data = {
-    "Clients": [],
-    "Intake": {
-      "Timestamp": intake.timestamp,
-      "Provider Request": intake.provider,
-      "Additional Services": intake.services,
-      "Feedback": intake.feedback,
-      "Clients__relation": [],
-      "Service": intake.service,
-      "Location": intake.location,
-    },
-  };
-  // set Request api of AppBuilder V2
-  const cookie = (() => {
-    const res = UrlFetchApp.fetch(`${BASE_URL}/auth/login`, {
-      "method": "post",
-      "contentType": "application/x-www-form-urlencoded; charset=UTF-8",
-      "payload": {
-        tenant: USER.tenant,
-        email: USER.email,
-        password: USER.password
-      }
-    });
-    return res.getHeaders()["Set-Cookie"];
-  })();
 
-  const api = {
-    get: {
-      "method": "get",
-      "headers": {
-        "Cookie": cookie
-      }
-    },
-    post: {
-      "method": "post",
-      "contentType": "application/x-www-form-urlencoded; charset=UTF-8",
-      // "contentType": "application/json",
-      "headers": {
-        "Cookie": cookie
+const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
+   // Prepare data to update in AB
+   const data = {
+      Clients: [],
+      Intake: {
+         Timestamp: intake.timestamp,
+         "Provider Request": intake.provider,
+         "Additional Services": intake.services,
+         Feedback: intake.feedback,
+         Clients__relation: [],
+         Service: intake.service,
+         Location: intake.location
       },
-    },
-    put: {
-      "method": "put",
-      "contentType": "application/x-www-form-urlencoded; charset=UTF-8",
-      "headers": {
-        "Cookie": cookie
-      },
-    },
-    delete: {
-      "method": "delete",
-      "headers": {
-        "Cookie": cookie
-      },
-    }
-  }
+      BillingAccount: {}
+   };
+   // set Request api of AppBuilder V2
+   const cookie = getABCookie();
 
-  const application = {
-    id: "05cde3ed-fd38-4e4c-b9a6-dfba9c979bdf",
-    objects: {
-      "Clients": "86fee2de-2ea4-463d-8d13-f27f13fc17dc",
-      "Intake": "ee4a5b53-e05b-4a8e-ad95-f18327c0590b",
-      "Group": "83eea47f-01c2-426f-b03a-81f918190c10"
-    }
-  };
+   const clientIds = [];
+   const abDataObject = getExisitingData(cookie);
 
-  // Data Processor
-  const uuid = {
-    "Clients": []
-  };
-  // Clients Processor
-  // Get exisiting Clients and Groups from server
-  const abDataObject = {
-    "Clients": (() => {
-      try {
-        const res = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Clients}`, api.get))
+   // Prepare Clients
+   //  - Commented out logic to check for duplicate clients. If we need to check for duplicates need to decide on what provides enough uniqueness.
+   clients.forEach((client) => {
+      // Check if client exists
+      // const clientIndex = abDataObject["Clients"]["data"].findIndex(e => (client.firstName + client.lastName).toLowerCase() === (e["First Name"] + e["Last Name"]).toLowerCase());
+      const groupIndex = abDataObject["Group"]["data"].findIndex(
+         (e) => e["Name"] === intake.org
+      );
 
-        logResults("Success: [GET] Clients", res);
-
-        return res.data;
-      } catch(err) {
-        logResults("Error: [GET] Clients", err.message);
-
-        return err;
-      }
-    })(),
-
-    "Group": (() => {
-      try {
-        const res = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Group}`, api.get))
-
-        logResults("Success: [GET] Group", res);
-
-        return res.data;
-      } catch(err) {
-        logResults("Error: [GET] Group", err.message);
-
-        return err;
-      }
-    })(),
-
-    "Intake": (() => {
-      try {
-        const res = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Intake}`, api.get))
-
-        logResults("Success: [GET] Intake", res);
-
-        return res.data;
-      } catch(err) {
-        logResults("Error: [GET] Intake", err.message);
-
-        return err;
-      }
-    })(),
-  };
-  clients.forEach(client => {
-    const clientIndex = abDataObject["Clients"]["data"].findIndex(e => (client.firstName + client.lastName).toLowerCase() === (e["First Name"] + e["Last Name"]).toLowerCase());
-    const groupIndex = abDataObject["Group"]["data"].findIndex(e => e["Name"] === intake.org);
-
-    if(clientIndex === -1)
+      // If not prepare the data to add them
+      // if(clientIndex === -1)
       data.Clients.push({
-        "Date Birth": client.dob,
-        "Email": client.email,
-        "Gender": client.gender,
-        "Phone": intake.phone,
-        "Thai Phone": intake.phoneThai,
-        "Primary Language": intake.primLang,
-        "Passport Country": intake.passport,
-        "Service Country": intake.serviveCountry,
-        "Occupation": intake.occupation,
-        "Cross Cultural Service Years": intake.crossCulturalWork,
-        "Referral": intake.refferal,
-        "Newsletter": intake.newsletter,
-        "Emergency Contact": intake.emergencyContact,
-        "Emergency Email": intake.emergencyEmail,
-        "Emergency Phone": intake.emergencyPhone,
-        "Last Name": client.lastName,
-        "First Name": client.firstName,
-        "Group": abDataObject["Group"]["data"][groupIndex]?.uuid,
-        "Org Report": intake.orgReq,
-        "Org Contact": intake.orgContact,
-        "Org Email": intake.orgEmail,
-        "Availability_lt": intake.availability,
-        "Flexible Dates": intake.flexible,
-        "First Time": intake.first,
-        "Well First": intake.firstWell,
-        "Topics_lt": intake.topics,
-        "Topics More Info_lt": intake.topicsMore,
-        "Medical Issues": intake.medical,
-        "Prescription Medication": intake.perscription,
-        "Concerns meeting together": intake.concern,
-        "Concern Details_lt": intake.concernDetail,
-        "Cross Cultural Relationship": intake.crossCultural,
+         "Date Birth": client.dob,
+         Email: client.email,
+         Gender: client.gender,
+         Phone: intake.phone,
+         "Thai Phone": intake.phoneThai,
+         "Primary Language": intake.primLang,
+         "Passport Country": intake.passport,
+         "Service Country": intake.serviveCountry,
+         Occupation: intake.occupation,
+         "Cross Cultural Service Years": intake.crossCulturalWork,
+         Referral: intake.refferal,
+         Newsletter: intake.newsletter,
+         "Emergency Contact": intake.emergencyContact,
+         "Emergency Email": intake.emergencyEmail,
+         "Emergency Phone": intake.emergencyPhone,
+         "Last Name": client.lastName,
+         "First Name": client.firstName,
+         Group: abDataObject["Group"]["data"][groupIndex]?.uuid,
+         "Org Report": intake.orgReq,
+         "Org Contact": intake.orgContact,
+         "Org Email": intake.orgEmail,
+         Availability_lt: intake.availability,
+         "Flexible Dates": intake.flexible,
+         "First Time": intake.first,
+         "Well First": intake.firstWell,
+         Topics_lt: intake.topics,
+         "Topics More Info_lt": intake.topicsMore,
+         "Medical Issues": intake.medical,
+         "Prescription Medication": intake.perscription,
+         "Concerns meeting together": intake.concern,
+         "Concern Details_lt": intake.concernDetail,
+         "Cross Cultural Relationship": intake.crossCultural
       });
-    else {
-      uuid["Clients"].push(abDataObject["Clients"]["data"][clientIndex].uuid);
-    }
-  });
+      /**  else {
+    /*     clientIds.push(abDataObject["Clients"]["data"][clientIndex].uuid);
+    /*    }
+    /*/
+   });
 
-  // Intake Processor
-  // Set the Bill To field
-  switch(intake["billTo"]) {
-    case "First Partner":
-      data["Intake"]["Bill to"] = `${intake["firstName"]} ${intake["lastName"]}`;
-      break;
-    
-    case "Second Partner":
-      data["Intake"]["Bill to"] = `${intake["2_firstName"]} ${intake["2_lastName"]}`;
-      break;
-    
-    case "Parent/Guardian 1":
-      data["Intake"]["Bill to"] = `${intake["firstName"]} ${intake["lastName"]}`;
-      break;
+   // Prepare Billing Account
+   data.BillingAccount.Type = "Client";
+   switch (intake["billTo"]) {
+      case "First Partner":
+      case "Parent/Guardian 1":
+         data.BillingAccount.Name = `${intake["firstName"]} ${intake["lastName"]}`;
+         data.BillingAccount.Email = intake.email;
+         break;
 
-    case "Parent/Guardian 2":
-      data["Intake"]["Bill to"] = `${intake["2_firstName"]} ${intake["2_lastName"]}`;
-      break;
+      case "Second Partner":
+      case "Parent/Guardian 2":
+         data.BillingAccount.Name = `${intake["2_firstName"]} ${intake["2_lastName"]}`;
+         data.BillingAccount.Email = intake["2_email"];
+         break;
 
-    default:
-      data["Intake"]["Bill to"] = `${intake["firstName"]} ${intake["lastName"]}`;
-  }
+      case undefined:
+      case "":
+         data.BillingAccount.Name = `${intake["firstName"]} ${intake["lastName"]}`;
+         data.BillingAccount.Email = intake.email;
+         break;
 
-  Logger.log(`Start to insert "Clients"`);
+      default:
+         data.BillingAccount.Name = `${intake["firstName"]} ${intake["lastName"]}`;
+         data.BillingAccount.Email = intake.email;
+         data.BillingAccount.Note = intake.billTo;
+         data.BillingAccount.Type = "1652753709068"; // Unknown option
+   }
 
-  // case "Clients":
-  if(data.Clients.length) {
-    data.Clients.forEach(e => {
-      api.post.payload = e;
-      const res = (() => {
-        try {
-          const res = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Clients}`, api.post));
+   Logger.log(data.BillingAccount);
+   // Start Inserting Data
+   Logger.log(`Start to insert "Clients"`);
 
-          logResults("Success: [POST] Clients", res);
+   // 1. Post Clients
+   if (data.Clients.length) {
+      data.Clients.forEach((client) => {
+         const res = abRequest(
+            application.objects.Clients,
+            "post",
+            cookie,
+            client
+         );
+         Logger.log(res);
+         clientIds.push(res.uuid);
+      });
+   } else {
+      Logger.log("All Clients exist!!");
+      logResults("Success: [POST] Clients", { message: "All Clients exist" });
+   }
 
-          abDataObject["Clients"]["data"].push(res.data)
+   // 2. Post Billing Account
+   const billingAccountRes = abRequest(
+      application.objects.BillingAccount,
+      "post",
+      cookie,
+      data.BillingAccount
+   );
+   data.Intake["Intakes"] = billingAccountRes.uuid;
 
-          return res;
+   // Fix: Replace emojis with char code so our db doesn't complain
+   data.Intake["Feedback"] = data.Intake["Feedback"]
+      ? data.Intake["Feedback"].replace(
+           /[\u0800-\uFFFF]/g,
+           (c) => `&#${c.charCodeAt(0)};`
+        )
+      : data.Intake["Feedback"];
 
-        } catch(err) {
-          logResults("Error: [POST] Clients", err.message);
+   // 3. Post Intake
+   const intakeRes = abRequest(
+      application.objects.Intake,
+      "post",
+      cookie,
+      data.Intake
+   );
+   const intakeId = intakeRes.uuid;
+   Logger.log(intakeRes);
 
-          return err;
-        }
-      })();
-      delete api.post.payload;
-      uuid.Clients.push(res.data["uuid"]);
-      Logger.log(res);
-    });
-  } else {
-    Logger.log("All Clients exist!!");
-    logResults("Success: [POST] Clients", {message: "All Clients exist"});
-  }
+   // 4. Put Link Clients to Intake
+   Logger.log(`Start to connect object "Intake"`);
+   const payload = {};
+   clientIds.forEach((id, i) => {
+      payload[`Clients[${i}][uuid]`] = id;
+   });
 
-  // case "Intake":
-  data.Intake["Feedback"] = data.Intake["Feedback"] ? data.Intake["Feedback"].replace(/[\u0800-\uFFFF]/g, c => `&#${c.charCodeAt(0)};`): data.Intake["Feedback"]
-  api.post.payload = data.Intake
-  let res = (() => {
-    try {
-      const res = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Intake}`, api.post));
+   abRequest(
+      `${application.objects.Intake}/${intakeId}`,
+      "put",
+      cookie,
+      payload
+   );
+   Logger.log("DONE!!");
+};
 
-      logResults("Success: [POST] Intake", res);
+function sendMattermostMessage(message, data) {
+   const MM_TOKEN = ""; // Server Status Bot
+   const url = "";
+   const channel_id = ""; // Server Status
+   const headers = {
+      authorization: `Bearer ${MM_TOKEN}`
+   };
+   const attachment = {
+      title: "Well Intake Script",
+      text: message,
+      color: "#FC4C46",
+      fields: [
+         {
+            title: "Details",
+            value: data
+         }
+      ]
+   };
 
-      abDataObject["Intake"]["data"].push(res.data)
+   const body = {
+      channel_id,
+      message: "",
+      props: { attachments: [attachment] }
+   };
 
-      return res;
-    } catch(err) {
-      logResults("Error: [POST] Intake", err.message);
-
-      return err;
-    }
-  })();
-  delete api.post.payload;
-  uuid.Intake = res.data["uuid"];
-  Logger.log(res);
-  
-
-  // Intake => Clients
-  Logger.log(`Start to connect object "Intake"`);
-  api.put.payload = {};
-  uuid["Clients"].forEach((e, i) => {
-    api.put.payload[`Clients[${i}][uuid]`] = e;
-  });
-  clientBilltoIndex = abDataObject["Clients"]["data"].findIndex(e => data["Intake"]["Bill to"].toLowerCase() === `${e["First Name"]} ${e["Last Name"]}`.toLowerCase());
-  if (clientBilltoIndex !== -1)
-    api.put.payload["Bill To Client"] = abDataObject["Clients"]["data"][clientBilltoIndex].uuid;
-
-  // API PUT Request
-  res = (() => {
-    try {
-      const res = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Intake}/${uuid.Intake}`, api.put));
-
-      logResults("Success: [PUT] Intake", res);
-
-      return res;
-    } catch(err) {
-      try {
-        const resDel = JSON.parse(UrlFetchApp.fetch(`${BASE_URL}/app_builder/model/${application.objects.Intake}/${uuid.Intake}`, api.delete));
-
-        logResults("Success: [DELETE] Intake", resDel);
-      } catch(errDel) {
-        logResults("Error: [DELETE] Intake", errDel.message);
-      }
-      
-      logResults("Error: [PUT] Intake", err.message);
-
-      return err;
-    }
-  })();
-  delete api.put.payload;
-  Logger.log(res);
-  Logger.log("DONE!!");
+   UrlFetchApp.fetch(`${url}/posts`, {
+      method: "post",
+      contentType: "application/json",
+      headers,
+      payload: JSON.stringify(body)
+   });
 }

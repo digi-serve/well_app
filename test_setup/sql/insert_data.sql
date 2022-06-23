@@ -10,6 +10,7 @@ INSERT INTO `AB_Case` (`uuid`, `created_at`, `updated_at`, `type`, `service`) VA
 UNLOCK TABLES;
 LOCK TABLES `AB_Provider` WRITE;
 INSERT INTO `AB_Provider` (`uuid`, `created_at`, `updated_at`, `First NAme`, `Last Name`) VALUES ("40a94cea-3e70-40ad-a844-9d6c136f6894", NOW(), NOW(), "Peter", "Parker");
+INSERT INTO `AB_Provider` (`uuid`, `created_at`, `updated_at`, `First NAme`, `Last Name`) VALUES (UUID(), NOW(), NOW(), "Steven", "Strange");
 UNLOCK TABLES;
 LOCK TABLES `AB_JOINMN_Case_Provider_Provider` WRITE;
 INSERT INTO `AB_JOINMN_Case_Provider_Provider` (`created_at`, `updated_at`, `id`, `Case`, `Provider`) VALUES (NOW(), NOW(), "1", "9ba7674a-c25e-4d16-8cb4-4f930a4fc208", "40a94cea-3e70-40ad-a844-9d6c136f6894");

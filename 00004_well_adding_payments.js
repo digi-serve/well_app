@@ -23,7 +23,7 @@ describe.only("Adding Payments", () => {
 
    beforeEach(() => {
       Common.AuthLogin(cy);
-      Common.RunSQL(cy, folderName, ["reset_tables.sql", "backup.sql"]);
+      Common.RunSQL(cy, folderName, ["reset_tables.sql", "insert_data.sql"]);
       // Open the App
       cy.visit("/");
       cy.get('[data-cy="portal_work_menu_sidebar"]').should("exist").click();

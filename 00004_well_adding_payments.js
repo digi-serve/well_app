@@ -12,7 +12,7 @@ Cypress.on("uncaught:exception", (err) => {
    }
 });
 
-describe.only("Adding Payments", () => {
+describe("Adding Payments", () => {
    before(() => {
       Common.ResetDB(cy);
       Common.AuthLogin(cy);

@@ -11,6 +11,9 @@ const RENAME_SHEET = "";
 const AB_AUTH_TOKEN = "";
 const BASE_URL = "";
 const ss = SpreadsheetApp.getActiveSpreadsheet();
+const MM_TOKEN = ""; // Server Status Bot
+const TEAM_URL = "";
+const channel_id = ""; // Server Status
 
 const USER = {
    tenant: "",
@@ -511,9 +514,6 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
 }
 
 function sendMattermostMessage(message, data) {
-  const MM_TOKEN = 'akkmd64h8if99jet5s9mzdhbih'; // Server Status Bot
-  const url = 'https://team.digiserve.org/api/v4';
-  const channel_id = "ibpehxtn4iyopjpcgw45xk6gir"; // Server Status
   const headers = {
     "authorization": `Bearer ${MM_TOKEN}`,
   };
@@ -535,7 +535,7 @@ function sendMattermostMessage(message, data) {
     "props": {"attachments": [attachment]}
   }
 
-  UrlFetchApp.fetch(`${url}/posts`, {
+  UrlFetchApp.fetch(`${TEAM_URL}/posts`, {
     method: 'post',
     contentType: "application/json",
     headers,

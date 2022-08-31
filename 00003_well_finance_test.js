@@ -16,7 +16,7 @@ before(() => {
    Common.ResetDB(cy);
    Common.AuthLogin(cy);
    cy.request("POST", "/test/import", {
-      file: `imports/${folderName}/clientDatabase.json`,
+      file: `imports/${folderName}/appbuilder_app.json`,
    });
 });
 

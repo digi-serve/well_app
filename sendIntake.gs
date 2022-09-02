@@ -363,10 +363,11 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
       "Clients__relation": [],
       "Service": intake.service,
       "Location": intake.location,
+      "Type": intake.type,
     },
     "BillingAccount": {},
   };
-  
+
   // set Request api of AppBuilder V2
   const cookie = abRequestCookie();
   const clientIds = [];
@@ -379,7 +380,7 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
     // const clientIndex = abDataObject["Clients"]["data"].findIndex(e => (client.firstName + client.lastName).toLowerCase() === (e["First Name"] + e["Last Name"]).toLowerCase());
     const groupIndex = abDataObject["Group"]["data"].findIndex(e => e["Name"] === intake.org);
     const definitionPassportCountry = abRequestGetDefinitionByID(cookie, applicationDefinition.fields.PassportCountry);
-    
+
     if (
       definitionPassportCountry.json.settings.options.findIndex(
           (e) => e.id === intake.passport
@@ -452,7 +453,7 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
       data.BillingAccount.Name = `${intake["firstName"]} ${intake["lastName"]}`;
       data.BillingAccount.Email = intake.email;
       break;
-    
+
     case "Second Partner":
     case "Parent/Guardian 2":
       data.BillingAccount.Name = `${intake["2_firstName"]} ${intake["2_lastName"]}`;
@@ -495,12 +496,12 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
 
   // Fix: Replace emojis with char code so our db doesn't complain
   data.Intake["Feedback"] = data.Intake["Feedback"] ? data.Intake["Feedback"].replace(/[\u0800-\uFFFF]/g, c => `&#${c.charCodeAt(0)};`): data.Intake["Feedback"];
-  
+
   // 3. Post Intake
   const intakeRes = abRequestObject(applicationDefinition.objects.Intake, "post", cookie, data.Intake);
   const intakeId = intakeRes.uuid;
   Logger.log(intakeRes);
-  
+
 
   // 4. Put Link Clients to Intake
   Logger.log(`Start to connect object "Intake"`);

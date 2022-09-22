@@ -366,19 +366,23 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
       "Type": intake.type,
     },
     "BillingAccount": {},
+    "Group": {
+      "Name": intake.org,
+    }
   };
 
   // set Request api of AppBuilder V2
   const cookie = abRequestCookie();
   const clientIds = [];
   const abDataObject = getExisitingData(cookie);
+  const groupIndex = abDataObject["Group"]["data"].findIndex(e => e["Name"] === data["Group"]["Name"]);
+  const group = groupIndex < 0 ? abRequestObject(applicationDefinition.objects["Group"], "post", cookie, data["Group"]): abDataObject["Group"]["data"][groupIndex];
 
   // Prepare Clients
   //  - Commented out logic to check for duplicate clients. If we need to check for duplicates need to decide on what provides enough uniqueness.
   clients.forEach(client => {
     // Check if client exists
     // const clientIndex = abDataObject["Clients"]["data"].findIndex(e => (client.firstName + client.lastName).toLowerCase() === (e["First Name"] + e["Last Name"]).toLowerCase());
-    const groupIndex = abDataObject["Group"]["data"].findIndex(e => e["Name"] === intake.org);
     const definitionPassportCountry = abRequestGetDefinitionByID(cookie, applicationDefinition.fields.PassportCountry);
 
     if (
@@ -422,7 +426,7 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
       "Emergency Phone": intake.emergencyPhone,
       "Last Name": client.lastName,
       "First Name": client.firstName,
-      "Group": abDataObject["Group"]["data"][groupIndex]?.uuid,
+      "Group": group.uuid,
       "Org Report": intake.orgReq,
       "Org Contact": intake.orgContact,
       "Org Email": intake.orgEmail,

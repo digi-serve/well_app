@@ -28106,7 +28106,7 @@
             }
           ],
           "Objects": null,
-          "Filters": null,
+          "Filters": {"glue":"and","rules":[{"key":"f2bece48-2cb7-448a-b96b-f85700805511","rule":"in_query","value":"c91f2845-0c5f-4f6d-ad19-aafb71dc9fdf"},{"key":"dedf518d-a239-4637-9e1a-0f915d2cb01f","rule":"in_query","value":"ba56e4be-c26b-4254-9747-573e0df55408"},{"key":"92374215-e4fe-461d-93f0-8803061259b1","rule":"in_query","value":"c91f2845-0c5f-4f6d-ad19-aafb71dc9fdf"}]},
           "allowAll": 0,
           "createdBy": null,
           "objectIds": [

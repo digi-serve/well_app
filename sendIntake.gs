@@ -338,11 +338,9 @@ function test_getExisitingData() {
   Logger.log(data);
 }
 
-function getExisitingData(cookie) {
-  return {
-    // "Clients": abRequestObject(applicationDefinition.objects.Clients, "get", cookie),
-    "Group": abRequestObject(applicationDefinition.objects.Group, "get", cookie),
-  };
+function getExisitingData(cookie, objectUUID, where) {
+  const queryParameters = Object.keys(where).map((e) => `where[${e}]=${where[e]}`);
+  return abRequestObject(`${objectUUID}/?${queryParameters.join("&")}`, "get", cookie) ?? [];
 }
 /**
  * Send intake data to AppBuilder
@@ -370,21 +368,32 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
       "Name": intake.org,
     }
   };
-
+  
   // set Request api of AppBuilder V2
   const cookie = abRequestCookie();
   const clientIds = [];
-  const abDataObject = getExisitingData(cookie);
-  const groupIndex = abDataObject["Group"]["data"].findIndex(e => e["Name"] === data["Group"]["Name"]);
-  const group = groupIndex < 0 ? abRequestObject(applicationDefinition.objects["Group"], "post", cookie, data["Group"]): abDataObject["Group"]["data"][groupIndex];
+  const existingGroup = getExisitingData(cookie, applicationDefinition.objects["Group"], { "Name": data["Group"]["Name"].toLowerCase() })["data"];
+  const group = existingGroup.length ? existingGroup[0]: abRequestObject(applicationDefinition.objects["Group"], "post", cookie, data["Group"]);
 
   // Prepare Clients
   //  - Commented out logic to check for duplicate clients. If we need to check for duplicates need to decide on what provides enough uniqueness.
   clients.forEach(client => {
     // Check if client exists
-    // const clientIndex = abDataObject["Clients"]["data"].findIndex(e => (client.firstName + client.lastName).toLowerCase() === (e["First Name"] + e["Last Name"]).toLowerCase());
-    const definitionPassportCountry = abRequestGetDefinitionByID(cookie, applicationDefinition.fields.PassportCountry);
+    const existingClients = getExisitingData(cookie, applicationDefinition.objects["Clients"], {
+      "Gender": client.gender.toLowerCase(),
+      "First Name": client.firstName.toLowerCase(),
+      "Last Name": client.lastName.toLowerCase(),
+      "Email": client.email.toLowerCase(),
+    })["data"];
+  
+    if (existingClients.length) {
+      clientIds.push(existingClients[0].uuid);
 
+      return;
+    }
+
+    const definitionPassportCountry = abRequestGetDefinitionByID(cookie, applicationDefinition.fields.PassportCountry);
+    
     if (
       definitionPassportCountry.json.settings.options.findIndex(
           (e) => e.id === intake.passport
@@ -407,7 +416,6 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
     }
 
     // If not prepare the data to add them
-    // if(clientIndex === -1)
     data.Clients.push({
       "Date Birth": client.dob,
       "Email": client.email,
@@ -442,22 +450,20 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
       "Concern Details_lt": intake.concernDetail,
       "Cross Cultural Relationship": intake.crossCultural,
     });
-    /**  else {
-    /*     clientIds.push(abDataObject["Clients"]["data"][clientIndex].uuid);
-    /*    }
-    /*/
   });
 
 
   // Prepare Billing Account
   data.BillingAccount.Type = "Client";
+  data.BillingAccount.Organization = group.uuid;
+  data.BillingAccount["Emergency Email"] = intake.emergencyEmail;
   switch(intake["billTo"]) {
     case "First Partner":
     case "Parent/Guardian 1":
       data.BillingAccount.Name = `${intake["firstName"]} ${intake["lastName"]}`;
       data.BillingAccount.Email = intake.email;
       break;
-
+    
     case "Second Partner":
     case "Parent/Guardian 2":
       data.BillingAccount.Name = `${intake["2_firstName"]} ${intake["2_lastName"]}`;
@@ -476,7 +482,6 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
       data.BillingAccount.Note = intake.billTo;
       data.BillingAccount.Type = "1652753709068"; // Unknown option
   }
-
   Logger.log(data.BillingAccount);
   // Start Inserting Data
   Logger.log(`Start to insert "Clients"`);
@@ -500,12 +505,12 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
 
   // Fix: Replace emojis with char code so our db doesn't complain
   data.Intake["Feedback"] = data.Intake["Feedback"] ? data.Intake["Feedback"].replace(/[\u0800-\uFFFF]/g, c => `&#${c.charCodeAt(0)};`): data.Intake["Feedback"];
-
+  
   // 3. Post Intake
   const intakeRes = abRequestObject(applicationDefinition.objects.Intake, "post", cookie, data.Intake);
   const intakeId = intakeRes.uuid;
   Logger.log(intakeRes);
-
+  
 
   // 4. Put Link Clients to Intake
   Logger.log(`Start to connect object "Intake"`);
@@ -514,7 +519,7 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
     payload[`Clients[${i}][uuid]`] = id;
   });
 
-  // abRequestObject(`${applicationDefinition.objects.Intake}/${intakeId}`,"put", cookie, payload);
+  abRequestObject(`${applicationDefinition.objects.Intake}/${intakeId}`,"put", cookie, payload);
   Logger.log("DONE!!");
 }
 

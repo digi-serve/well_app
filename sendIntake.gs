@@ -339,7 +339,7 @@ function test_getExisitingData() {
 }
 
 function getExisitingData(cookie, objectUUID, where) {
-  const queryParameters = Object.keys(where).map((e) => `where[${e}]=${where[e]}`);
+  const queryParameters = Object.keys(where).map((e) => `where[${e}]=${encodeURIComponent(where[e])}`);
   return abRequestObject(`${objectUUID}/?${queryParameters.join("&")}`, "get", cookie) ?? [];
 }
 /**

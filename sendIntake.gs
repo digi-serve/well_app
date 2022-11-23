@@ -372,7 +372,7 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
   // set Request api of AppBuilder V2
   const cookie = abRequestCookie();
   const clientIds = [];
-  const existingGroup = getExisitingData(cookie, applicationDefinition.objects["Group"], { "Name": data["Group"]["Name"].toLowerCase() })["data"];
+  const existingGroup = getExisitingData(cookie, applicationDefinition.objects["Group"], { "Name": data["Group"]["Name"]?.toLowerCase() })["data"];
   const group = existingGroup.length ? existingGroup[0]: abRequestObject(applicationDefinition.objects["Group"], "post", cookie, data["Group"]);
 
   // Prepare Clients
@@ -380,10 +380,10 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
   clients.forEach(client => {
     // Check if client exists
     const existingClients = getExisitingData(cookie, applicationDefinition.objects["Clients"], {
-      "Gender": client.gender.toLowerCase(),
-      "First Name": client.firstName.toLowerCase(),
-      "Last Name": client.lastName.toLowerCase(),
-      "Email": client.email.toLowerCase(),
+      "Gender": client.gender?.toLowerCase(),
+      "First Name": client.firstName?.toLowerCase(),
+      "Last Name": client.lastName?.toLowerCase(),
+      "Email": client.email?.toLowerCase(),
     })["data"];
   
     if (existingClients.length) {

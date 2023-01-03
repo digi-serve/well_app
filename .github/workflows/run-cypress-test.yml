@@ -28,11 +28,9 @@ jobs:
            working-directory: ./ab
 
          - name: Check out
-         - uses: actions/checkout@v3
+           uses: actions/checkout@v2
            with:
-              submodules: recursive
-              path: ab/test/e2e/cypress/integration/well_app
-         -  uses: digi-serve/ab-install-action@v1
+              path: ab/test/e2e/cypress/integration/cars_app
 
          #Run test
          - name: Run Cypress Tests

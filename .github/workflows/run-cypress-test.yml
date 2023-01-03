@@ -1,0 +1,57 @@
+name: Cypress Test
+on:
+   # Run on any commit to the #master branch
+   push:
+      branches: [master]
+
+   # Run on pull requests into the #master branch
+
+   pull_request:
+      branches: [master]
+
+   # Allows user to trigger the workflow from GitHub's web UI
+   workflow_dispatch:
+
+jobs:
+   cypress-test:
+      runs-on: ubuntu-latest
+      steps:
+         # Setup
+         - uses: digi-serve/ab-install-action@v1
+           with:
+              folder: ab
+              port: 8080
+
+         # Up
+         - name: Bring up AppBuilder
+           run: ./UP.sh -q -t
+           working-directory: ./ab
+
+         - name: Check out
+           uses: actions/checkout@v2
+           with:
+              path: ab/test/e2e/cypress/integration/well_app
+
+         #Run test
+         - name: Run Cypress Tests
+           uses: cypress-io/github-action@v2
+           with:
+              working-directory: ./ab
+              project: ./test/e2e
+              config: baseUrl=http://localhost:8080,testFiles=**/*.js,responseTimeout=100000,defaultCommandTimeout=30000,retries=2
+              install: false
+              browser: chrome
+
+              # Wait for the site to be ready
+              wait-on: "http://localhost:8080"
+              wait-on-timeout: 300
+
+              # We need to set the stack name as an environment variable for
+              # the test reset script.
+              env: stack=ab
+
+         - uses: actions/upload-artifact@v2
+           if: failure()
+           with:
+              name: cypress-screenshots
+              path: ./ab/test/e2e/cypress/screenshots

@@ -23,6 +23,14 @@ before(() => {
 beforeEach(() => {
    Common.AuthLogin(cy);
    Common.RunSQL(cy, folderName, ["reset_tables.sql", "insert_data.sql"]);
+   cy.request(
+      "POST",
+      "/app_builder/model/7ecd7257-1023-4917-bc3f-88061293cf30",
+      {
+         Name: "Test",
+         Services: [{ uuid: "9ba7674a-c25e-4d16-8cb4-4f930a4fc208" }],
+      }
+   );
    // Open the App
    cy.visit("/");
    cy.get('[data-cy="portal_work_menu_sidebar"]').should("exist").click();
@@ -48,30 +56,37 @@ describe("Services", () => {
          .should("exist")
          .click();
       //Save with the default settings
+      cy.get(
+         '[data-cy="number Length Hours e1ea09ec-cd12-4b70-9846-970ddc906229 5a5c92ce-1f06-465c-9fe5-8477db393a40"]'
+      )
+         .should("exist")
+         .and("have.value", 1);
       cy.get('[data-cy="button save 5a5c92ce-1f06-465c-9fe5-8477db393a40"]')
          .should("exist")
          .click();
+
+      cy.get(
+         '[data-cy="connectObject Clients Present 86f2c10c-b435-4759-9f25-c33820df7b0e 2dca1324-8317-4593-9c22-21d237bf7624"]'
+      )
+         .should("exist")
+         .should("contain", "Tim Green");
       cy.get('[data-cy="button save 2dca1324-8317-4593-9c22-21d237bf7624"]')
          .should("exist")
          .click();
-      // Reload - Is this what we want?
-      cy.reload();
       cy.get(
-         '[data-cy="tab-Services-1fea5a32-def5-4f1a-b10d-8f885b3e602f-c1d91228-74f5-4497-b12b-6c84c59ed26c"]'
+         "[data-cy=tab-Finances-d78bc3e3-2d73-4a3c-aed1-106f387e551d-c1d91228-74f5-4497-b12b-6c84c59ed26c]"
       )
          .should("be.visible")
          .click();
-      // Reload
-      cy.get(
-         '[data-cy="tab Charges ed59c5c7-e251-4d05-a023-71db7cefe02b 7e20b83f-dfdc-4afd-8bdf-fba264fd7bdc"]'
-      )
-         .should("exist")
+      cy.get('[column="1"] > [aria-rowindex="1"]')
+         .filter(":visible")
+         .should("contain", "Test")
          .click();
       cy.get(
-         '[data-cy="ABViewGrid_26fdbb4e-32b9-4d2e-9f77-d5308fa05ad7_datatable"]'
+         "[data-cy=ABViewGrid_3a48f145-f333-45dd-b8a9-f3662d192db9_datatable]"
       )
          .should("exist")
-         .and("contain", "1600")
+         .and("contain", "1200")
          .and("not.contain", "3000");
    });
 });

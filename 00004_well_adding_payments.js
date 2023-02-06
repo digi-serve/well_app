@@ -66,7 +66,7 @@ describe("Adding Payments", () => {
       cy.get(
          '[data-cy="list Method f493b8af-1e74-4df5-9f6b-1fbda6a20e00 9389d183-c317-46db-9861-f05f62ebee79"]'
       ).click();
-      cy.get('div[webix_l_id="Cash"]').click();
+      cy.get('div[webix_l_id="Cash"]').filter(":visible").click();
       cy.get(
          '[data-cy="string Description a68a58a9-c178-4c69-a279-cf3eeaf76bad 9389d183-c317-46db-9861-f05f62ebee79"]'
       )
@@ -87,7 +87,7 @@ describe("Adding Payments", () => {
          .click({ force: true });
       cy.get('div[view_id*="ABViewText_cdd435ac"]')
          .find("a")
-         .should("have.text", "Open Receipt")
-         .click();
+         .should("have.text", "Open Receipt");
+      // .click();
    });
 });

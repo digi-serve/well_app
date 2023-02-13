@@ -1,7 +1,7 @@
 {
   "abVersion": "0.0.0",
-  "filename": "app_Client_Database_20230206",
-  "date": "20230206",
+  "filename": "app_Client_Database_20230213",
+  "date": "20230213",
   "definitions": [
     {
       "id": "05cde3ed-fd38-4e4c-b9a6-dfba9c979bdf",
@@ -5448,20 +5448,21 @@
       "name": "Well-Account->Flat Rate",
       "type": "field",
       "json": {
+        "id": "cf5bf50c-9cb5-4a8f-9792-464aec50c8ab",
         "type": "field",
         "key": "number",
         "icon": "hashtag",
-        "isImported": "0",
+        "isImported": 0,
         "columnName": "Flat Rate",
         "settings": {
           "showIcon": 1,
           "required": 0,
           "unique": 0,
           "validationRules": "[]",
-          "default": "400",
+          "default": "0",
           "typeFormat": "none",
           "typeDecimals": "none",
-          "typeDecimalPlaces": "none",
+          "typeDecimalPlaces": 0,
           "typeRounding": "none",
           "typeThousands": "none",
           "validation": 0,
@@ -5474,31 +5475,31 @@
             "language_code": "en",
             "label": "Flat Rate"
           }
-        ],
-        "id": "cf5bf50c-9cb5-4a8f-9792-464aec50c8ab"
+        ]
       },
       "createdAt": "2022-04-29T10:34:54.000Z",
-      "updatedAt": "2022-11-10T09:42:37.000Z"
+      "updatedAt": "2023-02-08T03:25:55.000Z"
     },
     {
       "id": "2b20e62e-3c2e-4187-9e3b-f314ede8ae70",
       "name": "Well-Account->Hourly Rate",
       "type": "field",
       "json": {
+        "id": "2b20e62e-3c2e-4187-9e3b-f314ede8ae70",
         "type": "field",
         "key": "number",
         "icon": "hashtag",
-        "isImported": "0",
+        "isImported": 0,
         "columnName": "Hourly Rate",
         "settings": {
           "showIcon": 1,
           "required": 0,
           "unique": 0,
           "validationRules": "[]",
-          "default": "800",
+          "default": "1600",
           "typeFormat": "none",
           "typeDecimals": "none",
-          "typeDecimalPlaces": "none",
+          "typeDecimalPlaces": 0,
           "typeRounding": "none",
           "typeThousands": "none",
           "validation": 0,
@@ -5511,11 +5512,10 @@
             "language_code": "en",
             "label": "Hourly Rate"
           }
-        ],
-        "id": "2b20e62e-3c2e-4187-9e3b-f314ede8ae70"
+        ]
       },
       "createdAt": "2022-04-29T10:35:12.000Z",
-      "updatedAt": "2022-11-10T09:42:37.000Z"
+      "updatedAt": "2023-02-08T03:26:09.000Z"
     },
     {
       "id": "2639b044-fbe2-4fc1-b220-3c3804acb0c7",
@@ -19379,7 +19379,7 @@
         ]
       },
       "createdAt": "2021-05-21T03:55:19.000Z",
-      "updatedAt": "2023-01-27T06:53:23.000Z"
+      "updatedAt": "2023-02-13T07:51:54.000Z"
     },
     {
       "id": "52678a9a-26de-40de-8996-379c3141a762",
@@ -19428,7 +19428,7 @@
         ]
       },
       "createdAt": "2021-05-21T03:56:40.000Z",
-      "updatedAt": "2022-11-10T09:42:40.000Z"
+      "updatedAt": "2023-02-13T03:44:59.000Z"
     },
     {
       "id": "638a26d5-8e35-4bc2-a1d1-6ad322e21009",
@@ -19660,25 +19660,29 @@
         "name": "All Clients Form",
         "settings": {
           "dataviewID": "c09c55a7-568e-4ede-83e8-dc34f9b18404",
-          "showLabel": "1",
+          "showLabel": 1,
           "labelPosition": "left",
-          "labelWidth": "120",
-          "clearOnLoad": "1",
-          "columns": "1",
-          "removable": "true",
-          "movable": "true",
-          "clearOnSave": "0",
-          "height": "200",
+          "labelWidth": 120,
+          "clearOnLoad": 1,
+          "columns": 1,
+          "removable": true,
+          "movable": true,
+          "clearOnSave": 0,
+          "height": 200,
           "submitRules": [
             {
               "selectedAction": "ABViewRuleActionFormSubmitRuleClosePopup",
-              "queryRules": ""
+              "queryRules": {
+                "glue": "and",
+                "rules": []
+              },
+              "actionSettings": {}
             }
           ],
-          "gravity": [
-            "1"
-          ]
+          "gravity": [],
+          "recordRules": []
         },
+        "accessLevels": {},
         "translations": [
           {
             "language_code": "en",
@@ -19694,22 +19698,21 @@
           "5011cfad-0838-4c5a-a833-f3ee1f83d2e6",
           "ddec8219-6646-4c28-928a-c110712ddde2",
           "66c5ab66-e121-4e27-99bc-07a8692d79fa",
-          "5c554822-f673-43b3-8e3f-9d9b1b686630",
           "04372c15-b416-4fba-88c1-796f9daebed8",
           "9d6d471f-ad9d-4dab-af45-ca222aeb47a4",
           "8f80b022-c24a-4ef2-b27c-c34f000759ec",
           "e52bf6a6-8ee5-42ef-bade-339171564388"
         ],
         "position": {
-          "dx": "1",
-          "dy": "1",
-          "x": "0",
-          "y": "1"
+          "dx": 1,
+          "dy": 1,
+          "x": 0,
+          "y": 1
         },
-        "isRoot": "false"
+        "isRoot": false
       },
       "createdAt": "2021-05-21T03:56:40.000Z",
-      "updatedAt": "2022-11-10T09:42:40.000Z"
+      "updatedAt": "2023-02-13T03:45:03.000Z"
     },
     {
       "id": "b3c357b2-264b-4c42-b1e5-cc832a178076",
@@ -20003,37 +20006,6 @@
         "isRoot": "false"
       },
       "createdAt": "2021-10-19T10:19:49.000Z",
-      "updatedAt": "2022-11-10T09:42:40.000Z"
-    },
-    {
-      "id": "5c554822-f673-43b3-8e3f-9d9b1b686630",
-      "name": "All Clients Form.textbox",
-      "type": "view",
-      "json": {
-        "id": "5c554822-f673-43b3-8e3f-9d9b1b686630",
-        "type": "view",
-        "key": "textbox",
-        "icon": "i-cursor",
-        "settings": {
-          "type": "single",
-          "objectId": "86fee2de-2ea4-463d-8d13-f27f13fc17dc",
-          "fieldId": "94aea397-d738-4dfb-be8a-30d8b530dcb0"
-        },
-        "translations": [
-          {
-            "language_code": "en",
-            "label": "All Clients Form.textbox"
-          }
-        ],
-        "position": {
-          "dx": "1",
-          "dy": "1",
-          "x": "0",
-          "y": "7"
-        },
-        "isRoot": "false"
-      },
-      "createdAt": "2021-10-19T10:19:59.000Z",
       "updatedAt": "2022-11-10T09:42:40.000Z"
     },
     {
@@ -21796,7 +21768,7 @@
         ]
       },
       "createdAt": "2021-07-16T03:51:32.000Z",
-      "updatedAt": "2023-01-27T06:12:24.000Z"
+      "updatedAt": "2023-02-08T03:19:52.000Z"
     },
     {
       "id": "5868d605-e177-45ea-98b6-5139dd4fb3a6",
@@ -22355,7 +22327,7 @@
         ]
       },
       "createdAt": "2021-07-16T04:27:15.000Z",
-      "updatedAt": "2023-01-27T06:12:21.000Z"
+      "updatedAt": "2023-02-08T03:19:51.000Z"
     },
     {
       "id": "a954997a-5863-45b1-b8ff-1cf55b16f518",
@@ -23012,7 +22984,7 @@
         ]
       },
       "createdAt": "2021-11-04T07:42:25.000Z",
-      "updatedAt": "2023-02-06T04:57:31.000Z"
+      "updatedAt": "2023-02-08T03:19:48.000Z"
     },
     {
       "id": "b34114d9-e5a9-475f-9db6-d1b746eedef8",
@@ -25589,7 +25561,7 @@
         ]
       },
       "createdAt": "2021-11-08T09:45:51.000Z",
-      "updatedAt": "2023-02-06T04:57:32.000Z"
+      "updatedAt": "2023-02-08T03:40:31.000Z"
     },
     {
       "id": "89b51c90-467f-4801-b890-4c9c4555929a",
@@ -25638,7 +25610,7 @@
         ]
       },
       "createdAt": "2021-11-08T09:46:15.000Z",
-      "updatedAt": "2023-02-06T04:57:36.000Z"
+      "updatedAt": "2023-02-08T03:22:44.000Z"
     },
     {
       "id": "4af27b9d-b7d4-4ade-8204-edb3ab890e05",
@@ -29671,7 +29643,7 @@
         "pageIDs": []
       },
       "createdAt": "2023-01-23T07:11:33.000Z",
-      "updatedAt": "2023-02-06T04:58:44.000Z"
+      "updatedAt": "2023-02-08T03:52:07.000Z"
     },
     {
       "id": "2c91ee49-5d36-4bc0-a8a8-58c40fe91afc",
@@ -29742,7 +29714,7 @@
         "isRoot": false
       },
       "createdAt": "2023-01-23T07:24:28.000Z",
-      "updatedAt": "2023-01-27T07:03:40.000Z"
+      "updatedAt": "2023-02-08T03:44:30.000Z"
     },
     {
       "id": "bffdf989-86d4-475a-ad21-a19fbebb1609",
@@ -29891,7 +29863,7 @@
         "views": []
       },
       "createdAt": "2023-01-23T08:28:27.000Z",
-      "updatedAt": "2023-01-27T07:06:19.000Z"
+      "updatedAt": "2023-02-08T03:44:28.000Z"
     },
     {
       "id": "38a1da3f-cdda-4aae-8fa0-cc07d6d4b41c",
@@ -29940,7 +29912,7 @@
         ]
       },
       "createdAt": "2021-12-10T03:13:13.000Z",
-      "updatedAt": "2023-01-27T07:19:33.000Z"
+      "updatedAt": "2023-02-08T03:19:53.000Z"
     },
     {
       "id": "95b60c14-c5a8-432f-b8e8-59b5c2df5c58",
@@ -33824,7 +33796,7 @@
         ]
       },
       "createdAt": "2022-11-10T09:03:15.000Z",
-      "updatedAt": "2023-01-27T06:41:23.000Z"
+      "updatedAt": "2023-02-08T03:19:57.000Z"
     },
     {
       "id": "4da435f6-9f28-48ab-925f-dd1a2e86e1bb",
@@ -34393,7 +34365,7 @@
         "isRoot": false
       },
       "createdAt": "2021-05-21T03:55:37.000Z",
-      "updatedAt": "2023-01-27T06:53:27.000Z"
+      "updatedAt": "2023-02-13T07:51:55.000Z"
     },
     {
       "id": "0776682f-14c3-4a55-8777-66e0e208f32e",
@@ -35173,20 +35145,22 @@
         "icon": "table",
         "name": "Clients.grid",
         "settings": {
-          "columnSpan": "1",
-          "rowSpan": "1",
+          "columnSpan": 1,
+          "rowSpan": 1,
           "dataviewID": "7295656b-6a2b-42cd-bc8e-e0d9f2890869",
-          "isEditable": "0",
-          "massUpdate": "0",
-          "allowDelete": "0",
-          "isSortable": "0",
-          "isExportable": "0",
-          "hideHeader": "1",
-          "labelAsField": "1",
-          "hideButtons": "1",
+          "isEditable": 0,
+          "massUpdate": 0,
+          "allowDelete": 0,
+          "isSortable": 0,
+          "isExportable": 0,
+          "hideHeader": 1,
+          "labelAsField": 1,
+          "hideButtons": 1,
           "gridFilter": {
-            "filterOption": "3",
-            "globalFilterPosition": ""
+            "filterOption": 1,
+            "queryRules": [],
+            "userFilterPosition": "toolbar",
+            "isGlobalToolbar": 1
           },
           "detailsPage": "9480cd8f-b9b3-4ee1-a362-5aa4a971a5b6",
           "editPage": "",
@@ -35248,24 +35222,86 @@
             ]
           },
           "height": 0,
-          "groupBy": ""
+          "groupBy": "",
+          "padding": 17,
+          "showToolbar": 1,
+          "columnConfig": [],
+          "saveLocal": 1,
+          "trackView": 0,
+          "frozenColumnID": "",
+          "hiddenFields": [
+            "Client ID",
+            "First Name",
+            "Last Name",
+            "Preferred Name",
+            "Gender",
+            "Date Birth",
+            "Marital Status",
+            "Email",
+            "Date First Contact",
+            "Family",
+            "Family Role",
+            "Engagement117",
+            "To Count",
+            "Group",
+            "Bill to",
+            "WellIntake102",
+            "Case303",
+            "Phone",
+            "Thai Phone",
+            "Primary Language",
+            "Passport Country",
+            "Service Country",
+            "Occupation",
+            "Referral",
+            "CM School",
+            "Newsletter",
+            "Emergency Contact",
+            "Emergency Phone",
+            "Emergency Email",
+            "Client A",
+            "Cross Cultural Service Years",
+            "Org Report",
+            "Org Contact",
+            "Org Email",
+            "Availability",
+            "Flexible Dates",
+            "First Time",
+            "Topics",
+            "Topics More Info",
+            "Medical Issues",
+            "Concerns meeting together",
+            "Prescription Medication",
+            "Concern Details",
+            "Cross Cultural Relationship",
+            "Bill To Client",
+            "Availability_lt",
+            "Topics_lt",
+            "Topics More Info_lt",
+            "Concern Details_lt",
+            "Client"
+          ],
+          "summaryColumns": [],
+          "countColumns": []
         },
+        "accessLevels": {},
         "translations": [
           {
             "language_code": "en",
             "label": "Clients.grid"
           }
         ],
+        "viewIDs": [],
         "position": {
           "dx": 1,
           "dy": 1,
           "x": 0,
           "y": 0
         },
-        "isRoot": "false"
+        "isRoot": false
       },
       "createdAt": "2021-10-19T11:17:35.000Z",
-      "updatedAt": "2022-11-10T09:42:40.000Z"
+      "updatedAt": "2023-02-13T07:52:10.000Z"
     },
     {
       "id": "1fea5a32-def5-4f1a-b10d-8f885b3e602f",
@@ -36532,7 +36568,7 @@
         "isRoot": false
       },
       "createdAt": "2021-10-04T04:06:48.000Z",
-      "updatedAt": "2023-01-23T06:10:09.000Z"
+      "updatedAt": "2023-02-08T03:12:14.000Z"
     },
     {
       "id": "21a242db-3f48-41aa-827e-075936af7acb",
@@ -36597,8 +36633,8 @@
           "gridFilter": {
             "filterOption": 1,
             "queryRules": [],
-            "userFilterPosition": "form",
-            "isGlobalToolbar": 0
+            "userFilterPosition": "toolbar",
+            "isGlobalToolbar": 1
           },
           "detailsPage": "edd60581-59ff-44b0-8c8f-2783e99386c8",
           "editPage": "",
@@ -36705,7 +36741,7 @@
         "isRoot": false
       },
       "createdAt": "2021-12-10T03:07:57.000Z",
-      "updatedAt": "2023-01-23T06:10:12.000Z"
+      "updatedAt": "2023-02-08T03:12:33.000Z"
     },
     {
       "id": "81c1f567-ba56-4be8-b825-a765bfee6d7b",
@@ -39423,8 +39459,8 @@
   "roles": [
     {
       "uuid": "01833a6b-9e31-430d-b87c-33a95a5d17dd",
-      "created_at": "2023-02-06T04:46:46.000Z",
-      "updated_at": "2023-02-06T04:46:46.000Z",
+      "created_at": "2023-01-11T09:16:00.000Z",
+      "updated_at": "2023-01-11T09:16:00.000Z",
       "properties": null,
       "translations": [
         {
@@ -39433,14 +39469,14 @@
           "description": "Well Intake Cordinator"
         }
       ],
-      "Default Role": 0,
+      "Default Role": null,
       "users__relation": [],
       "ProcessForm30__relation": [],
       "scopes": [
         {
           "uuid": "d9a85467-d91f-484f-a375-4cc9797b9b61",
-          "created_at": "2023-02-06T04:46:46.000Z",
-          "updated_at": "2023-02-06T04:46:46.000Z",
+          "created_at": "2023-01-11T09:16:00.000Z",
+          "updated_at": "2023-01-11T09:16:00.000Z",
           "properties": null,
           "translations": [
             {
@@ -39481,8 +39517,8 @@
     },
     {
       "uuid": "0462f972-1451-4f04-b495-025b9463cef5",
-      "created_at": "2023-02-06T04:46:46.000Z",
-      "updated_at": "2023-02-06T04:46:46.000Z",
+      "created_at": "2023-01-11T09:16:00.000Z",
+      "updated_at": "2023-01-11T09:16:00.000Z",
       "properties": null,
       "translations": [
         {
@@ -39491,14 +39527,14 @@
           "description": "Well Provider - see only their cases/clients"
         }
       ],
-      "Default Role": 0,
+      "Default Role": null,
       "users__relation": [],
       "ProcessForm30__relation": [],
       "scopes": [
         {
           "uuid": "a1f4cb6b-7d74-4335-a263-8d617149393d",
-          "created_at": "2023-02-06T04:46:46.000Z",
-          "updated_at": "2023-02-06T04:46:46.000Z",
+          "created_at": "2023-01-11T09:16:00.000Z",
+          "updated_at": "2023-01-11T09:16:00.000Z",
           "properties": null,
           "translations": [
             {
@@ -39556,8 +39592,8 @@
     },
     {
       "uuid": "c241ba65-f65a-44db-888a-b4f13593f47e",
-      "created_at": "2023-02-06T04:46:46.000Z",
-      "updated_at": "2023-02-06T04:46:46.000Z",
+      "created_at": "2023-01-11T09:16:00.000Z",
+      "updated_at": "2023-01-11T09:16:00.000Z",
       "properties": null,
       "translations": [
         {
@@ -39566,14 +39602,32 @@
           "description": "All Clients - Only Finance Pages"
         }
       ],
-      "Default Role": 0,
-      "users__relation": [],
+      "Default Role": null,
+      "users__relation": [
+        {
+          "uuid": "ecd3c534-9dc1-445a-a655-aa9d9592c2ef",
+          "created_at": "2023-02-13T03:50:00.000Z",
+          "updated_at": "2023-02-13T03:50:00.000Z",
+          "properties": null,
+          "failedLogins": 0,
+          "lastLogin": null,
+          "isActive": 1,
+          "sendEmailNotifications": 0,
+          "image_id": "",
+          "username": "guy",
+          "password": "3f478804a08c4cb9fc318d5d7ec0da2c4dd38e996efc5d389cfa6f92225ae9547689e4e89cc0c2aa59bf49cb67f7e5b6f01e4498944efb42405e3eab07c2be8e7247220c30730cc0e0b9f28937f5283519c715d1ac4ba4f753c2b5e3d777c85b686e0630e53fd6d816ae00a071556bb466f75da5e25c625fe49771bd200839f9f874f5d81730b1ad6ee5051f48e408551c865678833d36694b5d1908e0b768f925c79a60fa9c07279f9d68417eb51234f67f1efce86986bc0b02d8287d3047f49ec580ad5d9bc67576221cf0647263478e76feafa1f5ddbc6d33259d224ef55c303816a4a2d90c3090c939f743160c0be31219a6c341a26a5e1b8e26c5bd221292af2d4dcb060cc380c7114ad5191dada749f9c011e5b1575760d4d4e440db1eb1da69ca768e6d1e4687d957a27fa6afa2cddd00a6e0f80a957250c419301974f1607424f128e633f70aa0138f60514ec899b7e22bc201121ce563c3edf16b52773aad129b212ce4f11fe1e9033d3a0d1593b5596833d49db669b5a81eb3876e5342d01ab0c91dd9eb68b2bbc406209aa3a2a715ff86c239ef335fb160475af221971f592b005f8b0f0819324cc13d3f2524b476cceea396f08b60033e4fa940ded0995efb633b3a1a3e6e4794fa2181464d4985452c7c37b022530f7e87124e53d71ba7a6cf2fc7c475792a9d7ec7c596bdc06ac55954d0b59037f8e2b8045b",
+          "salt": "8764aae22c7028daa1150319b41143ca6b099f182e49c989e4fac3190becd788",
+          "email": "guy.konlawat@digiserve.org",
+          "languageCode": "en",
+          "id": "ecd3c534-9dc1-445a-a655-aa9d9592c2ef"
+        }
+      ],
       "ProcessForm30__relation": [],
       "scopes": [
         {
           "uuid": "607598f0-98d0-4e28-b73a-be1e083df030",
-          "created_at": "2023-02-06T04:46:46.000Z",
-          "updated_at": "2023-02-06T04:46:46.000Z",
+          "created_at": "2023-01-11T09:16:00.000Z",
+          "updated_at": "2023-01-11T09:16:00.000Z",
           "properties": null,
           "translations": [
             {
@@ -39607,8 +39661,8 @@
     },
     {
       "uuid": "ee52974b-5276-427f-ad4c-f29af6b5caaf",
-      "created_at": "2022-04-07T09:43:20.000Z",
-      "updated_at": "2022-04-07T09:43:20.000Z",
+      "created_at": "2023-01-11T09:16:00.000Z",
+      "updated_at": "2023-01-11T09:16:00.000Z",
       "properties": null,
       "translations": [
         {
@@ -39617,7 +39671,7 @@
           "name": "Tenant Admin"
         }
       ],
-      "Default Role": 0,
+      "Default Role": null,
       "users__relation": [],
       "ProcessForm30__relation": [],
       "scopes": [

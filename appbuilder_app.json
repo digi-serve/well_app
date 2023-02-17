@@ -1,7 +1,7 @@
 {
   "abVersion": "0.0.0",
-  "filename": "app_Client_Database_20230213",
-  "date": "20230213",
+  "filename": "app_Client_Database_20230216",
+  "date": "20230216",
   "definitions": [
     {
       "id": "05cde3ed-fd38-4e4c-b9a6-dfba9c979bdf",
@@ -9709,7 +9709,8 @@
           "185a23a8-15a9-4821-9820-b2395c06c039",
           "562b5b58-1b10-49cd-aa88-3a4a50ed5509",
           "4798f781-7377-47d8-a739-cfe01bf11566",
-          "d0cacd9f-8e0c-4eeb-a5d6-0130d8541cb2"
+          "d0cacd9f-8e0c-4eeb-a5d6-0130d8541cb2",
+          "9359335e-a311-4503-86f1-2ebe2d9f8b0f"
         ],
         "importedFieldIDs": [],
         "indexIDs": [],
@@ -9737,7 +9738,7 @@
         }
       },
       "createdAt": "2022-11-23T03:58:13.000Z",
-      "updatedAt": "2023-01-27T05:24:51.000Z"
+      "updatedAt": "2023-02-16T05:15:20.000Z"
     },
     {
       "id": "d63d4ff4-82d3-4a37-97f6-9c2b88b5db92",
@@ -9816,10 +9817,11 @@
       "name": "Session Notes->Problems",
       "type": "field",
       "json": {
+        "id": "b73a3032-3e16-418e-b4aa-ef97620a6f4c",
         "type": "field",
         "key": "list",
         "icon": "th-list",
-        "isImported": "0",
+        "isImported": 0,
         "columnName": "Problems",
         "settings": {
           "showIcon": 1,
@@ -10093,6 +10095,17 @@
                   "text": "Worries"
                 }
               ]
+            },
+            {
+              "id": "Other (please give more details below)",
+              "text": "Other (please give more details below)",
+              "hex": "#3498db",
+              "translations": [
+                {
+                  "language_code": "en",
+                  "text": "Other (please give more details below)"
+                }
+              ]
             }
           ],
           "width": 120,
@@ -10103,21 +10116,21 @@
             "language_code": "en",
             "label": "Problems"
           }
-        ],
-        "id": "b73a3032-3e16-418e-b4aa-ef97620a6f4c"
+        ]
       },
       "createdAt": "2022-11-29T09:19:14.000Z",
-      "updatedAt": "2022-11-29T09:19:14.000Z"
+      "updatedAt": "2023-02-16T04:49:48.000Z"
     },
     {
       "id": "29cab146-bfed-4353-8dd5-5d7a0f526d01",
       "name": "Session Notes->Sleep",
       "type": "field",
       "json": {
+        "id": "29cab146-bfed-4353-8dd5-5d7a0f526d01",
         "type": "field",
         "key": "list",
         "icon": "th-list",
-        "isImported": "0",
+        "isImported": 0,
         "columnName": "Sleep",
         "settings": {
           "showIcon": 1,
@@ -10193,6 +10206,17 @@
                   "text": "Didn't Discuss"
                 }
               ]
+            },
+            {
+              "id": "Other (please give more details below)",
+              "text": "Other (please give more details below)",
+              "hex": "#03A9F4",
+              "translations": [
+                {
+                  "language_code": "en",
+                  "text": "Other (please give more details below)"
+                }
+              ]
             }
           ],
           "width": 100,
@@ -10203,21 +10227,21 @@
             "language_code": "en",
             "label": "Sleep"
           }
-        ],
-        "id": "29cab146-bfed-4353-8dd5-5d7a0f526d01"
+        ]
       },
       "createdAt": "2022-11-29T09:20:38.000Z",
-      "updatedAt": "2022-11-29T09:20:38.000Z"
+      "updatedAt": "2023-02-16T04:50:27.000Z"
     },
     {
       "id": "98bb07b9-7710-46a6-b83c-cfd118df68fe",
       "name": "Session Notes->Suicidal Thoughts",
       "type": "field",
       "json": {
+        "id": "98bb07b9-7710-46a6-b83c-cfd118df68fe",
         "type": "field",
         "key": "list",
         "icon": "th-list",
-        "isImported": "0",
+        "isImported": 0,
         "columnName": "Suicidal Thoughts",
         "settings": {
           "showIcon": 1,
@@ -10304,6 +10328,17 @@
                   "text": "Did not Discuss"
                 }
               ]
+            },
+            {
+              "id": "Other (please give more details below)",
+              "text": "Other (please give more details below)",
+              "hex": "#00BCD4",
+              "translations": [
+                {
+                  "language_code": "en",
+                  "text": "Other (please give more details below)"
+                }
+              ]
             }
           ],
           "width": 210,
@@ -10314,25 +10349,25 @@
             "language_code": "en",
             "label": "Suicidal Thoughts"
           }
-        ],
-        "id": "98bb07b9-7710-46a6-b83c-cfd118df68fe"
+        ]
       },
       "createdAt": "2022-11-29T09:22:24.000Z",
-      "updatedAt": "2022-11-29T09:22:24.000Z"
+      "updatedAt": "2023-02-16T04:51:46.000Z"
     },
     {
       "id": "cb856c17-4a12-4311-a0e6-6abb234de13b",
       "name": "Session Notes->Comments about Symptoms",
       "type": "field",
       "json": {
+        "id": "cb856c17-4a12-4311-a0e6-6abb234de13b",
         "type": "field",
         "key": "LongText",
         "icon": "align-right",
-        "isImported": "0",
+        "isImported": 0,
         "columnName": "Comments about Symptoms",
         "settings": {
           "showIcon": 1,
-          "required": 0,
+          "required": 1,
           "unique": 0,
           "validationRules": "[]",
           "default": "",
@@ -10344,21 +10379,21 @@
             "language_code": "en",
             "label": "Comments about Symptoms"
           }
-        ],
-        "id": "cb856c17-4a12-4311-a0e6-6abb234de13b"
+        ]
       },
       "createdAt": "2022-11-29T09:22:58.000Z",
-      "updatedAt": "2022-11-29T09:22:58.000Z"
+      "updatedAt": "2023-02-16T04:30:18.000Z"
     },
     {
       "id": "ee36a93c-f295-45d2-a9fb-bb00d611f5f6",
       "name": "Session Notes->Behavior",
       "type": "field",
       "json": {
+        "id": "ee36a93c-f295-45d2-a9fb-bb00d611f5f6",
         "type": "field",
         "key": "list",
         "icon": "th-list",
-        "isImported": "0",
+        "isImported": 0,
         "columnName": "Behavior",
         "settings": {
           "showIcon": 1,
@@ -10577,6 +10612,17 @@
                   "text": "Withdrawn"
                 }
               ]
+            },
+            {
+              "id": "Other (please give more details below)",
+              "text": "Other (please give more details below)",
+              "hex": "#000000",
+              "translations": [
+                {
+                  "language_code": "en",
+                  "text": "Other (please give more details below)"
+                }
+              ]
             }
           ],
           "width": 120,
@@ -10587,25 +10633,25 @@
             "language_code": "en",
             "label": "Behavior"
           }
-        ],
-        "id": "ee36a93c-f295-45d2-a9fb-bb00d611f5f6"
+        ]
       },
       "createdAt": "2022-11-29T09:42:05.000Z",
-      "updatedAt": "2022-11-29T09:42:05.000Z"
+      "updatedAt": "2023-02-16T04:52:34.000Z"
     },
     {
       "id": "a9efdec0-dcb3-4697-861c-1da9ac6f4521",
       "name": "Session Notes->Other Comments About Things Noticed During the Session",
       "type": "field",
       "json": {
+        "id": "a9efdec0-dcb3-4697-861c-1da9ac6f4521",
         "type": "field",
         "key": "LongText",
         "icon": "align-right",
-        "isImported": "0",
+        "isImported": 0,
         "columnName": "Other Comments About Things Noticed During the Session",
         "settings": {
           "showIcon": 1,
-          "required": 0,
+          "required": 1,
           "unique": 0,
           "validationRules": "[]",
           "default": "",
@@ -10617,21 +10663,21 @@
             "language_code": "en",
             "label": "Other Comments About Things Noticed During the Session"
           }
-        ],
-        "id": "a9efdec0-dcb3-4697-861c-1da9ac6f4521"
+        ]
       },
       "createdAt": "2022-11-29T09:30:10.000Z",
-      "updatedAt": "2022-11-29T09:30:10.000Z"
+      "updatedAt": "2023-02-16T04:30:53.000Z"
     },
     {
       "id": "8c0e93d5-33a4-49a5-b01a-f69f2ff85f42",
       "name": "Session Notes->Focus of Session",
       "type": "field",
       "json": {
+        "id": "8c0e93d5-33a4-49a5-b01a-f69f2ff85f42",
         "type": "field",
         "key": "list",
         "icon": "th-list",
-        "isImported": "0",
+        "isImported": 0,
         "columnName": "Focus of Session",
         "settings": {
           "showIcon": 1,
@@ -10817,6 +10863,17 @@
                   "text": "Values"
                 }
               ]
+            },
+            {
+              "id": "Other (please give more details below)",
+              "text": "Other (please give more details below)",
+              "hex": "#795548",
+              "translations": [
+                {
+                  "language_code": "en",
+                  "text": "Other (please give more details below)"
+                }
+              ]
             }
           ],
           "width": 200,
@@ -10827,11 +10884,10 @@
             "language_code": "en",
             "label": "Focus of Session"
           }
-        ],
-        "id": "8c0e93d5-33a4-49a5-b01a-f69f2ff85f42"
+        ]
       },
       "createdAt": "2022-11-29T09:33:19.000Z",
-      "updatedAt": "2022-11-29T09:33:19.000Z"
+      "updatedAt": "2023-02-16T04:53:10.000Z"
     },
     {
       "id": "9d56d6d0-ffa6-423c-858e-4f9d9806cd4d",
@@ -10868,14 +10924,15 @@
       "name": "Session Notes->Progress in Goals and Objectives",
       "type": "field",
       "json": {
+        "id": "185a23a8-15a9-4821-9820-b2395c06c039",
         "type": "field",
         "key": "LongText",
         "icon": "align-right",
-        "isImported": "0",
+        "isImported": 0,
         "columnName": "Progress in Goals and Objectives",
         "settings": {
           "showIcon": 1,
-          "required": 0,
+          "required": 1,
           "unique": 0,
           "validationRules": "[]",
           "default": "",
@@ -10887,11 +10944,10 @@
             "language_code": "en",
             "label": "Progress in Goals and Objectives"
           }
-        ],
-        "id": "185a23a8-15a9-4821-9820-b2395c06c039"
+        ]
       },
       "createdAt": "2022-11-29T09:34:00.000Z",
-      "updatedAt": "2022-11-29T09:34:00.000Z"
+      "updatedAt": "2023-02-16T04:28:34.000Z"
     },
     {
       "id": "562b5b58-1b10-49cd-aa88-3a4a50ed5509",
@@ -10988,6 +11044,36 @@
       },
       "createdAt": "2023-01-19T09:31:24.000Z",
       "updatedAt": "2023-01-19T09:31:26.000Z"
+    },
+    {
+      "id": "9359335e-a311-4503-86f1-2ebe2d9f8b0f",
+      "name": "Session Notes->Signature",
+      "type": "field",
+      "json": {
+        "id": "9359335e-a311-4503-86f1-2ebe2d9f8b0f",
+        "type": "field",
+        "key": "string",
+        "icon": "font",
+        "isImported": 0,
+        "columnName": "Signature",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "default": "",
+          "supportMultilingual": 0,
+          "width": 130
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Signature"
+          }
+        ]
+      },
+      "createdAt": "2023-02-16T05:15:20.000Z",
+      "updatedAt": "2023-02-16T05:15:20.000Z"
     },
     {
       "id": "97e60218-4031-4c01-9ae1-5e57a381860d",
@@ -13169,14 +13255,15 @@
       "name": "Last Session->Goals",
       "type": "field",
       "json": {
+        "id": "c236beb4-20a5-4010-80e0-9ac561507ce7",
         "type": "field",
         "key": "LongText",
         "icon": "align-right",
-        "isImported": "0",
+        "isImported": 0,
         "columnName": "Goals",
         "settings": {
           "showIcon": 1,
-          "required": 0,
+          "required": 1,
           "unique": 0,
           "validationRules": "[]",
           "default": "",
@@ -13188,25 +13275,25 @@
             "language_code": "en",
             "label": "Goals"
           }
-        ],
-        "id": "c236beb4-20a5-4010-80e0-9ac561507ce7"
+        ]
       },
       "createdAt": "2022-11-23T09:29:25.000Z",
-      "updatedAt": "2022-11-23T09:29:25.000Z"
+      "updatedAt": "2023-02-16T04:47:27.000Z"
     },
     {
       "id": "0c76442b-36a7-4671-ad71-67cb939b2722",
       "name": "Last Session->Progress",
       "type": "field",
       "json": {
+        "id": "0c76442b-36a7-4671-ad71-67cb939b2722",
         "type": "field",
         "key": "LongText",
         "icon": "align-right",
-        "isImported": "0",
+        "isImported": 0,
         "columnName": "Progress",
         "settings": {
           "showIcon": 1,
-          "required": 0,
+          "required": 1,
           "unique": 0,
           "validationRules": "[]",
           "default": "",
@@ -13218,11 +13305,10 @@
             "language_code": "en",
             "label": "Progress"
           }
-        ],
-        "id": "0c76442b-36a7-4671-ad71-67cb939b2722"
+        ]
       },
       "createdAt": "2022-11-23T09:29:34.000Z",
-      "updatedAt": "2022-11-23T09:29:34.000Z"
+      "updatedAt": "2023-02-16T04:47:31.000Z"
     },
     {
       "id": "bcfe58fe-3e5d-4242-a066-0a2a985549fb",
@@ -13286,14 +13372,14 @@
     },
     {
       "id": "aa8fb384-837d-489e-a9dc-93812b17ba80",
-      "name": "Last Session->Reason CounselingSoul Care is Ending",
+      "name": "Last Session->Reason Counseling/Soul Care is Ending",
       "type": "field",
       "json": {
         "id": "aa8fb384-837d-489e-a9dc-93812b17ba80",
         "type": "field",
         "key": "list",
         "icon": "th-list",
-        "isImported": "0",
+        "isImported": 0,
         "columnName": "Reason CounselingSoul Care is Ending",
         "settings": {
           "showIcon": 1,
@@ -13358,6 +13444,17 @@
                   "text": "Achieved Goals"
                 }
               ]
+            },
+            {
+              "id": "Other (please give more details below)",
+              "text": "Other (please give more details below)",
+              "hex": "#2196F3",
+              "translations": [
+                {
+                  "language_code": "en",
+                  "text": "Other (please give more details below)"
+                }
+              ]
             }
           ],
           "width": 0,
@@ -13371,7 +13468,7 @@
         ]
       },
       "createdAt": "2022-11-29T09:45:53.000Z",
-      "updatedAt": "2022-11-29T10:08:01.000Z"
+      "updatedAt": "2023-02-16T04:47:08.000Z"
     },
     {
       "id": "518b4d64-0311-41a8-9873-78a374cd78b3",
@@ -19379,7 +19476,7 @@
         ]
       },
       "createdAt": "2021-05-21T03:55:19.000Z",
-      "updatedAt": "2023-02-13T07:51:54.000Z"
+      "updatedAt": "2023-02-16T05:34:43.000Z"
     },
     {
       "id": "52678a9a-26de-40de-8996-379c3141a762",
@@ -20717,7 +20814,7 @@
         ]
       },
       "createdAt": "2021-07-12T06:03:45.000Z",
-      "updatedAt": "2023-01-23T07:45:37.000Z"
+      "updatedAt": "2023-02-16T04:38:18.000Z"
     },
     {
       "id": "8b67f3ea-a407-4fb7-83e1-4e7a1655d8ce",
@@ -22327,7 +22424,7 @@
         ]
       },
       "createdAt": "2021-07-16T04:27:15.000Z",
-      "updatedAt": "2023-02-08T03:19:51.000Z"
+      "updatedAt": "2023-02-16T04:38:05.000Z"
     },
     {
       "id": "a954997a-5863-45b1-b8ff-1cf55b16f518",
@@ -25561,7 +25658,7 @@
         ]
       },
       "createdAt": "2021-11-08T09:45:51.000Z",
-      "updatedAt": "2023-02-08T03:40:31.000Z"
+      "updatedAt": "2023-02-16T04:54:05.000Z"
     },
     {
       "id": "89b51c90-467f-4801-b890-4c9c4555929a",
@@ -25610,7 +25707,7 @@
         ]
       },
       "createdAt": "2021-11-08T09:46:15.000Z",
-      "updatedAt": "2023-02-08T03:22:44.000Z"
+      "updatedAt": "2023-02-16T04:38:27.000Z"
     },
     {
       "id": "4af27b9d-b7d4-4ade-8204-edb3ab890e05",
@@ -26277,7 +26374,7 @@
         "pageIDs": []
       },
       "createdAt": "2021-11-08T09:46:30.000Z",
-      "updatedAt": "2023-01-27T06:12:37.000Z"
+      "updatedAt": "2023-02-16T05:16:13.000Z"
     },
     {
       "id": "e11c8a3e-954b-4585-9a4d-dc15534ff956",
@@ -26633,7 +26730,7 @@
         "pageIDs": []
       },
       "createdAt": "2022-01-07T08:47:48.000Z",
-      "updatedAt": "2023-01-27T06:15:05.000Z"
+      "updatedAt": "2023-02-16T05:16:12.000Z"
     },
     {
       "id": "527ba89b-2d55-4167-9ef9-33fc6a9d816f",
@@ -27049,7 +27146,7 @@
         "pageIDs": []
       },
       "createdAt": "2022-02-03T06:26:58.000Z",
-      "updatedAt": "2023-01-27T06:15:08.000Z"
+      "updatedAt": "2023-02-16T05:16:14.000Z"
     },
     {
       "id": "a6121245-3261-4ff5-bcdf-26f96b73a8a4",
@@ -27326,7 +27423,7 @@
         "pageIDs": []
       },
       "createdAt": "2022-04-06T10:06:42.000Z",
-      "updatedAt": "2023-02-06T04:58:46.000Z"
+      "updatedAt": "2023-02-16T04:38:39.000Z"
     },
     {
       "id": "02e58521-6b6b-44b1-be63-840bca75e016",
@@ -27619,7 +27716,7 @@
         "pageIDs": []
       },
       "createdAt": "2023-01-19T08:54:57.000Z",
-      "updatedAt": "2023-01-20T08:28:25.000Z"
+      "updatedAt": "2023-02-16T05:35:15.000Z"
     },
     {
       "id": "09588053-0bb4-4d78-bbff-82da3cda98a3",
@@ -27698,6 +27795,7 @@
           "caac30de-5473-4ae3-9f7a-9bad21352af8",
           "ba00f10e-7840-4faf-8698-290cbc89d6fc",
           "a77ad352-98c4-4816-a4cd-8cca643393bd",
+          "2af8a51a-8145-4a14-8ded-831f1d388888",
           "97389909-d36e-440a-ad84-b3d963a41840"
         ],
         "position": {
@@ -27707,7 +27805,7 @@
         "isRoot": false
       },
       "createdAt": "2023-01-19T09:10:17.000Z",
-      "updatedAt": "2023-01-20T08:28:51.000Z"
+      "updatedAt": "2023-02-16T05:35:38.000Z"
     },
     {
       "id": "443ce63e-acb4-4bb5-b4e8-581a863dc7dc",
@@ -27736,13 +27834,13 @@
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 13,
+          "y": 10,
           "x": 0
         },
         "isRoot": false
       },
       "createdAt": "2023-01-19T09:13:57.000Z",
-      "updatedAt": "2023-01-19T09:31:59.000Z"
+      "updatedAt": "2023-02-16T05:35:38.000Z"
     },
     {
       "id": "69e578c9-501e-43ec-b0ac-924010e6c331",
@@ -27771,13 +27869,13 @@
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 12,
+          "y": 9,
           "x": 0
         },
         "isRoot": false
       },
       "createdAt": "2023-01-19T09:13:57.000Z",
-      "updatedAt": "2023-01-19T09:31:59.000Z"
+      "updatedAt": "2023-02-16T05:35:38.000Z"
     },
     {
       "id": "5f093c75-a3ee-42ed-a38d-8c044d8d3170",
@@ -27806,13 +27904,13 @@
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 11,
+          "y": 8,
           "x": 0
         },
         "isRoot": false
       },
       "createdAt": "2023-01-19T09:13:57.000Z",
-      "updatedAt": "2023-01-19T09:31:59.000Z"
+      "updatedAt": "2023-02-16T05:35:38.000Z"
     },
     {
       "id": "d15ed701-2bde-43a4-9194-b2beb94ee767",
@@ -27841,13 +27939,13 @@
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 10,
+          "y": 7,
           "x": 0
         },
         "isRoot": false
       },
       "createdAt": "2023-01-19T09:13:57.000Z",
-      "updatedAt": "2023-01-19T09:31:59.000Z"
+      "updatedAt": "2023-02-16T05:35:38.000Z"
     },
     {
       "id": "596533bf-3b51-4a34-95f2-eb476ed4f1b8",
@@ -27957,13 +28055,13 @@
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 9,
+          "y": 6,
           "x": 0
         },
         "isRoot": false
       },
       "createdAt": "2023-01-19T09:13:57.000Z",
-      "updatedAt": "2023-01-19T09:31:59.000Z"
+      "updatedAt": "2023-02-16T05:35:38.000Z"
     },
     {
       "id": "757ea670-64cb-4a31-9160-c095370d8b2d",
@@ -27992,13 +28090,13 @@
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 8,
+          "y": 5,
           "x": 0
         },
         "isRoot": false
       },
       "createdAt": "2023-01-19T09:13:57.000Z",
-      "updatedAt": "2023-01-19T09:31:59.000Z"
+      "updatedAt": "2023-02-16T05:35:38.000Z"
     },
     {
       "id": "a549d996-e797-4cca-95e2-53efeaa77681",
@@ -28123,13 +28221,13 @@
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 7,
+          "y": 4,
           "x": 0
         },
         "isRoot": false
       },
       "createdAt": "2023-01-19T09:13:57.000Z",
-      "updatedAt": "2023-01-19T09:31:59.000Z"
+      "updatedAt": "2023-02-16T05:35:38.000Z"
     },
     {
       "id": "38174430-fd72-48e8-b040-429da22f1504",
@@ -28159,13 +28257,13 @@
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 6,
+          "y": 3,
           "x": 0
         },
         "isRoot": false
       },
       "createdAt": "2023-01-19T09:13:57.000Z",
-      "updatedAt": "2023-01-19T09:31:59.000Z"
+      "updatedAt": "2023-02-16T05:35:38.000Z"
     },
     {
       "id": "caac30de-5473-4ae3-9f7a-9bad21352af8",
@@ -28230,13 +28328,13 @@
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 3,
+          "y": 1,
           "x": 0
         },
         "isRoot": false
       },
       "createdAt": "2023-01-19T09:13:57.000Z",
-      "updatedAt": "2023-01-19T09:31:59.000Z"
+      "updatedAt": "2023-02-16T05:35:38.000Z"
     },
     {
       "id": "ba00f10e-7840-4faf-8698-290cbc89d6fc",
@@ -28296,13 +28394,13 @@
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 4,
+          "y": 2,
           "x": 0
         },
         "isRoot": false
       },
       "createdAt": "2023-01-19T09:13:57.000Z",
-      "updatedAt": "2023-01-19T09:31:59.000Z"
+      "updatedAt": "2023-02-16T05:35:38.000Z"
     },
     {
       "id": "a77ad352-98c4-4816-a4cd-8cca643393bd",
@@ -28452,13 +28550,48 @@
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 2,
+          "y": 0,
           "x": 0
         },
         "isRoot": false
       },
       "createdAt": "2023-01-19T09:13:57.000Z",
-      "updatedAt": "2023-01-19T09:31:59.000Z"
+      "updatedAt": "2023-02-16T05:35:38.000Z"
+    },
+    {
+      "id": "2af8a51a-8145-4a14-8ded-831f1d388888",
+      "name": "Add Session Notes.form.textbox",
+      "type": "view",
+      "json": {
+        "id": "2af8a51a-8145-4a14-8ded-831f1d388888",
+        "type": "view",
+        "key": "textbox",
+        "icon": "i-cursor",
+        "name": "Add Session Notes.form.textbox",
+        "settings": {
+          "type": "single",
+          "objectId": "f747aa47-6631-493d-9256-e2de3c45f533",
+          "fieldId": "9359335e-a311-4503-86f1-2ebe2d9f8b0f",
+          "height": 0
+        },
+        "accessLevels": {},
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Add Session Notes.form.textbox"
+          }
+        ],
+        "viewIDs": [],
+        "position": {
+          "dx": 1,
+          "dy": 1,
+          "x": 0,
+          "y": 11
+        },
+        "isRoot": false
+      },
+      "createdAt": "2023-02-16T05:35:25.000Z",
+      "updatedAt": "2023-02-16T05:35:38.000Z"
     },
     {
       "id": "97389909-d36e-440a-ad84-b3d963a41840",
@@ -28489,13 +28622,13 @@
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 14,
+          "y": 12,
           "x": 0
         },
         "isRoot": false
       },
       "createdAt": "2023-01-19T09:13:57.000Z",
-      "updatedAt": "2023-01-19T09:32:12.000Z"
+      "updatedAt": "2023-02-16T05:35:38.000Z"
     },
     {
       "id": "98545e9e-c4d8-40b9-ade2-3a5bcf7edc14",
@@ -28539,7 +28672,7 @@
         "pageIDs": []
       },
       "createdAt": "2023-01-19T09:46:50.000Z",
-      "updatedAt": "2023-01-23T09:26:20.000Z"
+      "updatedAt": "2023-02-16T05:16:15.000Z"
     },
     {
       "id": "fa86c296-d806-4fbf-81d6-4050e0b822b8",
@@ -28622,7 +28755,7 @@
         "isRoot": false
       },
       "createdAt": "2023-01-19T09:46:57.000Z",
-      "updatedAt": "2023-01-19T10:17:16.000Z"
+      "updatedAt": "2023-02-16T04:38:51.000Z"
     },
     {
       "id": "193d292d-b7e1-412c-84f8-75d78a0c42fe",
@@ -28927,7 +29060,7 @@
         "pageIDs": []
       },
       "createdAt": "2023-01-20T06:46:20.000Z",
-      "updatedAt": "2023-01-27T07:06:26.000Z"
+      "updatedAt": "2023-02-16T05:35:14.000Z"
     },
     {
       "id": "e6f4b430-306a-43f0-93fe-e7aecc99b94c",
@@ -29912,7 +30045,7 @@
         ]
       },
       "createdAt": "2021-12-10T03:13:13.000Z",
-      "updatedAt": "2023-02-08T03:19:53.000Z"
+      "updatedAt": "2023-02-16T04:38:04.000Z"
     },
     {
       "id": "95b60c14-c5a8-432f-b8e8-59b5c2df5c58",
@@ -33796,7 +33929,7 @@
         ]
       },
       "createdAt": "2022-11-10T09:03:15.000Z",
-      "updatedAt": "2023-02-08T03:19:57.000Z"
+      "updatedAt": "2023-02-16T04:38:04.000Z"
     },
     {
       "id": "4da435f6-9f28-48ab-925f-dd1a2e86e1bb",
@@ -34365,7 +34498,7 @@
         "isRoot": false
       },
       "createdAt": "2021-05-21T03:55:37.000Z",
-      "updatedAt": "2023-02-13T07:51:55.000Z"
+      "updatedAt": "2023-02-16T05:34:58.000Z"
     },
     {
       "id": "0776682f-14c3-4a55-8777-66e0e208f32e",
@@ -39470,8 +39603,8 @@
         }
       ],
       "Default Role": null,
-      "users__relation": [],
       "ProcessForm30__relation": [],
+      "users__relation": [],
       "scopes": [
         {
           "uuid": "d9a85467-d91f-484f-a375-4cc9797b9b61",
@@ -39528,8 +39661,8 @@
         }
       ],
       "Default Role": null,
-      "users__relation": [],
       "ProcessForm30__relation": [],
+      "users__relation": [],
       "scopes": [
         {
           "uuid": "a1f4cb6b-7d74-4335-a263-8d617149393d",
@@ -39603,6 +39736,7 @@
         }
       ],
       "Default Role": null,
+      "ProcessForm30__relation": [],
       "users__relation": [
         {
           "uuid": "ecd3c534-9dc1-445a-a655-aa9d9592c2ef",
@@ -39622,7 +39756,6 @@
           "id": "ecd3c534-9dc1-445a-a655-aa9d9592c2ef"
         }
       ],
-      "ProcessForm30__relation": [],
       "scopes": [
         {
           "uuid": "607598f0-98d0-4e28-b73a-be1e083df030",
@@ -39672,8 +39805,8 @@
         }
       ],
       "Default Role": null,
-      "users__relation": [],
       "ProcessForm30__relation": [],
+      "users__relation": [],
       "scopes": [
         {
           "uuid": "838beeb9-0a13-4b0f-9780-0d47e67f3752",

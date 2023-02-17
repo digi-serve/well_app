@@ -15,6 +15,10 @@ on:
 jobs:
    cypress-test:
       runs-on: ubuntu-latest
+      env:
+         CYPRESS_RESPONSE_TIMEOUT: 200000
+         CYPRESS_DEFAULT_COMMAND_TIMEOUT: 30000
+         CYPRESS_RETRIES: 2
       steps:
          # Setup
          - uses: digi-serve/ab-install-action@v1
@@ -30,25 +34,17 @@ jobs:
          - name: Check out
            uses: actions/checkout@v2
            with:
-              path: ab/test/e2e/cypress/integration/cars_app
+              path: ab/test/e2e/cypress/e2e/well_app
 
-         #Run test
-         - name: Run Cypress Tests
-           uses: cypress-io/github-action@v2
+         - name: Wait for AB
+           uses: ifaxity/wait-on-action@v1
            with:
-              working-directory: ./ab
-              project: ./test/e2e
-              config: baseUrl=http://localhost:8080,testFiles=**/*.js,responseTimeout=100000,defaultCommandTimeout=30000,retries=2
-              install: false
-              browser: chrome
+             resource: http://localhost:8080
+             timeout: 300000
 
-              # Wait for the site to be ready
-              wait-on: "http://localhost:8080"
-              wait-on-timeout: 300
-
-              # We need to set the stack name as an environment variable for
-              # the test reset script.
-              env: stack=ab
+         - name: Run Cypress Tests
+           run: npm run test:e2e:app -- --browser chrome
+           working-directory: ./ab
 
          - uses: actions/upload-artifact@v2
            if: failure()

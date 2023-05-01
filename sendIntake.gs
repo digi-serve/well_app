@@ -57,51 +57,58 @@ const applicationDefinition = {
  * @function test_onIntakeRecieved
  */
 function test_onIntakeRecieved() {
-   // for (let i = 11; i < 21; i++){
-   //   const response = ss.getSheetByName(RESPONSE_SHEET).getDataRange().getValues()[i]; // datatestinput
-   //   onIntakeReceived({values: response});
-   // }
-   const response = ss
-      .getSheetByName(RESPONSE_SHEET)
-      .getDataRange()
-      .getValues()[20]; // datatestinput
-   onIntakeReceived({ values: response });
+  const formNumber = 1
+
+  // for (let i = 3382; i < 3399; i++){
+  //   const formResponse = `${RESPONSE_SHEET} ${formNumber}`
+  //   Logger.log(`${formResponse}: ${i}`);
+  //   const response = ss.getSheetByName(formResponse).getDataRange().getValues()[i - 1]; // datatestinput
+  //   onIntakeReceived({values: response, formName: formResponse});
+  // }
+
+  const realNumberOfRowOnGoogleSheet = 2273;
+  const formResponse = `${RESPONSE_SHEET} ${formNumber}`
+  Logger.log(`${formResponse}: ${realNumberOfRowOnGoogleSheet}`);
+  const response = ss.getSheetByName(formResponse).getDataRange().getValues()[realNumberOfRowOnGoogleSheet - 1]; // datatestinput
+  onIntakeReceived({values: response, formName: formResponse});
 }
 
 /**
  * Processes the new response and sends request to the db
  * @function onIntakeReceived
  */
-function onIntakeReceived({ values }) {
-   try {
-      logResults("Response received", values);
-      // Load and prepare data for processing
-      const keyData = ss
-         .getSheetByName(KEYS_SHEET)
-         .getRange(2, 2, values.length, 1)
-         .getValues();
-      const keys = transpose(keyData)[0];
+function onIntakeReceived(e) {
+  let { values, formName } = e;
+  try {
+    if(!formName) formName = e.range.getSheet().getName();
 
-      const rename = {};
-      const renameData = ss
-         .getSheetByName(RENAME_SHEET)
-         .getDataRange()
-         .getValues();
-      renameData.shift();
-      renameData.forEach((row) => {
-         if (!rename.hasOwnProperty([row[0]])) {
-            rename[row[0]] = {};
-         }
-         rename[row[0]][row[1]] = row[2];
-      });
-      // Process Intake
-      let intake = parseResponse(values, keys);
-      intake = processClients(intake);
-      intake = renameResponses(intake, rename);
-      AppbuilderAPIPostRequest(intake);
-   } catch (error) {
-      logResults("Error", error.message);
-   }
+    const indexes = ss.getSheetByName(formName).getDataRange().getValues()[0];
+
+    logResults("Response received", values);
+    // Load and prepare data for processing
+    const keyData = ss.getSheetByName(KEYS_SHEET).getRange(2,2,values?.length, 1).getValues();
+    const keys = transpose(keyData)[0];
+
+    const rename = {};
+    const renameData = ss.getSheetByName(RENAME_SHEET).getDataRange().getValues();
+    renameData.shift();
+    renameData.forEach(row => {
+      if (!rename.hasOwnProperty([row[0]])) {
+        rename[row[0]] = {};
+      }
+      rename[row[0]][row[1]] = row[2];
+    })
+
+    // Process Intake
+    let intake = parseResponse(values, keys, indexes);
+
+    intake = processClients(intake);
+    intake = renameResponses(intake, rename);
+
+    AppbuilderAPIPostRequest(intake);
+  } catch (error) {
+    logResults('Error', error.message);
+  }
 }
 
 /**
@@ -111,20 +118,21 @@ function onIntakeReceived({ values }) {
  * @param {String[]} keys - an array of keys that will be used to map the response data in the intake object
  * @return {Object} intake object
  */
-function parseResponse(response, keys) {
-   let intake = {};
-   response.forEach((column, i) => {
-      if (column === "") return;
-      const key = keys[i];
-      intake[key] = intake.hasOwnProperty(key) ? intake[key] : column;
-   });
+function parseResponse(response, keys, indexes) {
+  let intake = {};
 
-   // If missing emergency contact combine name and relationship (for Individual - Someone Else)
-   if (!intake.hasOwnProperty("emergencyContact")) {
-      intake.emergencyContact = `${intake.emergencyFirstName} ${intake.emergencyLastName} (${intake.emergencyRelation})`;
-   }
+  response.forEach((column, i) => {
+    if (column === '') return;
+    const key = keys[indexes[i]];
+    intake[key] = intake.hasOwnProperty(key) ? intake[key] : column;
+  });
 
-   return intake;
+  // If missing emergency contact combine name and relationship (for Individual - Someone Else)
+  if(!intake.hasOwnProperty('emergencyContact')) {
+    intake.emergencyContact = `${intake.emergencyFirstName} ${intake.emergencyLastName} (${intake.emergencyRelation})`;
+  }
+
+  return intake;
 }
 
 /**
@@ -134,69 +142,64 @@ function parseResponse(response, keys) {
  * @returns {object} intake with intake.clients array
  */
 function processClients(intake) {
-   const clients = [
-      {
-         firstName: intake.firstName,
-         lastName: intake.lastName,
-         dob: intake.dob,
-         gender: intake.gender,
-         email: intake.email
+  const clients = [{
+    firstName: intake.firstName,
+    lastName: intake.lastName,
+    dob: intake.dob,
+    gender: intake.gender,
+    email: intake.email
+  }];
+  for (let i=2; i <= 8; i++) {
+    if (intake.hasOwnProperty(`${i}_dob`) || intake.hasOwnProperty(`${i}_firstName`)) {
+      const client = {
+        firstName: intake[`${i}_firstName`] ?? '',
+        lastName: intake[`${i}_lastName`] ?? intake.lastName,
+        dob: intake[`${i}_dob`] ?? '',
+        gender: intake[`${i}_gender`] ?? '',
+        email: intake[`${i}_email`] ?? intake.email,
       }
-   ];
-   for (let i = 2; i <= 8; i++) {
-      if (
-         intake.hasOwnProperty(`${i}_dob`) ||
-         intake.hasOwnProperty(`${i}_firstName`)
-      ) {
-         const client = {
-            firstName: intake[`${i}_firstName`] ?? "",
-            lastName: intake[`${i}_lastName`] ?? intake.lastName,
-            dob: intake[`${i}_dob`] ?? "",
-            gender: intake[`${i}_gender`] ?? "",
-            email: intake[`${i}_email`] ?? intake.email
-         };
-         clients.push(client);
-      }
-   }
-   intake.clients = clients;
-   return intake;
+      clients.push(client);
+    }
+  }
+    intake.clients = clients;
+  return intake;
 }
 
 /**
- * Renames values within the intake based on the rename object passed in. The rename object should have keys corresponding to the intake object fields.
+ * Renames values within the intake based on the rename object passed in. The rename object should have keys corresponding to the intake object fields. 
  * Witin each key a set of key value pairs should have the existing values and the new values.
  * Example: { location: { "Online via video conference" : "online" }}
- * @param {object} intake
+ * @param {object} intake 
  * @rename {object} rename specifies which field and values to replace in intake (see example)
  * @returns {object} intake
  */
 function renameResponses(intake, rename) {
-   for (const field in rename) {
-      const value = intake[field];
-      for (const key in rename[field]) {
-         if (value === key) {
-            intake[field] = rename[field][key];
-            break;
-         }
+  for (const field in rename) {
+    const value = intake[field];
+    for (const key in rename[field]) {
+      if (value === key) {
+        intake[field] = rename[field][key];
+        break;
       }
-   }
-   return intake;
+    }
+  }
+  return intake;
 }
 
 /**
  * Log a message to the LOG_SHEET in the spreadsheet.
  * @function logResults
  * @param {string} message message to log
- * @data {*} data to log, will be stringified
+ * @data {*} data to log, will be stringified 
  */
 function logResults(message, data) {
-   ss.getSheetByName(LOG_SHEET)
-      .getRange(2, 1, 1, 3)
-      .insertCells(SpreadsheetApp.Dimension.ROWS)
-      .setValues([[new Date(), message, JSON.stringify(data)]]);
-   if (message.includes("Error")) {
-      sendMattermostMessage(message, data);
-   }
+  ss.getSheetByName(LOG_SHEET)
+    .getRange(2,1,1,3)
+    .insertCells(SpreadsheetApp.Dimension.ROWS)
+    .setValues([[new Date(), message, JSON.stringify(data)]]);
+  if (message.includes("Error")) {
+    sendMattermostMessage(message, data);
+  }
 }
 
 /**
@@ -368,7 +371,7 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
       "Name": intake.org,
     }
   };
-  
+
   // set Request api of AppBuilder V2
   const cookie = abRequestCookie();
   const clientIds = [];
@@ -385,7 +388,7 @@ const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
       "Last Name": client.lastName?.toLowerCase(),
       "Email": client.email?.toLowerCase(),
     })["data"];
-  
+
     if (existingClients.length) {
       clientIds.push(existingClients[0].uuid);
 
@@ -540,7 +543,7 @@ function sendMattermostMessage(message, data) {
   };
 
   const body = {
-    channel_id,
+    CHANNEL_ID,
     "message": "",
     "props": {"attachments": [attachment]}
   }

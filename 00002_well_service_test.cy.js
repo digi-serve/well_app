@@ -35,7 +35,7 @@ describe("Services", () => {
    beforeEach(() => {
       // Open the Services tab
       cy.get(
-         '[data-cy="tab-Services-1fea5a32-def5-4f1a-b10d-8f885b3e602f-c1d91228-74f5-4497-b12b-6c84c59ed26c"]'
+         '[data-cy="tab-Cases-1fea5a32-def5-4f1a-b10d-8f885b3e602f-c1d91228-74f5-4497-b12b-6c84c59ed26c"]'
       )
          .should("exist")
          .click();
@@ -56,7 +56,7 @@ describe("Services", () => {
          '[data-cy="connectObject Providers f0d6ede7-a616-435f-a1f6-b65d1ba0df53 2dca1324-8317-4593-9c22-21d237bf7624"]'
       )
          .should("contain", "Peter Parker")
-         .and("not.contain", "Steven Strange");
+         .and("contain", "Steven Strange");
       cy.get(
          '[data-cy="connectObject Clients Present 86f2c10c-b435-4759-9f25-c33820df7b0e 2dca1324-8317-4593-9c22-21d237bf7624"]'
       ).contains("Tim Green");

@@ -75,12 +75,6 @@ describe("Adding Payments", () => {
       cy.get(
          '[data-cy="button save 9389d183-c317-46db-9861-f05f62ebee79"]'
       ).click();
-      cy.get(
-         'div[class="webix_view webix_control webix_el_button webix_primary webix_warn"]'
-      )
-         .find("button")
-         .should("have.attr", "class", "webix_button")
-         .click();
       cy.get("div.detailsView")
          .find("span")
          .should("have.attr", "class", "webix_icon fa fa-eye")

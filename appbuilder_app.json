@@ -41490,20 +41490,22 @@
         "icon": "table",
         "name": "Intakes.grid",
         "settings": {
-          "columnSpan": "1",
-          "rowSpan": "1",
+          "columnSpan": 1,
+          "rowSpan": 1,
           "dataviewID": "9949f80f-c9d2-42cd-8eed-b6664407d8b5",
-          "isEditable": "0",
-          "massUpdate": "0",
-          "allowDelete": "0",
-          "isSortable": "0",
-          "isExportable": "0",
-          "hideHeader": "0",
-          "labelAsField": "0",
-          "hideButtons": "0",
+          "isEditable": 0,
+          "massUpdate": 0,
+          "allowDelete": 0,
+          "isSortable": 1,
+          "isExportable": 0,
+          "hideHeader": 0,
+          "labelAsField": 0,
+          "hideButtons": 0,
           "gridFilter": {
-            "filterOption": "0",
-            "isGlobalToolbar": "0"
+            "filterOption": 1,
+            "queryRules": [],
+            "userFilterPosition": "toolbar",
+            "isGlobalToolbar": 0
           },
           "detailsPage": "9c577572-2619-4dbe-87cb-6d8774ff3c2d",
           "editPage": "",
@@ -41525,24 +41527,46 @@
             ]
           },
           "height": 0,
-          "groupBy": ""
+          "groupBy": "",
+          "padding": 17,
+          "showToolbar": 1,
+          "columnConfig": [],
+          "saveLocal": 1,
+          "trackView": 0,
+          "frozenColumnID": "",
+          "hiddenFields": [
+            "Index",
+            "Intake",
+            "Provider Request",
+            "Additional Services",
+            "Online Assessment",
+            "Availability",
+            "Feedback",
+            "Date Received",
+            "Bill to",
+            "Bill To Client"
+          ],
+          "summaryColumns": [],
+          "countColumns": []
         },
+        "accessLevels": {},
         "translations": [
           {
             "language_code": "en",
             "label": "Intakes.grid"
           }
         ],
+        "viewIDs": [],
         "position": {
           "dx": 1,
           "dy": 1,
           "x": 0,
           "y": 1
         },
-        "isRoot": "false"
+        "isRoot": false
       },
       "createdAt": "2021-11-04T07:40:10.000Z",
-      "updatedAt": "2022-11-10T09:42:40.000Z"
+      "updatedAt": "2023-05-31T08:42:04.000Z"
     },
     {
       "id": "4c5777bd-dc71-4524-a6cd-5dd61aaed075",

@@ -40456,6 +40456,7 @@
           "hideButtons": 1,
           "gridFilter": {
             "filterOption": 0,
+            "queryRules": [],
             "isGlobalToolbar": 0
           },
           "detailsPage": "d151eb6a-3895-4307-8e2a-8ab39fe40224",
@@ -40520,10 +40521,10 @@
             "Statement Sent",
             "Reminder Sent",
             "Case Number",
-            "Location",
             "Services",
             "latestdateday",
-            "latestdatedaynumber"
+            "latestdatedaynumber",
+            "Location"
           ],
           "summaryColumns": [],
           "countColumns": []
@@ -40545,7 +40546,7 @@
         "isRoot": false
       },
       "createdAt": "2021-11-08T09:20:17.000Z",
-      "updatedAt": "2023-01-23T08:03:02.000Z"
+      "updatedAt": "2023-05-31T09:08:50.000Z"
     },
     {
       "id": "7e20b83f-dfdc-4afd-8bdf-fba264fd7bdc",
@@ -40670,7 +40671,8 @@
           "2fd196e0-b966-48dc-8154-e4123f05ede9",
           "27d0336f-0f4a-4a5a-8150-373506f1e1c2",
           "026c7e92-be4a-46e2-a640-55307e431d1b",
-          "3f24031c-5bf1-4ddd-8ab1-6fab53052d7d"
+          "3f24031c-5bf1-4ddd-8ab1-6fab53052d7d",
+          "22f6f04a-054b-4807-ab10-611dba16ad41"
         ],
         "position": {
           "dx": 1,
@@ -40681,7 +40683,7 @@
         "isRoot": false
       },
       "createdAt": "2021-11-08T09:29:16.000Z",
-      "updatedAt": "2023-01-23T07:57:51.000Z"
+      "updatedAt": "2023-05-31T09:10:35.000Z"
     },
     {
       "id": "05c157b2-9a32-483d-ae77-bed25eb13c0e",
@@ -40696,27 +40698,29 @@
         "settings": {
           "objectId": "e0db025e-0063-4789-bc8d-cc8cc98997f7",
           "fieldId": "c3f0b36d-cf5e-4114-ac8f-60109e53d162",
-          "columnSpan": "1",
-          "rowSpan": "1",
+          "columnSpan": 1,
+          "rowSpan": 1,
           "height": 0,
           "labelWidth": "120"
         },
+        "accessLevels": {},
         "translations": [
           {
             "language_code": "en",
             "label": "Details.detail.detailconnect"
           }
         ],
+        "viewIDs": [],
         "position": {
           "dx": 1,
           "dy": 1,
           "y": 2,
           "x": 1
         },
-        "isRoot": "false"
+        "isRoot": false
       },
       "createdAt": "2021-11-08T09:29:30.000Z",
-      "updatedAt": "2022-11-10T09:42:40.000Z"
+      "updatedAt": "2023-05-31T09:10:35.000Z"
     },
     {
       "id": "b3184063-795d-48fd-b698-c5d7f4559e1e",
@@ -40731,27 +40735,29 @@
         "settings": {
           "objectId": "e0db025e-0063-4789-bc8d-cc8cc98997f7",
           "fieldId": "dedf518d-a239-4637-9e1a-0f915d2cb01f",
-          "columnSpan": "1",
-          "rowSpan": "1",
+          "columnSpan": 1,
+          "rowSpan": 1,
           "height": 0,
           "labelWidth": "120"
         },
+        "accessLevels": {},
         "translations": [
           {
             "language_code": "en",
             "label": "Details.detail.detailconnect"
           }
         ],
+        "viewIDs": [],
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 2,
+          "y": 3,
           "x": 0
         },
-        "isRoot": "false"
+        "isRoot": false
       },
       "createdAt": "2021-11-08T09:29:30.000Z",
-      "updatedAt": "2022-11-10T09:42:40.000Z"
+      "updatedAt": "2023-05-31T09:10:35.000Z"
     },
     {
       "id": "2fd196e0-b966-48dc-8154-e4123f05ede9",
@@ -40766,27 +40772,29 @@
         "settings": {
           "objectId": "e0db025e-0063-4789-bc8d-cc8cc98997f7",
           "fieldId": "d57b46a5-4d00-439b-b5bc-f863800d928a",
-          "columnSpan": "1",
-          "rowSpan": "1",
+          "columnSpan": 1,
+          "rowSpan": 1,
           "height": 0,
           "labelWidth": "120"
         },
+        "accessLevels": {},
         "translations": [
           {
             "language_code": "en",
             "label": "Details.detail.detailtext"
           }
         ],
+        "viewIDs": [],
         "position": {
           "dx": 1,
           "dy": 1,
           "y": 0,
           "x": 0
         },
-        "isRoot": "false"
+        "isRoot": false
       },
       "createdAt": "2021-11-08T09:29:30.000Z",
-      "updatedAt": "2022-11-10T09:42:40.000Z"
+      "updatedAt": "2023-05-31T09:10:35.000Z"
     },
     {
       "id": "27d0336f-0f4a-4a5a-8150-373506f1e1c2",
@@ -40801,27 +40809,29 @@
         "settings": {
           "objectId": "e0db025e-0063-4789-bc8d-cc8cc98997f7",
           "fieldId": "9758fc0b-dc84-42f1-baa6-d8a79e25710e",
-          "columnSpan": "1",
-          "rowSpan": "1",
+          "columnSpan": 1,
+          "rowSpan": 1,
           "height": 0,
           "labelWidth": "120"
         },
+        "accessLevels": {},
         "translations": [
           {
             "language_code": "en",
             "label": "Details.detail.detailtext"
           }
         ],
+        "viewIDs": [],
         "position": {
           "dx": 1,
           "dy": 1,
           "y": 0,
           "x": 1
         },
-        "isRoot": "false"
+        "isRoot": false
       },
       "createdAt": "2021-11-08T09:29:30.000Z",
-      "updatedAt": "2022-11-10T09:42:40.000Z"
+      "updatedAt": "2023-05-31T09:10:35.000Z"
     },
     {
       "id": "026c7e92-be4a-46e2-a640-55307e431d1b",
@@ -40836,27 +40846,29 @@
         "settings": {
           "objectId": "e0db025e-0063-4789-bc8d-cc8cc98997f7",
           "fieldId": "49ba6663-827a-41b1-9be3-56cda62521f0",
-          "columnSpan": "1",
-          "rowSpan": "1",
+          "columnSpan": 1,
+          "rowSpan": 1,
           "height": 0,
           "labelWidth": "120"
         },
+        "accessLevels": {},
         "translations": [
           {
             "language_code": "en",
             "label": "Details.detail.detailtext"
           }
         ],
+        "viewIDs": [],
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 1,
+          "y": 2,
           "x": 0
         },
-        "isRoot": "false"
+        "isRoot": false
       },
       "createdAt": "2021-11-16T08:06:14.000Z",
-      "updatedAt": "2022-11-10T09:42:40.000Z"
+      "updatedAt": "2023-05-31T09:10:35.000Z"
     },
     {
       "id": "3f24031c-5bf1-4ddd-8ab1-6fab53052d7d",
@@ -40871,27 +40883,66 @@
         "settings": {
           "objectId": "e0db025e-0063-4789-bc8d-cc8cc98997f7",
           "fieldId": "f198c77b-f05f-4b45-8e6a-14a20c9a8b43",
-          "columnSpan": "1",
-          "rowSpan": "1",
+          "columnSpan": 1,
+          "rowSpan": 1,
           "height": 0,
           "labelWidth": "120"
         },
+        "accessLevels": {},
         "translations": [
           {
             "language_code": "en",
             "label": "Details.detail.detailtext"
           }
         ],
+        "viewIDs": [],
         "position": {
           "dx": 1,
           "dy": 1,
           "y": 1,
           "x": 1
         },
-        "isRoot": "false"
+        "isRoot": false
       },
       "createdAt": "2021-11-16T08:06:14.000Z",
-      "updatedAt": "2022-11-10T09:42:40.000Z"
+      "updatedAt": "2023-05-31T09:10:35.000Z"
+    },
+    {
+      "id": "22f6f04a-054b-4807-ab10-611dba16ad41",
+      "name": "Details.detail.detailtext",
+      "type": "view",
+      "json": {
+        "id": "22f6f04a-054b-4807-ab10-611dba16ad41",
+        "type": "view",
+        "key": "detailtext",
+        "icon": "etsy",
+        "name": "Details.detail.detailtext",
+        "settings": {
+          "objectId": "e0db025e-0063-4789-bc8d-cc8cc98997f7",
+          "fieldId": "50ce9e6d-d830-4c2b-9970-66ad20301ea5",
+          "height": 0,
+          "columnSpan": 1,
+          "rowSpan": 1,
+          "labelWidth": 120
+        },
+        "accessLevels": {},
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Details.detail.detailtext"
+          }
+        ],
+        "viewIDs": [],
+        "position": {
+          "dx": 1,
+          "dy": 1,
+          "x": 0,
+          "y": 1
+        },
+        "isRoot": false
+      },
+      "createdAt": "2023-05-31T09:09:22.000Z",
+      "updatedAt": "2023-05-31T09:10:35.000Z"
     },
     {
       "id": "8a5bba74-fb6b-4b55-9a79-0d7a13df196e",
@@ -41490,20 +41541,22 @@
         "icon": "table",
         "name": "Intakes.grid",
         "settings": {
-          "columnSpan": "1",
-          "rowSpan": "1",
+          "columnSpan": 1,
+          "rowSpan": 1,
           "dataviewID": "9949f80f-c9d2-42cd-8eed-b6664407d8b5",
-          "isEditable": "0",
-          "massUpdate": "0",
-          "allowDelete": "0",
-          "isSortable": "0",
-          "isExportable": "0",
-          "hideHeader": "0",
-          "labelAsField": "0",
-          "hideButtons": "0",
+          "isEditable": 0,
+          "massUpdate": 0,
+          "allowDelete": 0,
+          "isSortable": 1,
+          "isExportable": 0,
+          "hideHeader": 0,
+          "labelAsField": 0,
+          "hideButtons": 0,
           "gridFilter": {
-            "filterOption": "0",
-            "isGlobalToolbar": "0"
+            "filterOption": 1,
+            "queryRules": [],
+            "userFilterPosition": "toolbar",
+            "isGlobalToolbar": 0
           },
           "detailsPage": "9c577572-2619-4dbe-87cb-6d8774ff3c2d",
           "editPage": "",
@@ -41525,24 +41578,46 @@
             ]
           },
           "height": 0,
-          "groupBy": ""
+          "groupBy": "",
+          "padding": 17,
+          "showToolbar": 1,
+          "columnConfig": [],
+          "saveLocal": 1,
+          "trackView": 0,
+          "frozenColumnID": "",
+          "hiddenFields": [
+            "Index",
+            "Intake",
+            "Provider Request",
+            "Additional Services",
+            "Online Assessment",
+            "Availability",
+            "Feedback",
+            "Date Received",
+            "Bill to",
+            "Bill To Client"
+          ],
+          "summaryColumns": [],
+          "countColumns": []
         },
+        "accessLevels": {},
         "translations": [
           {
             "language_code": "en",
             "label": "Intakes.grid"
           }
         ],
+        "viewIDs": [],
         "position": {
           "dx": 1,
           "dy": 1,
           "x": 0,
           "y": 1
         },
-        "isRoot": "false"
+        "isRoot": false
       },
       "createdAt": "2021-11-04T07:40:10.000Z",
-      "updatedAt": "2022-11-10T09:42:40.000Z"
+      "updatedAt": "2023-05-31T08:42:04.000Z"
     },
     {
       "id": "4c5777bd-dc71-4524-a6cd-5dd61aaed075",

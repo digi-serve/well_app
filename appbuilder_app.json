@@ -1,7 +1,7 @@
 {
   "abVersion": "0.0.0",
-  "filename": "app_Client_Database_20230519",
-  "date": "20230519",
+  "filename": "app_Client_Database_20230531",
+  "date": "20230531",
   "definitions": [
     {
       "id": "05cde3ed-fd38-4e4c-b9a6-dfba9c979bdf",
@@ -13954,9 +13954,7 @@
           "unique": 0,
           "validationRules": "[]",
           "useWidth": 1,
-          "imageWidth": null,
           "useHeight": 1,
-          "imageHeight": null,
           "useDefaultImage": 0,
           "defaultImageUrl": "",
           "width": 100,
@@ -18465,7 +18463,7 @@
         ],
         "id": "252577b6-b7e7-43ca-bfb3-c8d033208851",
         "name": "Calculate Charges",
-        "xmlDefinition": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<bpmn2:definitions xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:bpmn2=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"process-def-252577b6-b7e7-43ca-bfb3-c8d033208851\" targetNamespace=\"http://bpmn.io/schema/bpmn\" xsi:schemaLocation=\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd\"><bpmn2:process id=\"Process_1\" isExecutable=\"true\"><bpmn2:startEvent id=\"StartEvent_1\" name=\"Session Added\"><bpmn2:outgoing>SequenceFlow_0hthpt7</bpmn2:outgoing></bpmn2:startEvent><bpmn2:exclusiveGateway id=\"ExclusiveGateway_1efv6zc\" name=\"Org Report?\"><bpmn2:incoming>SequenceFlow_0lm2wby</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_05haabq</bpmn2:outgoing><bpmn2:outgoing>SequenceFlow_0mjmygg</bpmn2:outgoing></bpmn2:exclusiveGateway><bpmn2:serviceTask id=\"Task_01or1v0\" name=\"Get Flat Rate\"><bpmn2:incoming>SequenceFlow_1oyhe7r</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0btu6s5</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:endEvent id=\"EndEvent_1szs4lf\" name=\"End\"><bpmn2:incoming>SequenceFlow_09h9xyn</bpmn2:incoming><bpmn2:terminateEventDefinition /></bpmn2:endEvent><bpmn2:sequenceFlow id=\"SequenceFlow_00l7q4u\" sourceRef=\"Task_1286tuz\" targetRef=\"Task_07qj6sg\" /><bpmn2:serviceTask id=\"Task_07qj6sg\" name=\"Get Billing Account\"><bpmn2:incoming>SequenceFlow_00l7q4u</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1oyhe7r</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_1qe8iw4\" name=\"Insert Report Charge\"><bpmn2:incoming>SequenceFlow_0mjmygg</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0o06pdl</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_1286tuz\" name=\"Update Case &#62; Last Session Date\"><bpmn2:incoming>SequenceFlow_18mzpir</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_00l7q4u</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:exclusiveGateway id=\"ExclusiveGateway_1c1gquz\" name=\"Check Status\"><bpmn2:incoming>SequenceFlow_0hthpt7</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_18mzpir</bpmn2:outgoing><bpmn2:outgoing>SequenceFlow_18fjrpd</bpmn2:outgoing></bpmn2:exclusiveGateway><bpmn2:sequenceFlow id=\"SequenceFlow_0hthpt7\" sourceRef=\"StartEvent_1\" targetRef=\"ExclusiveGateway_1c1gquz\" /><bpmn2:sequenceFlow id=\"SequenceFlow_18mzpir\" name=\"Run Process\" sourceRef=\"ExclusiveGateway_1c1gquz\" targetRef=\"Task_1286tuz\" /><bpmn2:sequenceFlow id=\"SequenceFlow_18fjrpd\" name=\"Ignore\" sourceRef=\"ExclusiveGateway_1c1gquz\" targetRef=\"EndEvent_16si73a\" /><bpmn2:endEvent id=\"EndEvent_16si73a\" name=\"End\"><bpmn2:incoming>SequenceFlow_18fjrpd</bpmn2:incoming><bpmn2:terminateEventDefinition /></bpmn2:endEvent><bpmn2:serviceTask id=\"Task_0jv465a\" name=\"Update Session Status\"><bpmn2:incoming>SequenceFlow_0o06pdl</bpmn2:incoming><bpmn2:incoming>SequenceFlow_05haabq</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_09h9xyn</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_1oyhe7r\" sourceRef=\"Task_07qj6sg\" targetRef=\"Task_01or1v0\" /><bpmn2:serviceTask id=\"Task_0opz6oa\" name=\"Get Hourly Rate\"><bpmn2:incoming>SequenceFlow_0btu6s5</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1ublaul</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_1ublaul\" sourceRef=\"Task_0opz6oa\" targetRef=\"Task_0i0o8d9\" /><bpmn2:serviceTask id=\"Task_0i0o8d9\" name=\"Calculate Rate\"><bpmn2:incoming>SequenceFlow_1ublaul</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_17rces1</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_109wqs3\" name=\"Insert Charge\"><bpmn2:incoming>SequenceFlow_1cqwpcw</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0lm2wby</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_0btu6s5\" sourceRef=\"Task_01or1v0\" targetRef=\"Task_0opz6oa\" /><bpmn2:sequenceFlow id=\"SequenceFlow_0o06pdl\" sourceRef=\"Task_1qe8iw4\" targetRef=\"Task_0jv465a\" /><bpmn2:sequenceFlow id=\"SequenceFlow_09h9xyn\" sourceRef=\"Task_0jv465a\" targetRef=\"EndEvent_1szs4lf\" /><bpmn2:sequenceFlow id=\"SequenceFlow_0lm2wby\" sourceRef=\"Task_109wqs3\" targetRef=\"ExclusiveGateway_1efv6zc\" /><bpmn2:sequenceFlow id=\"SequenceFlow_05haabq\" name=\"No\" sourceRef=\"ExclusiveGateway_1efv6zc\" targetRef=\"Task_0jv465a\" /><bpmn2:sequenceFlow id=\"SequenceFlow_0mjmygg\" name=\"Yes\" sourceRef=\"ExclusiveGateway_1efv6zc\" targetRef=\"Task_1qe8iw4\" /><bpmn2:serviceTask id=\"Task_1qxt0rs\" name=\"Get Client Name\" /><bpmn2:sequenceFlow id=\"SequenceFlow_17rces1\" sourceRef=\"Task_0i0o8d9\" targetRef=\"Task_0z4orvm\" /><bpmn2:serviceTask id=\"Task_0z4orvm\" name=\"Get Service Type\"><bpmn2:incoming>SequenceFlow_17rces1</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1cqwpcw</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_1cqwpcw\" sourceRef=\"Task_0z4orvm\" targetRef=\"Task_109wqs3\" /></bpmn2:process><bpmndi:BPMNDiagram id=\"BPMNDiagram_1\"><bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Process_1\"><bpmndi:BPMNEdge id=\"SequenceFlow_1cqwpcw_di\" bpmnElement=\"SequenceFlow_1cqwpcw\"><di:waypoint x=\"120\" y=\"-150\" /><di:waypoint x=\"160\" y=\"-150\" /><di:waypoint x=\"160\" y=\"-250\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_17rces1_di\" bpmnElement=\"SequenceFlow_17rces1\"><di:waypoint x=\"-10\" y=\"-250\" /><di:waypoint x=\"-10\" y=\"-150\" /><di:waypoint x=\"20\" y=\"-150\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_0mjmygg_di\" bpmnElement=\"SequenceFlow_0mjmygg\"><di:waypoint x=\"310\" y=\"-265\" /><di:waypoint x=\"310\" y=\"-190\" /><bpmndi:BPMNLabel><dc:Bounds x=\"316\" y=\"-228\" width=\"18\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_05haabq_di\" bpmnElement=\"SequenceFlow_05haabq\"><di:waypoint x=\"335\" y=\"-290\" /><di:waypoint x=\"430\" y=\"-290\" /><bpmndi:BPMNLabel><dc:Bounds x=\"336\" y=\"-308\" width=\"15\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_0lm2wby_di\" bpmnElement=\"SequenceFlow_0lm2wby\"><di:waypoint x=\"210\" y=\"-290\" /><di:waypoint x=\"285\" y=\"-290\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_09h9xyn_di\" bpmnElement=\"SequenceFlow_09h9xyn\"><di:waypoint x=\"530\" y=\"-290\" /><di:waypoint x=\"592\" y=\"-290\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_0o06pdl_di\" bpmnElement=\"SequenceFlow_0o06pdl\"><di:waypoint x=\"360\" y=\"-150\" /><di:waypoint x=\"480\" y=\"-150\" /><di:waypoint x=\"480\" y=\"-250\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_0btu6s5_di\" bpmnElement=\"SequenceFlow_0btu6s5\"><di:waypoint x=\"360\" y=\"-560\" /><di:waypoint x=\"430\" y=\"-560\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1ublaul_di\" bpmnElement=\"SequenceFlow_1ublaul\"><di:waypoint x=\"480\" y=\"-520\" /><di:waypoint x=\"480\" y=\"-490\" /><di:waypoint x=\"-10\" y=\"-490\" /><di:waypoint x=\"-10\" y=\"-330\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1oyhe7r_di\" bpmnElement=\"SequenceFlow_1oyhe7r\"><di:waypoint x=\"200\" y=\"-560\" /><di:waypoint x=\"260\" y=\"-560\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_18fjrpd_di\" bpmnElement=\"SequenceFlow_18fjrpd\"><di:waypoint x=\"-180\" y=\"-535\" /><di:waypoint x=\"-180\" y=\"-238\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-166\" y=\"-434\" width=\"32\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_18mzpir_di\" bpmnElement=\"SequenceFlow_18mzpir\"><di:waypoint x=\"-155\" y=\"-560\" /><di:waypoint x=\"-50\" y=\"-560\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-138\" y=\"-552\" width=\"63\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_0hthpt7_di\" bpmnElement=\"SequenceFlow_0hthpt7\"><di:waypoint x=\"-252\" y=\"-560\" /><di:waypoint x=\"-205\" y=\"-560\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_00l7q4u_di\" bpmnElement=\"SequenceFlow_00l7q4u\"><di:waypoint x=\"50\" y=\"-560\" /><di:waypoint x=\"100\" y=\"-560\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"StartEvent_1tv45k0_di\" bpmnElement=\"StartEvent_1\"><dc:Bounds x=\"-288\" y=\"-578\" width=\"36\" height=\"36\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-307\" y=\"-532\" width=\"74\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ExclusiveGateway_1efv6zc_di\" bpmnElement=\"ExclusiveGateway_1efv6zc\" isMarkerVisible=\"true\"><dc:Bounds x=\"285\" y=\"-315\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"279\" y=\"-339\" width=\"61\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0ns5gpr_di\" bpmnElement=\"Task_01or1v0\"><dc:Bounds x=\"260\" y=\"-600\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"EndEvent_11walis_di\" bpmnElement=\"EndEvent_1szs4lf\"><dc:Bounds x=\"592\" y=\"-308\" width=\"36\" height=\"36\" /><bpmndi:BPMNLabel><dc:Bounds x=\"600\" y=\"-265\" width=\"20\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0fksm42_di\" bpmnElement=\"Task_07qj6sg\"><dc:Bounds x=\"100\" y=\"-600\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0vka69v_di\" bpmnElement=\"Task_1qe8iw4\"><dc:Bounds x=\"260\" y=\"-190\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_1geojnc_di\" bpmnElement=\"Task_1286tuz\"><dc:Bounds x=\"-50\" y=\"-600\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ExclusiveGateway_1c1gquz_di\" bpmnElement=\"ExclusiveGateway_1c1gquz\" isMarkerVisible=\"true\"><dc:Bounds x=\"-205\" y=\"-585\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-213\" y=\"-609\" width=\"66\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"EndEvent_0t1m8hj_di\" bpmnElement=\"EndEvent_16si73a\"><dc:Bounds x=\"-198\" y=\"-238\" width=\"36\" height=\"36\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-190\" y=\"-195\" width=\"20\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_1rir27v_di\" bpmnElement=\"Task_0jv465a\"><dc:Bounds x=\"430\" y=\"-330\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0z0iu2f_di\" bpmnElement=\"Task_0opz6oa\"><dc:Bounds x=\"430\" y=\"-600\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0vv4n2d_di\" bpmnElement=\"Task_0i0o8d9\"><dc:Bounds x=\"-60\" y=\"-330\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0p1kan9_di\" bpmnElement=\"Task_109wqs3\"><dc:Bounds x=\"110\" y=\"-330\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0yosxct_di\" bpmnElement=\"Task_1qxt0rs\"><dc:Bounds x=\"-230\" y=\"-90\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_1yxx2mq_di\" bpmnElement=\"Task_0z4orvm\"><dc:Bounds x=\"20\" y=\"-190\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape></bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn2:definitions>",
+        "xmlDefinition": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<bpmn2:definitions xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:bpmn2=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"process-def-252577b6-b7e7-43ca-bfb3-c8d033208851\" targetNamespace=\"http://bpmn.io/schema/bpmn\" xsi:schemaLocation=\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd\"><bpmn2:process id=\"Process_1\" isExecutable=\"true\"><bpmn2:startEvent id=\"StartEvent_1\" name=\"Session Added\"><bpmn2:outgoing>SequenceFlow_0hthpt7</bpmn2:outgoing></bpmn2:startEvent><bpmn2:exclusiveGateway id=\"ExclusiveGateway_1efv6zc\" name=\"Org Report?\"><bpmn2:incoming>SequenceFlow_0lm2wby</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_05haabq</bpmn2:outgoing><bpmn2:outgoing>SequenceFlow_0mjmygg</bpmn2:outgoing></bpmn2:exclusiveGateway><bpmn2:serviceTask id=\"Task_01or1v0\" name=\"Get Flat Rate\"><bpmn2:incoming>SequenceFlow_1oyhe7r</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0btu6s5</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:endEvent id=\"EndEvent_1szs4lf\" name=\"End\"><bpmn2:incoming>SequenceFlow_09h9xyn</bpmn2:incoming><bpmn2:terminateEventDefinition /></bpmn2:endEvent><bpmn2:sequenceFlow id=\"SequenceFlow_00l7q4u\" sourceRef=\"Task_1286tuz\" targetRef=\"Task_07qj6sg\" /><bpmn2:serviceTask id=\"Task_07qj6sg\" name=\"Get Billing Account\"><bpmn2:incoming>SequenceFlow_00l7q4u</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1oyhe7r</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_1qe8iw4\" name=\"Insert Report Charge\"><bpmn2:incoming>SequenceFlow_0mjmygg</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0o06pdl</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_1286tuz\" name=\"Update Case &#62; Last Session Date\"><bpmn2:incoming>SequenceFlow_18mzpir</bpmn2:incoming><bpmn2:incoming>Flow_0uhn5ev</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_00l7q4u</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:exclusiveGateway id=\"ExclusiveGateway_1c1gquz\" name=\"Check Status\"><bpmn2:incoming>SequenceFlow_0hthpt7</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_18mzpir</bpmn2:outgoing><bpmn2:outgoing>SequenceFlow_18fjrpd</bpmn2:outgoing><bpmn2:outgoing>Flow_005hzq6</bpmn2:outgoing></bpmn2:exclusiveGateway><bpmn2:sequenceFlow id=\"SequenceFlow_0hthpt7\" sourceRef=\"StartEvent_1\" targetRef=\"ExclusiveGateway_1c1gquz\" /><bpmn2:sequenceFlow id=\"SequenceFlow_18mzpir\" name=\"Run Process\" sourceRef=\"ExclusiveGateway_1c1gquz\" targetRef=\"Task_1286tuz\" /><bpmn2:sequenceFlow id=\"SequenceFlow_18fjrpd\" name=\"Done\" sourceRef=\"ExclusiveGateway_1c1gquz\" targetRef=\"Activity_0rp8x2z\" /><bpmn2:serviceTask id=\"Task_0jv465a\" name=\"Update Session Status\"><bpmn2:incoming>SequenceFlow_0o06pdl</bpmn2:incoming><bpmn2:incoming>SequenceFlow_05haabq</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_09h9xyn</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_1oyhe7r\" sourceRef=\"Task_07qj6sg\" targetRef=\"Task_01or1v0\" /><bpmn2:serviceTask id=\"Task_0opz6oa\" name=\"Get Hourly Rate\"><bpmn2:incoming>SequenceFlow_0btu6s5</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1ublaul</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_1ublaul\" sourceRef=\"Task_0opz6oa\" targetRef=\"Task_0i0o8d9\" /><bpmn2:serviceTask id=\"Task_0i0o8d9\" name=\"Calculate Rate\"><bpmn2:incoming>SequenceFlow_1ublaul</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_17rces1</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:serviceTask id=\"Task_109wqs3\" name=\"Insert Charge\"><bpmn2:incoming>SequenceFlow_1cqwpcw</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0lm2wby</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_0btu6s5\" sourceRef=\"Task_01or1v0\" targetRef=\"Task_0opz6oa\" /><bpmn2:sequenceFlow id=\"SequenceFlow_0o06pdl\" sourceRef=\"Task_1qe8iw4\" targetRef=\"Task_0jv465a\" /><bpmn2:sequenceFlow id=\"SequenceFlow_09h9xyn\" sourceRef=\"Task_0jv465a\" targetRef=\"EndEvent_1szs4lf\" /><bpmn2:sequenceFlow id=\"SequenceFlow_0lm2wby\" sourceRef=\"Task_109wqs3\" targetRef=\"ExclusiveGateway_1efv6zc\" /><bpmn2:sequenceFlow id=\"SequenceFlow_05haabq\" name=\"No\" sourceRef=\"ExclusiveGateway_1efv6zc\" targetRef=\"Task_0jv465a\" /><bpmn2:sequenceFlow id=\"SequenceFlow_0mjmygg\" name=\"Yes\" sourceRef=\"ExclusiveGateway_1efv6zc\" targetRef=\"Task_1qe8iw4\" /><bpmn2:sequenceFlow id=\"SequenceFlow_17rces1\" sourceRef=\"Task_0i0o8d9\" targetRef=\"Task_0z4orvm\" /><bpmn2:serviceTask id=\"Task_0z4orvm\" name=\"Get Service Type\"><bpmn2:incoming>SequenceFlow_17rces1</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_1cqwpcw</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_1cqwpcw\" sourceRef=\"Task_0z4orvm\" targetRef=\"Task_109wqs3\" /><bpmn2:subProcess id=\"Activity_0rp8x2z\" name=\"Update Transactions\"><bpmn2:incoming>SequenceFlow_18fjrpd</bpmn2:incoming><bpmn2:outgoing>Flow_0uhn5ev</bpmn2:outgoing><bpmn2:multiInstanceLoopCharacteristics isSequential=\"true\" /><bpmn2:startEvent id=\"Event_1kiuf1j\"><bpmn2:outgoing>Flow_114au4f</bpmn2:outgoing></bpmn2:startEvent><bpmn2:sequenceFlow id=\"Flow_114au4f\" sourceRef=\"Event_1kiuf1j\" targetRef=\"Activity_050cbae\" /><bpmn2:serviceTask id=\"Activity_050cbae\" name=\"Update Transaction\"><bpmn2:incoming>Flow_114au4f</bpmn2:incoming><bpmn2:outgoing>Flow_0abnicx</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"Flow_0abnicx\" sourceRef=\"Activity_050cbae\" targetRef=\"Event_01rpuc4\" /><bpmn2:endEvent id=\"Event_01rpuc4\" name=\"End\"><bpmn2:incoming>Flow_0abnicx</bpmn2:incoming><bpmn2:terminateEventDefinition id=\"TerminateEventDefinition_0cykfzk\" /></bpmn2:endEvent></bpmn2:subProcess><bpmn2:sequenceFlow id=\"Flow_0uhn5ev\" sourceRef=\"Activity_0rp8x2z\" targetRef=\"Task_1286tuz\" /><bpmn2:sequenceFlow id=\"Flow_005hzq6\" name=\"Else\" sourceRef=\"ExclusiveGateway_1c1gquz\" targetRef=\"Event_0dn68i4\" /><bpmn2:endEvent id=\"Event_0dn68i4\" name=\"End\"><bpmn2:incoming>Flow_005hzq6</bpmn2:incoming><bpmn2:terminateEventDefinition id=\"TerminateEventDefinition_1vrw0ch\" /></bpmn2:endEvent></bpmn2:process><bpmndi:BPMNDiagram id=\"BPMNDiagram_1\"><bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Process_1\"><bpmndi:BPMNEdge id=\"Flow_0uhn5ev_di\" bpmnElement=\"Flow_0uhn5ev\"><di:waypoint x=\"-370\" y=\"-190\" /><di:waypoint x=\"-370\" y=\"-90\" /><di:waypoint x=\"-140\" y=\"-90\" /><di:waypoint x=\"-140\" y=\"-520\" /><di:waypoint x=\"-48\" y=\"-520\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1cqwpcw_di\" bpmnElement=\"SequenceFlow_1cqwpcw\"><di:waypoint x=\"120\" y=\"-150\" /><di:waypoint x=\"160\" y=\"-150\" /><di:waypoint x=\"160\" y=\"-250\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_17rces1_di\" bpmnElement=\"SequenceFlow_17rces1\"><di:waypoint x=\"-10\" y=\"-250\" /><di:waypoint x=\"-10\" y=\"-150\" /><di:waypoint x=\"20\" y=\"-150\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_0mjmygg_di\" bpmnElement=\"SequenceFlow_0mjmygg\"><di:waypoint x=\"310\" y=\"-265\" /><di:waypoint x=\"310\" y=\"-190\" /><bpmndi:BPMNLabel><dc:Bounds x=\"316\" y=\"-228\" width=\"18\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_05haabq_di\" bpmnElement=\"SequenceFlow_05haabq\"><di:waypoint x=\"335\" y=\"-290\" /><di:waypoint x=\"430\" y=\"-290\" /><bpmndi:BPMNLabel><dc:Bounds x=\"336\" y=\"-308\" width=\"15\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_0lm2wby_di\" bpmnElement=\"SequenceFlow_0lm2wby\"><di:waypoint x=\"210\" y=\"-290\" /><di:waypoint x=\"285\" y=\"-290\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_09h9xyn_di\" bpmnElement=\"SequenceFlow_09h9xyn\"><di:waypoint x=\"530\" y=\"-290\" /><di:waypoint x=\"592\" y=\"-290\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_0o06pdl_di\" bpmnElement=\"SequenceFlow_0o06pdl\"><di:waypoint x=\"360\" y=\"-150\" /><di:waypoint x=\"480\" y=\"-150\" /><di:waypoint x=\"480\" y=\"-250\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_0btu6s5_di\" bpmnElement=\"SequenceFlow_0btu6s5\"><di:waypoint x=\"360\" y=\"-560\" /><di:waypoint x=\"430\" y=\"-560\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1ublaul_di\" bpmnElement=\"SequenceFlow_1ublaul\"><di:waypoint x=\"480\" y=\"-520\" /><di:waypoint x=\"480\" y=\"-490\" /><di:waypoint x=\"-10\" y=\"-490\" /><di:waypoint x=\"-10\" y=\"-330\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_1oyhe7r_di\" bpmnElement=\"SequenceFlow_1oyhe7r\"><di:waypoint x=\"200\" y=\"-560\" /><di:waypoint x=\"260\" y=\"-560\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_18fjrpd_di\" bpmnElement=\"SequenceFlow_18fjrpd\"><di:waypoint x=\"-180\" y=\"-535\" /><di:waypoint x=\"-180\" y=\"-390\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-212\" y=\"-457\" width=\"27\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_18mzpir_di\" bpmnElement=\"SequenceFlow_18mzpir\"><di:waypoint x=\"-155\" y=\"-560\" /><di:waypoint x=\"-50\" y=\"-560\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-138\" y=\"-552\" width=\"63\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_0hthpt7_di\" bpmnElement=\"SequenceFlow_0hthpt7\"><di:waypoint x=\"-252\" y=\"-560\" /><di:waypoint x=\"-205\" y=\"-560\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"SequenceFlow_00l7q4u_di\" bpmnElement=\"SequenceFlow_00l7q4u\"><di:waypoint x=\"50\" y=\"-560\" /><di:waypoint x=\"100\" y=\"-560\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_005hzq6_di\" bpmnElement=\"Flow_005hzq6\"><di:waypoint x=\"-180\" y=\"-585\" /><di:waypoint x=\"-180\" y=\"-742\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-176\" y=\"-666\" width=\"22\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"StartEvent_1tv45k0_di\" bpmnElement=\"StartEvent_1\"><dc:Bounds x=\"-288\" y=\"-578\" width=\"36\" height=\"36\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-307\" y=\"-532\" width=\"74\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ExclusiveGateway_1efv6zc_di\" bpmnElement=\"ExclusiveGateway_1efv6zc\" isMarkerVisible=\"true\"><dc:Bounds x=\"285\" y=\"-315\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"279\" y=\"-339\" width=\"61\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0ns5gpr_di\" bpmnElement=\"Task_01or1v0\"><dc:Bounds x=\"260\" y=\"-600\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"EndEvent_11walis_di\" bpmnElement=\"EndEvent_1szs4lf\"><dc:Bounds x=\"592\" y=\"-308\" width=\"36\" height=\"36\" /><bpmndi:BPMNLabel><dc:Bounds x=\"600\" y=\"-265\" width=\"20\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0fksm42_di\" bpmnElement=\"Task_07qj6sg\"><dc:Bounds x=\"100\" y=\"-600\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0vka69v_di\" bpmnElement=\"Task_1qe8iw4\"><dc:Bounds x=\"260\" y=\"-190\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_1geojnc_di\" bpmnElement=\"Task_1286tuz\"><dc:Bounds x=\"-50\" y=\"-600\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ExclusiveGateway_1c1gquz_di\" bpmnElement=\"ExclusiveGateway_1c1gquz\" isMarkerVisible=\"true\"><dc:Bounds x=\"-205\" y=\"-585\" width=\"50\" height=\"50\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-213\" y=\"-609\" width=\"66\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_1rir27v_di\" bpmnElement=\"Task_0jv465a\"><dc:Bounds x=\"430\" y=\"-330\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0z0iu2f_di\" bpmnElement=\"Task_0opz6oa\"><dc:Bounds x=\"430\" y=\"-600\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0vv4n2d_di\" bpmnElement=\"Task_0i0o8d9\"><dc:Bounds x=\"-60\" y=\"-330\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_0p1kan9_di\" bpmnElement=\"Task_109wqs3\"><dc:Bounds x=\"110\" y=\"-330\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ServiceTask_1yxx2mq_di\" bpmnElement=\"Task_0z4orvm\"><dc:Bounds x=\"20\" y=\"-190\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Event_0j3j2la_di\" bpmnElement=\"Event_0dn68i4\"><dc:Bounds x=\"-198\" y=\"-778\" width=\"36\" height=\"36\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-190\" y=\"-808\" width=\"20\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Activity_0mc2j6l_di\" bpmnElement=\"Activity_0rp8x2z\" isExpanded=\"true\"><dc:Bounds x=\"-530\" y=\"-390\" width=\"370\" height=\"200\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"Flow_0abnicx_di\" bpmnElement=\"Flow_0abnicx\"><di:waypoint x=\"-310\" y=\"-290\" /><di:waypoint x=\"-248\" y=\"-290\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_114au4f_di\" bpmnElement=\"Flow_114au4f\"><di:waypoint x=\"-465\" y=\"-290\" /><di:waypoint x=\"-410\" y=\"-290\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"Event_1kiuf1j_di\" bpmnElement=\"Event_1kiuf1j\"><dc:Bounds x=\"-501.3333333333333\" y=\"-308\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Activity_1in7bdz_di\" bpmnElement=\"Activity_050cbae\"><dc:Bounds x=\"-410\" y=\"-330\" width=\"100\" height=\"80\" /><bpmndi:BPMNLabel /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Event_1owjfxu_di\" bpmnElement=\"Event_01rpuc4\"><dc:Bounds x=\"-248\" y=\"-308\" width=\"36\" height=\"36\" /><bpmndi:BPMNLabel><dc:Bounds x=\"-240\" y=\"-265\" width=\"20\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape></bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn2:definitions>",
         "elementIDs": [
           "d7175508-54f9-4c26-a5f7-03d2e5efa9a4",
           "bf198838-a3ad-4584-a317-2869af77e491",
@@ -18475,13 +18473,13 @@
           "40aeb81c-e80f-4c38-9534-bb496b85aafa",
           "626c5e88-b3f9-41e5-a6ce-3e6b95528dee",
           "e6f87845-2edb-49ba-be8a-5501a61d133f",
-          "a8bb82bc-0203-42f0-8d2b-16a3eda81019",
           "595ced9b-964d-4ea5-99a8-685210bea419",
           "485ffad5-a064-4b84-9a26-9247566cccb9",
           "e91b3e4c-9c98-4a38-a51a-516ea67abc43",
           "b13db37a-d04a-482e-a698-019ff285f586",
-          "e7f62f87-7d20-4ce2-9afd-876460dd0596",
-          "ccdc262b-7e98-4e95-9b5b-eb38ec02a5f7"
+          "ccdc262b-7e98-4e95-9b5b-eb38ec02a5f7",
+          "e610ca26-767b-4da8-b327-f47151143807",
+          "5b5068cf-317e-47fb-928d-d18a220cfa17"
         ],
         "connections": {
           "SequenceFlow_0gdn9eb": {
@@ -18513,12 +18511,6 @@
             "type": "bpmn:SequenceFlow",
             "from": "ExclusiveGateway_1c1gquz",
             "to": "Task_1286tuz"
-          },
-          "SequenceFlow_18fjrpd": {
-            "id": "SequenceFlow_18fjrpd",
-            "type": "bpmn:SequenceFlow",
-            "from": "ExclusiveGateway_1c1gquz",
-            "to": "EndEvent_16si73a"
           },
           "SequenceFlow_1oyhe7r": {
             "id": "SequenceFlow_1oyhe7r",
@@ -18579,11 +18571,41 @@
             "type": "bpmn:SequenceFlow",
             "from": "Task_0z4orvm",
             "to": "Task_109wqs3"
+          },
+          "SequenceFlow_18fjrpd": {
+            "id": "SequenceFlow_18fjrpd",
+            "type": "bpmn:SequenceFlow",
+            "from": "ExclusiveGateway_1c1gquz",
+            "to": "Activity_0rp8x2z"
+          },
+          "Flow_114au4f": {
+            "id": "Flow_114au4f",
+            "type": "bpmn:SequenceFlow",
+            "from": "Event_1kiuf1j",
+            "to": "Activity_050cbae"
+          },
+          "Flow_0abnicx": {
+            "id": "Flow_0abnicx",
+            "type": "bpmn:SequenceFlow",
+            "from": "Activity_050cbae",
+            "to": "Event_01rpuc4"
+          },
+          "Flow_0uhn5ev": {
+            "id": "Flow_0uhn5ev",
+            "type": "bpmn:SequenceFlow",
+            "from": "Activity_0rp8x2z",
+            "to": "Task_1286tuz"
+          },
+          "Flow_005hzq6": {
+            "id": "Flow_005hzq6",
+            "type": "bpmn:SequenceFlow",
+            "from": "ExclusiveGateway_1c1gquz",
+            "to": "Event_0dn68i4"
           }
         }
       },
       "createdAt": "2021-06-15T08:54:01.000Z",
-      "updatedAt": "2023-03-08T07:32:30.000Z"
+      "updatedAt": "2023-05-31T04:42:13.000Z"
     },
     {
       "id": "d7175508-54f9-4c26-a5f7-03d2e5efa9a4",
@@ -18608,7 +18630,7 @@
         "lifecycleKey": "updated"
       },
       "createdAt": "2021-06-15T08:54:23.000Z",
-      "updatedAt": "2023-03-08T07:32:26.000Z"
+      "updatedAt": "2023-05-31T04:42:12.000Z"
     },
     {
       "id": "bf198838-a3ad-4584-a317-2869af77e491",
@@ -18658,7 +18680,7 @@
         }
       },
       "createdAt": "2021-06-15T09:02:43.000Z",
-      "updatedAt": "2023-03-08T07:32:29.000Z"
+      "updatedAt": "2023-05-31T04:42:12.000Z"
     },
     {
       "id": "83f948b5-e709-4430-9b7d-866ca1b2ec11",
@@ -18742,7 +18764,7 @@
         }
       },
       "createdAt": "2021-10-12T06:40:27.000Z",
-      "updatedAt": "2023-03-08T07:32:29.000Z"
+      "updatedAt": "2023-05-31T04:42:12.000Z"
     },
     {
       "id": "1ef5358d-7ba9-491a-badb-05fd1d094307",
@@ -18826,7 +18848,7 @@
         }
       },
       "createdAt": "2021-12-01T09:57:55.000Z",
-      "updatedAt": "2023-03-08T07:32:29.000Z"
+      "updatedAt": "2023-05-31T04:42:12.000Z"
     },
     {
       "id": "b46cbb3f-fa1a-4149-8352-6ad25e886e31",
@@ -18886,7 +18908,7 @@
         "repeatColumn": ""
       },
       "createdAt": "2021-12-07T06:33:57.000Z",
-      "updatedAt": "2023-03-08T07:32:29.000Z"
+      "updatedAt": "2023-05-31T04:42:12.000Z"
     },
     {
       "id": "40aeb81c-e80f-4c38-9534-bb496b85aafa",
@@ -18908,7 +18930,7 @@
         "key": "End"
       },
       "createdAt": "2021-12-07T08:03:11.000Z",
-      "updatedAt": "2023-03-08T07:32:29.000Z"
+      "updatedAt": "2023-05-31T04:42:12.000Z"
     },
     {
       "id": "626c5e88-b3f9-41e5-a6ce-3e6b95528dee",
@@ -18956,13 +18978,13 @@
               "next": {
                 "key": "row_pluck",
                 "params": {
-                  "field": "f2bece48-2cb7-448a-b96b-f85700805511"
+                  "fieldID": "f2bece48-2cb7-448a-b96b-f85700805511"
                 },
                 "objectID": "d6b8ae02-92bc-474c-8309-8503ec025cbf",
                 "next": {
                   "key": "row_pluck",
                   "params": {
-                    "field": "965df4a2-be20-4eab-ae8f-30cd41046c26"
+                    "fieldID": "965df4a2-be20-4eab-ae8f-30cd41046c26"
                   },
                   "objectID": "e0db025e-0063-4789-bc8d-cc8cc98997f7",
                   "next": {
@@ -18989,7 +19011,7 @@
         }
       },
       "createdAt": "2021-12-10T04:46:17.000Z",
-      "updatedAt": "2023-03-08T07:32:29.000Z"
+      "updatedAt": "2023-05-31T04:42:12.000Z"
     },
     {
       "id": "e6f87845-2edb-49ba-be8a-5501a61d133f",
@@ -19007,7 +19029,7 @@
         "type": "process.gateway.exclusive",
         "processID": "252577b6-b7e7-43ca-bfb3-c8d033208851",
         "diagramID": "ExclusiveGateway_1c1gquz",
-        "laneDiagramID": "?laneID?",
+        "laneDiagramID": null,
         "key": "GatewayExclusive",
         "conditions": {
           "SequenceFlow_18mzpir": {
@@ -19024,10 +19046,28 @@
             }
           },
           "SequenceFlow_18fjrpd": {
-            "label": "Ignore",
+            "label": "Done",
             "filterValue": {
               "glue": "and",
               "rules": [
+                {
+                  "key": "505ed263-aca4-4bc2-a559-c60d3c5b98e5",
+                  "rule": "equals",
+                  "value": "Done"
+                }
+              ]
+            }
+          },
+          "Flow_005hzq6": {
+            "label": "Else",
+            "filterValue": {
+              "glue": "and",
+              "rules": [
+                {
+                  "key": "505ed263-aca4-4bc2-a559-c60d3c5b98e5",
+                  "rule": "not_equal",
+                  "value": "Done"
+                },
                 {
                   "key": "505ed263-aca4-4bc2-a559-c60d3c5b98e5",
                   "rule": "not_equal",
@@ -19039,29 +19079,7 @@
         }
       },
       "createdAt": "2022-02-25T09:01:31.000Z",
-      "updatedAt": "2023-03-08T07:32:29.000Z"
-    },
-    {
-      "id": "a8bb82bc-0203-42f0-8d2b-16a3eda81019",
-      "name": "End",
-      "type": "process.task.end",
-      "json": {
-        "translations": [
-          {
-            "language_code": "en",
-            "label": "End"
-          }
-        ],
-        "id": "a8bb82bc-0203-42f0-8d2b-16a3eda81019",
-        "name": "End",
-        "type": "process.task.end",
-        "processID": "252577b6-b7e7-43ca-bfb3-c8d033208851",
-        "diagramID": "EndEvent_16si73a",
-        "laneDiagramID": "?laneID?",
-        "key": "End"
-      },
-      "createdAt": "2022-02-25T09:01:31.000Z",
-      "updatedAt": "2023-03-08T07:32:29.000Z"
+      "updatedAt": "2023-05-31T04:42:12.000Z"
     },
     {
       "id": "595ced9b-964d-4ea5-99a8-685210bea419",
@@ -19123,7 +19141,7 @@
         }
       },
       "createdAt": "2022-03-14T09:17:41.000Z",
-      "updatedAt": "2023-03-08T07:32:29.000Z"
+      "updatedAt": "2023-05-31T04:42:12.000Z"
     },
     {
       "id": "485ffad5-a064-4b84-9a26-9247566cccb9",
@@ -19207,7 +19225,7 @@
         }
       },
       "createdAt": "2022-05-02T03:29:14.000Z",
-      "updatedAt": "2023-03-08T07:32:29.000Z"
+      "updatedAt": "2023-05-31T04:42:12.000Z"
     },
     {
       "id": "e91b3e4c-9c98-4a38-a51a-516ea67abc43",
@@ -19230,7 +19248,7 @@
         "formulaText": "{Get Flat Rate->flat} + {Session Added->Well-Session->Length (Hours)} * {Get Hourly Rate->hourly} "
       },
       "createdAt": "2022-05-02T03:34:13.000Z",
-      "updatedAt": "2023-03-08T07:32:29.000Z"
+      "updatedAt": "2023-05-31T04:42:12.000Z"
     },
     {
       "id": "b13db37a-d04a-482e-a698-019ff285f586",
@@ -19290,55 +19308,7 @@
         "repeatColumn": ""
       },
       "createdAt": "2022-05-02T03:34:13.000Z",
-      "updatedAt": "2023-03-08T07:32:29.000Z"
-    },
-    {
-      "id": "e7f62f87-7d20-4ce2-9afd-876460dd0596",
-      "name": "Get Client Name",
-      "type": "process.task.service.query",
-      "json": {
-        "translations": [
-          {
-            "language_code": "en",
-            "label": "Get Client Name"
-          }
-        ],
-        "id": "e7f62f87-7d20-4ce2-9afd-876460dd0596",
-        "name": "Get Client Name",
-        "type": "process.task.service.query",
-        "processID": "252577b6-b7e7-43ca-bfb3-c8d033208851",
-        "diagramID": "Task_1qxt0rs",
-        "laneDiagramID": "?laneID?",
-        "key": "TaskServiceQuery",
-        "qlObj": {
-          "key": "object",
-          "params": {
-            "name": "d6b8ae02-92bc-474c-8309-8503ec025cbf"
-          },
-          "objectID": "d6b8ae02-92bc-474c-8309-8503ec025cbf",
-          "next": {
-            "key": "find",
-            "params": {},
-            "objectID": "d6b8ae02-92bc-474c-8309-8503ec025cbf",
-            "next": {
-              "key": "first",
-              "params": {},
-              "objectID": "d6b8ae02-92bc-474c-8309-8503ec025cbf",
-              "next": {
-                "key": "row_pluck",
-                "params": {
-                  "fieldID": "86f2c10c-b435-4759-9f25-c33820df7b0e"
-                },
-                "objectID": "d6b8ae02-92bc-474c-8309-8503ec025cbf",
-                "fieldID": "86f2c10c-b435-4759-9f25-c33820df7b0e",
-                "objectOutID": "86fee2de-2ea4-463d-8d13-f27f13fc17dc"
-              }
-            }
-          }
-        }
-      },
-      "createdAt": "2022-05-02T04:15:44.000Z",
-      "updatedAt": "2023-03-08T07:32:29.000Z"
+      "updatedAt": "2023-05-31T04:42:12.000Z"
     },
     {
       "id": "ccdc262b-7e98-4e95-9b5b-eb38ec02a5f7",
@@ -19413,7 +19383,172 @@
         }
       },
       "createdAt": "2022-11-24T03:35:37.000Z",
-      "updatedAt": "2023-03-08T07:32:29.000Z"
+      "updatedAt": "2023-05-31T04:42:12.000Z"
+    },
+    {
+      "id": "e610ca26-767b-4da8-b327-f47151143807",
+      "name": "Update Transactions",
+      "type": "process.task.service.subProcess",
+      "json": {
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Update Transactions"
+          }
+        ],
+        "id": "e610ca26-767b-4da8-b327-f47151143807",
+        "name": "Update Transactions",
+        "type": "process.task.service.subProcess",
+        "processID": "252577b6-b7e7-43ca-bfb3-c8d033208851",
+        "diagramID": "Activity_0rp8x2z",
+        "laneDiagramID": "?laneID?",
+        "key": "SubProcess",
+        "isEnable": 1,
+        "parameterId": "StartEvent_1.41d7954d-7e7f-498e-824d-54e27351d0e2",
+        "connectionAttrs": {
+          "Flow_114au4f": {
+            "id": "Flow_114au4f",
+            "type": "bpmn:SequenceFlow",
+            "from": "Event_1kiuf1j",
+            "to": "Activity_050cbae"
+          },
+          "Flow_0jfnoyi": {
+            "id": "Flow_0jfnoyi",
+            "type": "bpmn:SequenceFlow",
+            "from": "Activity_0avxmys",
+            "to": "Event_1lb9126"
+          },
+          "Flow_03a56zd": {
+            "id": "Flow_03a56zd",
+            "type": "bpmn:SequenceFlow",
+            "from": "Activity_050cbae",
+            "to": "Event_1lb9126"
+          },
+          "Flow_0abnicx": {
+            "id": "Flow_0abnicx",
+            "type": "bpmn:SequenceFlow",
+            "from": "Activity_050cbae",
+            "to": "Event_01rpuc4"
+          }
+        },
+        "elementIDs": [
+          "f15a1d02-5368-4c02-952f-1dd86b1d96c6",
+          "4f9fde35-71cf-4aa2-a311-4c2545160b01"
+        ],
+        "loopType": "sequential"
+      },
+      "createdAt": "2023-05-24T09:08:21.000Z",
+      "updatedAt": "2023-05-31T04:42:12.000Z"
+    },
+    {
+      "id": "f15a1d02-5368-4c02-952f-1dd86b1d96c6",
+      "name": "Update Transaction",
+      "type": "process.task.service.query",
+      "json": {
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Update Transaction"
+          }
+        ],
+        "id": "f15a1d02-5368-4c02-952f-1dd86b1d96c6",
+        "name": "Update Transaction",
+        "type": "process.task.service.query",
+        "processID": "e610ca26-767b-4da8-b327-f47151143807",
+        "diagramID": "Activity_050cbae",
+        "laneDiagramID": "?laneID?",
+        "key": "TaskServiceQuery",
+        "qlObj": {
+          "key": "object",
+          "params": {
+            "name": "4a43ff1d-bbee-4d14-a4b4-a82c57c55b78"
+          },
+          "objectID": "4a43ff1d-bbee-4d14-a4b4-a82c57c55b78",
+          "next": {
+            "key": "find",
+            "params": {
+              "cond": {
+                "glue": "and",
+                "rules": [
+                  {
+                    "key": "this_object",
+                    "rule": "context_equals",
+                    "value": "e610ca26-767b-4da8-b327-f47151143807.uuid"
+                  }
+                ]
+              }
+            },
+            "objectID": "4a43ff1d-bbee-4d14-a4b4-a82c57c55b78",
+            "next": {
+              "key": "first",
+              "params": {},
+              "objectID": "4a43ff1d-bbee-4d14-a4b4-a82c57c55b78",
+              "next": {
+                "key": "update",
+                "params": {
+                  "values": [
+                    {
+                      "fieldId": "c2894cbd-6ee2-4421-a916-8372b45da45d",
+                      "value": ""
+                    },
+                    {
+                      "fieldId": "f99d3b4c-9dfd-407d-adc0-39dfb04910e3",
+                      "value": ""
+                    }
+                  ]
+                },
+                "objectID": "4a43ff1d-bbee-4d14-a4b4-a82c57c55b78"
+              }
+            }
+          }
+        }
+      },
+      "createdAt": "2023-05-24T09:10:25.000Z",
+      "updatedAt": "2023-05-31T04:42:12.000Z"
+    },
+    {
+      "id": "4f9fde35-71cf-4aa2-a311-4c2545160b01",
+      "name": "End",
+      "type": "process.task.end",
+      "json": {
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "End"
+          }
+        ],
+        "id": "4f9fde35-71cf-4aa2-a311-4c2545160b01",
+        "name": "End",
+        "type": "process.task.end",
+        "processID": "e610ca26-767b-4da8-b327-f47151143807",
+        "diagramID": "Event_01rpuc4",
+        "laneDiagramID": "?laneID?",
+        "key": "End"
+      },
+      "createdAt": "2023-05-24T09:23:01.000Z",
+      "updatedAt": "2023-05-31T04:42:12.000Z"
+    },
+    {
+      "id": "5b5068cf-317e-47fb-928d-d18a220cfa17",
+      "name": "End",
+      "type": "process.task.end",
+      "json": {
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "End"
+          }
+        ],
+        "id": "5b5068cf-317e-47fb-928d-d18a220cfa17",
+        "name": "End",
+        "type": "process.task.end",
+        "processID": "252577b6-b7e7-43ca-bfb3-c8d033208851",
+        "diagramID": "Event_0dn68i4",
+        "laneDiagramID": "?laneID?",
+        "key": "End"
+      },
+      "createdAt": "2023-05-31T04:34:11.000Z",
+      "updatedAt": "2023-05-31T04:42:12.000Z"
     },
     {
       "id": "676ec2ab-4625-48d2-b5e3-ddf357d3f297",
@@ -44439,8 +44574,8 @@
   "roles": [
     {
       "uuid": "01833a6b-9e31-430d-b87c-33a95a5d17dd",
-      "created_at": "2023-05-16T08:36:21.000Z",
-      "updated_at": "2023-05-16T08:36:21.000Z",
+      "created_at": "2023-05-25T07:07:45.000Z",
+      "updated_at": "2023-05-25T07:07:45.000Z",
       "properties": null,
       "translations": [
         {
@@ -44453,49 +44588,7 @@
       "users__relation": [],
       "ProcessForm30__relation": [],
       "scopes": [
-        {
-          "uuid": "d9a85467-d91f-484f-a375-4cc9797b9b61",
-          "created_at": "2023-05-16T08:36:21.000Z",
-          "updated_at": "2023-05-16T08:36:21.000Z",
-          "properties": null,
-          "translations": [
-            {
-              "language_code": "en",
-              "name": "Well Full Access",
-              "description": "All well objects"
-            }
-          ],
-          "objectIds": [
-            "0f84aa8f-248b-4393-9cc8-6473b240da53",
-            "1478ccbf-8c9d-4c2a-bb5f-000b679601be",
-            "1fdaa153-e61b-4e2b-b266-836820af2148",
-            "21c32a39-335f-473e-8ce9-395d265b7a6a",
-            "4a43ff1d-bbee-4d14-a4b4-a82c57c55b78",
-            "5e52bcdd-47da-4f08-8a52-8471deeef371",
-            "7ecd7257-1023-4917-bc3f-88061293cf30",
-            "83eea47f-01c2-426f-b03a-81f918190c10",
-            "86fee2de-2ea4-463d-8d13-f27f13fc17dc",
-            "9050ca81-7fc9-4618-ae27-6d42dcbac4af",
-            "952aab4c-a1ad-4abf-901d-fcf3fbc8e3ca",
-            "aa78a230-97aa-44c9-a8e1-34c307c6af09",
-            "d4ac6bf0-4fbb-4ca8-8a6d-0ef666efba32",
-            "d6b8ae02-92bc-474c-8309-8503ec025cbf",
-            "df928244-0f7a-41d3-8bdb-0d145aa23ce3",
-            "e0b580b7-6cc2-470e-9d2b-e71b312c6abb",
-            "e0db025e-0063-4789-bc8d-cc8cc98997f7",
-            "ee4a5b53-e05b-4a8e-ad95-f18327c0590b",
-            "af7cb365-c383-4aed-94ef-6fe8e5c5b00b",
-            "f747aa47-6631-493d-9256-e2de3c45f533",
-            "047d350b-62fb-4bcf-a73e-2511c1d14efa",
-            "4a9d89c9-f4eb-41af-91e4-909eff389f3e"
-          ],
-          "Filters": {
-            "glue": "and",
-            "rules": []
-          },
-          "allowAll": 0,
-          "createdBy": null
-        }
+        "d9a85467-d91f-484f-a375-4cc9797b9b61"
       ],
       "users": [],
       "ProcessForm30": [],
@@ -44504,8 +44597,8 @@
     },
     {
       "uuid": "0462f972-1451-4f04-b495-025b9463cef5",
-      "created_at": "2023-05-16T08:36:21.000Z",
-      "updated_at": "2023-05-16T08:36:21.000Z",
+      "created_at": "2023-05-25T07:07:45.000Z",
+      "updated_at": "2023-05-25T07:07:45.000Z",
       "properties": null,
       "translations": [
         {
@@ -44515,84 +44608,10 @@
         }
       ],
       "Default Role": 0,
-      "users__relation": [
-        {
-          "uuid": "2d7e4119-c127-4685-9e9d-9315424ca757",
-          "created_at": "2023-05-17T07:19:20.000Z",
-          "updated_at": "2023-05-17T07:19:20.000Z",
-          "properties": null,
-          "failedLogins": 0,
-          "lastLogin": null,
-          "isActive": 1,
-          "sendEmailNotifications": 0,
-          "image_id": "",
-          "username": "test",
-          "password": "f46e84faab30b7bda092cde1e0a9bf67a8b448936c66d5446b9e5a34c7c4fe7adf2774b5dc45e3b7f089db2832f15593108599d639b77068653bfc353ca720d7cf65a870b6d87d2371f6a312dd14fced5571099a50b0bcfb1743651dd2d34798f10a43ef1a4c9e29722cbd50422b6ee57b226c64bf2fa64798819f642f3a1d3b6ff7642d18fefb14711b11e4bee742f666457df1fb8dbdd744ceafd965de9603c3625e8dbc8ff1079b468ed899453919c5832ea6d7dbdc5eb6ab851c8beb4c67697616e3e55753b4569dcff3a64fb8dc789cc2bfd3ed5c723fba49735dcb7bc18f92bfd0cf08fecb84f88f0aae9bf9431791beebc128838acb8398620e8006880c8a799b4712ea3c7a589a41596afe5e1359895f1cf63ebfbced1fab13e7d7981183f91ecdc95f17242086f1aa424a9f94c543a9765cc32b11432804ae25f7d6d8760e9a26a53f983ba4824dbf5a410fb9b65ef7ba3098fc491ccdcd547f04765ce5a86224c46289e89a8c8c12444c747c2f455bdf9a08150ef9509079be7059878660443a35e75dee66428bf49c6001e2a8e003806c41850800fc474a2094e629e1eac296d37de627befea01c8b3be2dee1ec89d1d5b968db39dab5af1cfee357c538d323e6712fdf8d907d4deadee7d31996d55ee2b3e5179b5f732f0313b016ba9e2c80b503377f6df8064e5c2933da527dc35f61a449c9b94225fbf199dc",
-          "salt": "794c232b0ca185787202be4ed324204647836a3834d18a3c2613425e4048a48b",
-          "email": "test@email.com",
-          "languageCode": "en",
-          "id": "2d7e4119-c127-4685-9e9d-9315424ca757"
-        }
-      ],
+      "users__relation": [],
       "ProcessForm30__relation": [],
       "scopes": [
-        {
-          "uuid": "a1f4cb6b-7d74-4335-a263-8d617149393d",
-          "created_at": "2023-05-16T08:36:21.000Z",
-          "updated_at": "2023-05-16T08:36:21.000Z",
-          "properties": null,
-          "translations": [
-            {
-              "language_code": "en",
-              "name": "Well Provider",
-              "description": "Sees only their clients"
-            }
-          ],
-          "objectIds": [
-            "1478ccbf-8c9d-4c2a-bb5f-000b679601be",
-            "1fdaa153-e61b-4e2b-b266-836820af2148",
-            "21c32a39-335f-473e-8ce9-395d265b7a6a",
-            "4a43ff1d-bbee-4d14-a4b4-a82c57c55b78",
-            "5e52bcdd-47da-4f08-8a52-8471deeef371",
-            "7ecd7257-1023-4917-bc3f-88061293cf30",
-            "83eea47f-01c2-426f-b03a-81f918190c10",
-            "86fee2de-2ea4-463d-8d13-f27f13fc17dc",
-            "9050ca81-7fc9-4618-ae27-6d42dcbac4af",
-            "952aab4c-a1ad-4abf-901d-fcf3fbc8e3ca",
-            "aa78a230-97aa-44c9-a8e1-34c307c6af09",
-            "d4ac6bf0-4fbb-4ca8-8a6d-0ef666efba32",
-            "d6b8ae02-92bc-474c-8309-8503ec025cbf",
-            "df928244-0f7a-41d3-8bdb-0d145aa23ce3",
-            "e0db025e-0063-4789-bc8d-cc8cc98997f7",
-            "ee4a5b53-e05b-4a8e-ad95-f18327c0590b",
-            "f747aa47-6631-493d-9256-e2de3c45f533",
-            "af7cb365-c383-4aed-94ef-6fe8e5c5b00b",
-            "047d350b-62fb-4bcf-a73e-2511c1d14efa",
-            "4a9d89c9-f4eb-41af-91e4-909eff389f3e"
-          ],
-          "Filters": {
-            "glue": "and",
-            "rules": [
-              {
-                "key": "2332ecf4-395b-4e8a-9be6-adabbaad4387",
-                "rule": "in_query",
-                "value": "ba56e4be-c26b-4254-9747-573e0df55408"
-              },
-              {
-                "key": "92374215-e4fe-461d-93f0-8803061259b1",
-                "rule": "in_query",
-                "value": "c91f2845-0c5f-4f6d-ad19-aafb71dc9fdf"
-              },
-              {
-                "key": "dedf518d-a239-4637-9e1a-0f915d2cb01f",
-                "rule": "in_query",
-                "value": "ba56e4be-c26b-4254-9747-573e0df55408"
-              }
-            ]
-          },
-          "allowAll": 0,
-          "createdBy": null
-        }
+        "a1f4cb6b-7d74-4335-a263-8d617149393d"
       ],
       "users": [],
       "ProcessForm30": [],
@@ -44601,8 +44620,8 @@
     },
     {
       "uuid": "c241ba65-f65a-44db-888a-b4f13593f47e",
-      "created_at": "2023-05-16T08:36:21.000Z",
-      "updated_at": "2023-05-16T08:36:21.000Z",
+      "created_at": "2023-05-25T07:07:45.000Z",
+      "updated_at": "2023-05-25T07:07:45.000Z",
       "properties": null,
       "translations": [
         {
@@ -44615,43 +44634,7 @@
       "users__relation": [],
       "ProcessForm30__relation": [],
       "scopes": [
-        {
-          "uuid": "607598f0-98d0-4e28-b73a-be1e083df030",
-          "created_at": "2023-05-16T08:36:21.000Z",
-          "updated_at": "2023-05-16T08:36:21.000Z",
-          "properties": null,
-          "translations": [
-            {
-              "language_code": "en",
-              "name": "Well Finance",
-              "description": "Needs most objects"
-            }
-          ],
-          "objectIds": [
-            "4a43ff1d-bbee-4d14-a4b4-a82c57c55b78",
-            "5e52bcdd-47da-4f08-8a52-8471deeef371",
-            "7ecd7257-1023-4917-bc3f-88061293cf30",
-            "83eea47f-01c2-426f-b03a-81f918190c10",
-            "86fee2de-2ea4-463d-8d13-f27f13fc17dc",
-            "9050ca81-7fc9-4618-ae27-6d42dcbac4af",
-            "aa78a230-97aa-44c9-a8e1-34c307c6af09",
-            "d4ac6bf0-4fbb-4ca8-8a6d-0ef666efba32",
-            "d6b8ae02-92bc-474c-8309-8503ec025cbf",
-            "df928244-0f7a-41d3-8bdb-0d145aa23ce3",
-            "e0db025e-0063-4789-bc8d-cc8cc98997f7",
-            "f747aa47-6631-493d-9256-e2de3c45f533",
-            "af7cb365-c383-4aed-94ef-6fe8e5c5b00b",
-            "21c32a39-335f-473e-8ce9-395d265b7a6a",
-            "047d350b-62fb-4bcf-a73e-2511c1d14efa",
-            "4a9d89c9-f4eb-41af-91e4-909eff389f3e"
-          ],
-          "Filters": {
-            "glue": "and",
-            "rules": []
-          },
-          "allowAll": 0,
-          "createdBy": null
-        }
+        "607598f0-98d0-4e28-b73a-be1e083df030"
       ],
       "users": [],
       "ProcessForm30": [],
@@ -44673,25 +44656,7 @@
       "Default Role": 0,
       "users__relation": [],
       "ProcessForm30__relation": [],
-      "scopes": [
-        {
-          "uuid": "838beeb9-0a13-4b0f-9780-0d47e67f3752",
-          "created_at": "2020-05-13T09:49:53.000Z",
-          "updated_at": null,
-          "properties": null,
-          "translations": [
-            {
-              "language_code": "en",
-              "name": "All Access",
-              "description": "Provide Full Data Access to All Objects."
-            }
-          ],
-          "objectIds": null,
-          "Filters": null,
-          "allowAll": 1,
-          "createdBy": null
-        }
-      ],
+      "scopes": [],
       "users": [],
       "ProcessForm30": [],
       "name": "Tenant Admin",

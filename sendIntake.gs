@@ -22,16 +22,16 @@ const USER = {
 };
 
 const applicationDefinition = {
-   id: "05cde3ed-fd38-4e4c-b9a6-dfba9c979bdf",
-   objects: {
-      Clients: "86fee2de-2ea4-463d-8d13-f27f13fc17dc",
-      Intake: "ee4a5b53-e05b-4a8e-ad95-f18327c0590b",
-      Group: "83eea47f-01c2-426f-b03a-81f918190c10",
-      BillingAccount: "7ecd7257-1023-4917-bc3f-88061293cf30"
-   },
-   fields: {
+  id: "05cde3ed-fd38-4e4c-b9a6-dfba9c979bdf",
+  objects: {
+    "Clients": "86fee2de-2ea4-463d-8d13-f27f13fc17dc",
+    "Intake": "ee4a5b53-e05b-4a8e-ad95-f18327c0590b",
+    "Group": "83eea47f-01c2-426f-b03a-81f918190c10",
+    "BillingAccount" : "7ecd7257-1023-4917-bc3f-88061293cf30",
+  },
+  fields: {
      PassportCountry: "6f9905ad-5071-4a0f-b7cf-53a6aa480afd",
-   }
+  }
 };
 
 /**
@@ -57,20 +57,25 @@ const applicationDefinition = {
  * @function test_onIntakeRecieved
  */
 function test_onIntakeRecieved() {
-  const formNumber = 1
+   const formNumber = 2;
 
-  // for (let i = 3382; i < 3399; i++){
-  //   const formResponse = `${RESPONSE_SHEET} ${formNumber}`
-  //   Logger.log(`${formResponse}: ${i}`);
-  //   const response = ss.getSheetByName(formResponse).getDataRange().getValues()[i - 1]; // datatestinput
-  //   onIntakeReceived({values: response, formName: formResponse});
-  // }
+   // for (let i = 3382; i < 3399; i++){
+   //   const formResponse = `${RESPONSE_SHEET} ${formNumber}`
+   //   Logger.log(`${formResponse}: ${i}`);
+   //   const response = ss.getSheetByName(formResponse).getDataRange().getValues()[i - 1]; // datatestinput
+   //   onIntakeReceived({values: response, formName: formResponse});
+   // }
 
-  const realNumberOfRowOnGoogleSheet = 2273;
-  const formResponse = `${RESPONSE_SHEET} ${formNumber}`
-  Logger.log(`${formResponse}: ${realNumberOfRowOnGoogleSheet}`);
-  const response = ss.getSheetByName(formResponse).getDataRange().getValues()[realNumberOfRowOnGoogleSheet - 1]; // datatestinput
-  onIntakeReceived({values: response, formName: formResponse});
+   const realNumberOfRowOnGoogleSheet = 3;
+   const formResponse = `${RESPONSE_SHEET} ${formNumber}`;
+
+   Logger.log(`${formResponse}: ${realNumberOfRowOnGoogleSheet}`);
+
+   const response = ss.getSheetByName(formResponse).getDataRange().getValues()[
+      realNumberOfRowOnGoogleSheet - 1
+   ]; // datatestinput
+
+   onIntakeReceived({ values: response, formName: formResponse });
 }
 
 /**
@@ -78,37 +83,30 @@ function test_onIntakeRecieved() {
  * @function onIntakeReceived
  */
 function onIntakeReceived(e) {
-  let { values, formName } = e;
-  try {
-    if(!formName) formName = e.range.getSheet().getName();
+   let { values, formName } = e;
+   try {
+      if (!formName) formName = e.range.getSheet().getName();
 
-    const indexes = ss.getSheetByName(formName).getDataRange().getValues()[0];
+      const indexes = ss.getSheetByName(formName).getDataRange().getValues()[0];
 
-    logResults("Response received", values);
-    // Load and prepare data for processing
-    const keyData = ss.getSheetByName(KEYS_SHEET).getRange(2,2,values?.length, 1).getValues();
-    const keys = transpose(keyData)[0];
+      logResults("Response received", values);
+      // Load and prepare data for processing
+      const keyData = ss
+         .getSheetByName(KEYS_SHEET)
+         .getRange(2, 2, values?.length, 1)
+         .getValues();
+      const keys = transpose(keyData)[0];
 
-    const rename = {};
-    const renameData = ss.getSheetByName(RENAME_SHEET).getDataRange().getValues();
-    renameData.shift();
-    renameData.forEach(row => {
-      if (!rename.hasOwnProperty([row[0]])) {
-        rename[row[0]] = {};
-      }
-      rename[row[0]][row[1]] = row[2];
-    })
+      // Process Intake
+      let intake = parseResponse(values, keys, indexes);
 
-    // Process Intake
-    let intake = parseResponse(values, keys, indexes);
+      intake = processClients(intake);
+      intake = renameResponses(intake);
 
-    intake = processClients(intake);
-    intake = renameResponses(intake, rename);
-
-    AppbuilderAPIPostRequest(intake);
-  } catch (error) {
-    logResults('Error', error.message);
-  }
+      AppbuilderAPIPostRequest(intake);
+   } catch (error) {
+      logResults("Error", error.message);
+   }
 }
 
 /**
@@ -119,20 +117,20 @@ function onIntakeReceived(e) {
  * @return {Object} intake object
  */
 function parseResponse(response, keys, indexes) {
-  let intake = {};
+   let intake = {};
 
-  response.forEach((column, i) => {
-    if (column === '') return;
-    const key = keys[indexes[i]];
-    intake[key] = intake.hasOwnProperty(key) ? intake[key] : column;
-  });
+   response.forEach((column, i) => {
+      if (column === "") return;
+      const key = keys[indexes[i]];
+      intake[key] = intake.hasOwnProperty(key) ? intake[key] : column;
+   });
 
-  // If missing emergency contact combine name and relationship (for Individual - Someone Else)
-  if(!intake.hasOwnProperty('emergencyContact')) {
-    intake.emergencyContact = `${intake.emergencyFirstName} ${intake.emergencyLastName} (${intake.emergencyRelation})`;
-  }
+   // If missing emergency contact combine name and relationship (for Individual - Someone Else)
+   if (!intake.hasOwnProperty("emergencyContact")) {
+      intake.emergencyContact = `${intake.emergencyFirstName} ${intake.emergencyLastName} (${intake.emergencyRelation})`;
+   }
 
-  return intake;
+   return intake;
 }
 
 /**
@@ -142,64 +140,87 @@ function parseResponse(response, keys, indexes) {
  * @returns {object} intake with intake.clients array
  */
 function processClients(intake) {
-  const clients = [{
-    firstName: intake.firstName,
-    lastName: intake.lastName,
-    dob: intake.dob,
-    gender: intake.gender,
-    email: intake.email
-  }];
-  for (let i=2; i <= 8; i++) {
-    if (intake.hasOwnProperty(`${i}_dob`) || intake.hasOwnProperty(`${i}_firstName`)) {
-      const client = {
-        firstName: intake[`${i}_firstName`] ?? '',
-        lastName: intake[`${i}_lastName`] ?? intake.lastName,
-        dob: intake[`${i}_dob`] ?? '',
-        gender: intake[`${i}_gender`] ?? '',
-        email: intake[`${i}_email`] ?? intake.email,
+   const clients = [
+      renameResponses({
+         firstName: intake.firstName,
+         lastName: intake.lastName,
+         dob: intake.dob,
+         gender: intake.gender,
+         email: intake.email,
+      }),
+   ];
+
+   for (let i = 2; i <= 8; i++) {
+      if (
+         intake.hasOwnProperty(`${i}_dob`) ||
+         intake.hasOwnProperty(`${i}_firstName`)
+      ) {
+         const client = renameResponses({
+            firstName: intake[`${i}_firstName`] ?? "",
+            lastName: intake[`${i}_lastName`] ?? intake.lastName,
+            dob: intake[`${i}_dob`] ?? "",
+            gender: intake[`${i}_gender`] ?? "",
+            email: intake[`${i}_email`] ?? intake.email,
+         });
+
+         clients.push(client);
       }
-      clients.push(client);
-    }
-  }
-    intake.clients = clients;
-  return intake;
+   }
+
+   intake.clients = clients;
+
+   return intake;
 }
 
 /**
- * Renames values within the intake based on the rename object passed in. The rename object should have keys corresponding to the intake object fields. 
+ * Renames values within the intake based on the rename object passed in. The rename object should have keys corresponding to the intake object fields.
  * Witin each key a set of key value pairs should have the existing values and the new values.
  * Example: { location: { "Online via video conference" : "online" }}
- * @param {object} intake 
+ * @param {object} intake
  * @rename {object} rename specifies which field and values to replace in intake (see example)
  * @returns {object} intake
  */
-function renameResponses(intake, rename) {
-  for (const field in rename) {
-    const value = intake[field];
-    for (const key in rename[field]) {
-      if (value === key) {
-        intake[field] = rename[field][key];
-        break;
+function renameResponses(intake) {
+   const rename = {};
+   const renameData = ss
+      .getSheetByName(RENAME_SHEET)
+      .getDataRange()
+      .getValues();
+
+   renameData.shift();
+   renameData.forEach((row) => {
+      if (!rename.hasOwnProperty([row[0]])) {
+         rename[row[0]] = {};
       }
-    }
-  }
-  return intake;
+      rename[row[0]][row[1]] = row[2];
+   });
+
+   for (const field in rename) {
+      const value = intake[field];
+      for (const key in rename[field]) {
+         if (value === key) {
+            intake[field] = rename[field][key];
+            break;
+         }
+      }
+   }
+   return intake;
 }
 
 /**
  * Log a message to the LOG_SHEET in the spreadsheet.
  * @function logResults
  * @param {string} message message to log
- * @data {*} data to log, will be stringified 
+ * @data {*} data to log, will be stringified
  */
 function logResults(message, data) {
-  ss.getSheetByName(LOG_SHEET)
-    .getRange(2,1,1,3)
-    .insertCells(SpreadsheetApp.Dimension.ROWS)
-    .setValues([[new Date(), message, JSON.stringify(data)]]);
-  if (message.includes("Error")) {
-    sendMattermostMessage(message, data);
-  }
+   ss.getSheetByName(LOG_SHEET)
+      .getRange(2, 1, 1, 3)
+      .insertCells(SpreadsheetApp.Dimension.ROWS)
+      .setValues([[new Date(), message, JSON.stringify(data)]]);
+   if (message.includes("Error")) {
+      sendMattermostMessage(message, data);
+   }
 }
 
 /**
@@ -209,68 +230,61 @@ function logResults(message, data) {
  * @returns {Array[]} transposed matrix
  */
 function transpose(matrix) {
-  return matrix[0].map((col, i) => matrix.map(row => row[i]));
+   return matrix[0].map((col, i) => matrix.map((row) => row[i]));
 }
 
 function abRequestCookie() {
-  const res = UrlFetchApp.fetch(`${BASE_URL}/auth/login`, {
-    "method": "post",
-    "contentType": "application/x-www-form-urlencoded; charset=UTF-8",
-    "payload": {
-      tenant: USER.tenant,
-      email: USER.email,
-      password: USER.password
-    }
-  });
+   const res = UrlFetchApp.fetch(`${BASE_URL}/auth/login`, {
+      method: "post",
+      contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+      payload: {
+         tenant: USER.tenant,
+         email: USER.email,
+         password: USER.password,
+      },
+   });
 
-  return res.getHeaders()["Set-Cookie"];
+   return res.getHeaders()["Set-Cookie"];
 }
 
 function abRequestGetDefinitionByID(cookie, id) {
-  return JSON.parse(
-    UrlFetchApp.fetch(
-      `${BASE_URL}/definition/myapps`,
-      {
-        "method": "get",
-        headers: {
-          "Cookie": cookie,
-        }
-      }
-    )
-      .toString()
-      .replace("window.definitions=", "")
-  )
-    .filter((e) => e.id === id)[0];
+   return JSON.parse(
+      UrlFetchApp.fetch(`${BASE_URL}/definition/myapps`, {
+         method: "get",
+         headers: {
+            Cookie: cookie,
+         },
+      })
+         .toString()
+         .replace("window.definitions=", "")
+   ).filter((e) => e.id === id)[0];
 }
 
 function abRequestUpdateDefinitionByID(cookie, id, payload) {
-  let result = null;
+   let result = null;
 
-  try {
-    const res = JSON.parse(
-      UrlFetchApp.fetch(
-        `${BASE_URL}/definition/${id}`,
-        {
-          method: "put",
-          contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-          headers: {
-            Cookie: cookie,
-          },
-          payload,
-        }
-      )
-    );
+   try {
+      const res = JSON.parse(
+         UrlFetchApp.fetch(`${BASE_URL}/definition/${id}`, {
+            method: "put",
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            headers: {
+               Cookie: cookie,
+            },
+            payload,
+         })
+      );
 
-    logResults(`Success: [${method.toUpperCase()}] ${objectName}`, res);
+      logResults(`Success: [${method.toUpperCase()}] ${objectName}`, res);
 
-    result = res.data;
-  } catch (err) {
-    logResults(`Error: [${method.toUpperCase()}] ${objectName}`, err.message);
+      result = res.data;
+   } catch (err) {
+      logResults(`Error: [${method.toUpperCase()}] ${objectName}`, err.message);
 
-    result = err;
-  }
+      result = err;
+   }
 
-  return result;
+   return result;
 }
 
 function abRequestObject(pathParameters, method, cookie, payload) {
@@ -278,22 +292,22 @@ function abRequestObject(pathParameters, method, cookie, payload) {
    const api = {
       get: {
          method: "get",
-         headers
+         headers,
       },
       post: {
          method: "post",
          contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-         headers
+         headers,
       },
       put: {
          method: "put",
          contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-         headers
+         headers,
       },
       delete: {
          method: "delete",
-         headers
-      }
+         headers,
+      },
    };
 
    // Lookup object name based path parameter (for logs)
@@ -317,10 +331,10 @@ function abRequestObject(pathParameters, method, cookie, payload) {
 
    try {
       const res = JSON.parse(
-        UrlFetchApp.fetch(
-          `${BASE_URL}/app_builder/model/${pathParameters}`,
-          params
-        )
+         UrlFetchApp.fetch(
+            `${BASE_URL}/app_builder/model/${pathParameters}`,
+            params
+         )
       );
 
       logResults(`Success: [${method.toUpperCase()}] ${objectName}`, res);
@@ -336,14 +350,22 @@ function abRequestObject(pathParameters, method, cookie, payload) {
 }
 
 function test_getExisitingData() {
-  const cookie = abRequestCookie();
-  const data = getExisitingData(cookie);
-  Logger.log(data);
+   const cookie = abRequestCookie();
+   const data = getExisitingData(cookie);
+   Logger.log(data);
 }
 
 function getExisitingData(cookie, objectUUID, where) {
-  const queryParameters = Object.keys(where).map((e) => `where[${e}]=${encodeURIComponent(where[e])}`);
-  return abRequestObject(`${objectUUID}/?${queryParameters.join("&")}`, "get", cookie) ?? [];
+   const queryParameters = Object.keys(where).map(
+      (e) => `where[${e}]=${encodeURIComponent(where[e])}`
+   );
+   return (
+      abRequestObject(
+         `${objectUUID}/?${queryParameters.join("&")}`,
+         "get",
+         cookie
+      ) ?? []
+   );
 }
 /**
  * Send intake data to AppBuilder
@@ -352,206 +374,250 @@ function getExisitingData(cookie, objectUUID, where) {
  * @param {Object[]} intake.clients array of clients
  */
 
-const AppbuilderAPIPostRequest = ({clients, ...intake}) => {
-  // Prepare data to update in AB
-  const data = {
-    "Clients": [],
-    "Intake": {
-      "Timestamp": intake.timestamp,
-      "Provider Request": intake.provider,
-      "Additional Services": intake.services,
-      "Feedback": intake.feedback,
-      "Clients__relation": [],
-      "Service": intake.service,
-      "Location": intake.location,
-      "Type": intake.type,
-    },
-    "BillingAccount": {},
-    "Group": {
-      "Name": intake.org,
-    }
-  };
+const AppbuilderAPIPostRequest = ({ clients, ...intake }) => {
+   // Prepare data to update in AB
+   const data = {
+      Clients: [],
+      Intake: {
+         Timestamp: intake.timestamp,
+         "Provider Request": intake.provider,
+         "Additional Services": intake.services,
+         Feedback: intake.feedback,
+         Clients__relation: [],
+         Service: intake.service,
+         Location: intake.location,
+         Type: intake.type,
+      },
+      BillingAccount: {},
+      Group: {
+         Name: intake.org,
+      },
+   };
 
-  // set Request api of AppBuilder V2
-  const cookie = abRequestCookie();
-  const clientIds = [];
-  const existingGroup = getExisitingData(cookie, applicationDefinition.objects["Group"], { "Name": data["Group"]["Name"]?.toLowerCase() })["data"];
-  const group = existingGroup.length ? existingGroup[0]: abRequestObject(applicationDefinition.objects["Group"], "post", cookie, data["Group"]);
+   // set Request api of AppBuilder V2
+   const cookie = abRequestCookie();
+   const clientIds = [];
+   const existingGroup = getExisitingData(
+      cookie,
+      applicationDefinition.objects["Group"],
+      { Name: data["Group"]["Name"]?.toLowerCase() }
+   )["data"];
+   const group = existingGroup.length
+      ? existingGroup[0]
+      : abRequestObject(
+           applicationDefinition.objects["Group"],
+           "post",
+           cookie,
+           data["Group"]
+        );
 
-  // Prepare Clients
-  //  - Commented out logic to check for duplicate clients. If we need to check for duplicates need to decide on what provides enough uniqueness.
-  clients.forEach(client => {
-    // Check if client exists
-    const existingClients = getExisitingData(cookie, applicationDefinition.objects["Clients"], {
-      "Gender": client.gender?.toLowerCase(),
-      "First Name": client.firstName?.toLowerCase(),
-      "Last Name": client.lastName?.toLowerCase(),
-      "Email": client.email?.toLowerCase(),
-    })["data"];
+   // Prepare Clients
+   //  - Commented out logic to check for duplicate clients. If we need to check for duplicates need to decide on what provides enough uniqueness.
+   clients.forEach((client) => {
+      // Check if client exists
+      const existingClients = getExisitingData(
+         cookie,
+         applicationDefinition.objects["Clients"],
+         {
+            Gender: client.gender?.toLowerCase(),
+            "First Name": client.firstName?.toLowerCase(),
+            "Last Name": client.lastName?.toLowerCase(),
+            Email: client.email?.toLowerCase(),
+         }
+      )["data"];
 
-    if (existingClients.length) {
-      clientIds.push(existingClients[0].uuid);
+      if (existingClients.length) {
+         clientIds.push(existingClients[0].uuid);
 
-      return;
-    }
+         return;
+      }
 
-    const definitionPassportCountry = abRequestGetDefinitionByID(cookie, applicationDefinition.fields.PassportCountry);
-    
-    if (
-      definitionPassportCountry.json.settings.options.findIndex(
-          (e) => e.id === intake.passport
-      ) === -1
-    ) {
-      const templateCountry = {
-        id: intake.passport,
-        text: intake.passport,
-        hex: "#F44336",
-        translations: [
-          {
-            language_code: "en",
+      const definitionPassportCountry = abRequestGetDefinitionByID(
+         cookie,
+         applicationDefinition.fields.PassportCountry
+      );
+
+      if (
+         definitionPassportCountry.json.settings.options.findIndex(
+            (e) => e.id === intake.passport
+         ) === -1
+      ) {
+         const templateCountry = {
+            id: intake.passport,
             text: intake.passport,
-          },
-        ]
-      };
+            hex: "#F44336",
+            translations: [
+               {
+                  language_code: "en",
+                  text: intake.passport,
+               },
+            ],
+         };
 
-      definitionPassportCountry.json.settings.options.push(templateCountry)
-      abRequestUpdateDefinitionByID(cookie, applicationDefinition.fields.PassportCountry, { json: JSON.stringify(definitionPassportCountry.json) });
-    }
+         definitionPassportCountry.json.settings.options.push(templateCountry);
+         abRequestUpdateDefinitionByID(
+            cookie,
+            applicationDefinition.fields.PassportCountry,
+            { json: JSON.stringify(definitionPassportCountry.json) }
+         );
+      }
 
-    // If not prepare the data to add them
-    data.Clients.push({
-      "Date Birth": client.dob,
-      "Email": client.email,
-      "Gender": client.gender,
-      "Phone": intake.phone,
-      "Thai Phone": intake.phoneThai,
-      "Primary Language": intake.primLang,
-      "Passport Country": intake.passport,
-      "Service Country": intake.serviceCountry,
-      "Occupation": intake.occupation,
-      "Cross Cultural Service Years": intake.crossCulturalWork,
-      "Referral": intake.refferal,
-      "Newsletter": intake.newsletter,
-      "Emergency Contact": intake.emergencyContact,
-      "Emergency Email": intake.emergencyEmail,
-      "Emergency Phone": intake.emergencyPhone,
-      "Last Name": client.lastName,
-      "First Name": client.firstName,
-      "Group": group.uuid,
-      "Org Report": intake.orgReq,
-      "Org Contact": intake.orgContact,
-      "Org Email": intake.orgEmail,
-      "Availability_lt": intake.availability,
-      "Flexible Dates": intake.flexible,
-      "First Time": intake.first,
-      "Well First": intake.firstWell,
-      "Topics_lt": intake.topics,
-      "Topics More Info_lt": intake.topicsMore,
-      "Medical Issues": intake.medical,
-      "Prescription Medication": intake.perscription,
-      "Concerns meeting together": intake.concern,
-      "Concern Details_lt": intake.concernDetail,
-      "Cross Cultural Relationship": intake.crossCultural,
-    });
-  });
+      // If not prepare the data to add them
+      data.Clients.push({
+         "Date Birth": client.dob,
+         Email: client.email,
+         Gender: client.gender,
+         Phone: intake.phone,
+         "Thai Phone": intake.phoneThai,
+         "Primary Language": intake.primLang,
+         "Passport Country": intake.passport,
+         "Service Country": intake.serviceCountry,
+         Occupation: intake.occupation,
+         "Cross Cultural Service Years": intake.crossCulturalWork,
+         Referral: intake.refferal,
+         Newsletter: intake.newsletter,
+         "Emergency Contact": intake.emergencyContact,
+         "Emergency Email": intake.emergencyEmail,
+         "Emergency Phone": intake.emergencyPhone,
+         "Last Name": client.lastName,
+         "First Name": client.firstName,
+         Group: group.uuid,
+         "Org Report": intake.orgReq,
+         "Org Contact": intake.orgContact,
+         "Org Email": intake.orgEmail,
+         Availability_lt: intake.availability,
+         "Flexible Dates": intake.flexible,
+         "First Time": intake.first,
+         "Well First": intake.firstWell,
+         Topics_lt: intake.topics,
+         "Topics More Info_lt": intake.topicsMore,
+         "Medical Issues": intake.medical,
+         "Prescription Medication": intake.perscription,
+         "Concerns meeting together": intake.concern,
+         "Concern Details_lt": intake.concernDetail,
+         "Cross Cultural Relationship": intake.crossCultural,
+      });
+   });
 
+   // Prepare Billing Account
+   data.BillingAccount.Type = "Client";
+   data.BillingAccount.Organization = group.uuid;
+   data.BillingAccount["Emergency Email"] = intake.emergencyEmail;
+   switch (intake["billTo"]) {
+      case "First Partner":
+      case "Parent/Guardian 1":
+         data.BillingAccount.Name = `${intake["firstName"]} ${intake["lastName"]}`;
+         data.BillingAccount.Email = intake.email;
+         break;
 
-  // Prepare Billing Account
-  data.BillingAccount.Type = "Client";
-  data.BillingAccount.Organization = group.uuid;
-  data.BillingAccount["Emergency Email"] = intake.emergencyEmail;
-  switch(intake["billTo"]) {
-    case "First Partner":
-    case "Parent/Guardian 1":
-      data.BillingAccount.Name = `${intake["firstName"]} ${intake["lastName"]}`;
-      data.BillingAccount.Email = intake.email;
-      break;
-    
-    case "Second Partner":
-    case "Parent/Guardian 2":
-      data.BillingAccount.Name = `${intake["2_firstName"]} ${intake["2_lastName"]}`;
-      data.BillingAccount.Email = intake["2_email"];
-      break;
+      case "Second Partner":
+      case "Parent/Guardian 2":
+         data.BillingAccount.Name = `${intake["2_firstName"]} ${intake["2_lastName"]}`;
+         data.BillingAccount.Email = intake["2_email"];
+         break;
 
-    case undefined:
-    case "":
-      data.BillingAccount.Name = `${intake["firstName"]} ${intake["lastName"]}`;
-      data.BillingAccount.Email = intake.email;
-      break;
+      case undefined:
+      case "":
+         data.BillingAccount.Name = `${intake["firstName"]} ${intake["lastName"]}`;
+         data.BillingAccount.Email = intake.email;
+         break;
 
-    default:
-      data.BillingAccount.Name = `${intake["firstName"]} ${intake["lastName"]}`;
-      data.BillingAccount.Email = intake.email;
-      data.BillingAccount.Note = intake.billTo;
-      data.BillingAccount.Type = "1652753709068"; // Unknown option
-  }
-  Logger.log(data.BillingAccount);
-  // Start Inserting Data
-  Logger.log(`Start to insert "Clients"`);
+      default:
+         data.BillingAccount.Name = `${intake["firstName"]} ${intake["lastName"]}`;
+         data.BillingAccount.Email = intake.email;
+         data.BillingAccount.Note = intake.billTo;
+         data.BillingAccount.Type = "1652753709068"; // Unknown option
+   }
+   Logger.log(data.BillingAccount);
+   // Start Inserting Data
+   Logger.log(`Start to insert "Clients"`);
 
-  // 1. Post Clients
-  if(data.Clients.length) {
-    data.Clients.forEach(client => {
-      const res = abRequestObject(applicationDefinition.objects.Clients, "post", cookie, client);
-      Logger.log(res);
-      clientIds.push(res.uuid);
-    });
+   // 1. Post Clients
+   if (data.Clients.length) {
+      data.Clients.forEach((client) => {
+         const res = abRequestObject(
+            applicationDefinition.objects.Clients,
+            "post",
+            cookie,
+            client
+         );
+         Logger.log(res);
+         clientIds.push(res.uuid);
+      });
+   } else {
+      Logger.log("All Clients exist!!");
+      logResults("Success: [POST] Clients", { message: "All Clients exist" });
+   }
 
-  } else {
-    Logger.log("All Clients exist!!");
-    logResults("Success: [POST] Clients", {message: "All Clients exist"});
-  }
+   // 2. Post Billing Account
+   const billingAccountRes = abRequestObject(
+      applicationDefinition.objects.BillingAccount,
+      "post",
+      cookie,
+      data.BillingAccount
+   );
+   data.Intake["Intakes"] = billingAccountRes.uuid;
 
-  // 2. Post Billing Account
-  const billingAccountRes = abRequestObject(applicationDefinition.objects.BillingAccount, "post", cookie, data.BillingAccount);
-  data.Intake["Intakes"] = billingAccountRes.uuid;
+   // Fix: Replace emojis with char code so our db doesn't complain
+   data.Intake["Feedback"] = data.Intake["Feedback"]
+      ? data.Intake["Feedback"].replace(
+           /[\u0800-\uFFFF]/g,
+           (c) => `&#${c.charCodeAt(0)};`
+        )
+      : data.Intake["Feedback"];
 
-  // Fix: Replace emojis with char code so our db doesn't complain
-  data.Intake["Feedback"] = data.Intake["Feedback"] ? data.Intake["Feedback"].replace(/[\u0800-\uFFFF]/g, c => `&#${c.charCodeAt(0)};`): data.Intake["Feedback"];
-  
-  // 3. Post Intake
-  const intakeRes = abRequestObject(applicationDefinition.objects.Intake, "post", cookie, data.Intake);
-  const intakeId = intakeRes.uuid;
-  Logger.log(intakeRes);
-  
+   // 3. Post Intake
+   const intakeRes = abRequestObject(
+      applicationDefinition.objects.Intake,
+      "post",
+      cookie,
+      data.Intake
+   );
+   const intakeId = intakeRes.uuid;
+   Logger.log(intakeRes);
 
-  // 4. Put Link Clients to Intake
-  Logger.log(`Start to connect object "Intake"`);
-  const payload = {};
-  clientIds.forEach((id, i) => {
-    payload[`Clients[${i}][uuid]`] = id;
-  });
+   // 4. Put Link Clients to Intake
+   Logger.log(`Start to connect object "Intake"`);
+   const payload = {};
+   clientIds.forEach((id, i) => {
+      payload[`Clients[${i}][uuid]`] = id;
+   });
 
-  abRequestObject(`${applicationDefinition.objects.Intake}/${intakeId}`,"put", cookie, payload);
-  Logger.log("DONE!!");
-}
+   abRequestObject(
+      `${applicationDefinition.objects.Intake}/${intakeId}`,
+      "put",
+      cookie,
+      payload
+   );
+   Logger.log("DONE!!");
+};
 
 function sendMattermostMessage(message, data) {
-  const headers = {
-    "authorization": `Bearer ${MM_TOKEN}`,
-  };
-  const attachment = {
-    title: "Well Intake Script",
-    text: message,
-    color: "#FC4C46",
-    fields: [
-      {
-        "title":"Details",
-        "value": data,
-      },
-    ]
-  };
+   const headers = {
+      authorization: `Bearer ${MM_TOKEN}`,
+   };
+   const attachment = {
+      title: "Well Intake Script",
+      text: message,
+      color: "#FC4C46",
+      fields: [
+         {
+            title: "Details",
+            value: data,
+         },
+      ],
+   };
 
-  const body = {
-    CHANNEL_ID,
-    "message": "",
-    "props": {"attachments": [attachment]}
-  }
+   const body = {
+      CHANNEL_ID,
+      message: "",
+      props: { attachments: [attachment] },
+   };
 
-  UrlFetchApp.fetch(`${TEAM_URL}/posts`, {
-    method: 'post',
-    contentType: "application/json",
-    headers,
-    payload: JSON.stringify(body),
-  });
+   UrlFetchApp.fetch(`${TEAM_URL}/posts`, {
+      method: "post",
+      contentType: "application/json",
+      headers,
+      payload: JSON.stringify(body),
+   });
 }
